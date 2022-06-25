@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/entry_page/entry_screen.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
+import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/entry_pages/screen_login/screen_login.dart';
+import 'package:gadgetque/view/entry_pages/screen_signup/screen_signup.dart';
+import 'view/core/color.dart';
 
 void main() {
   runApp(const GadgetQue());
@@ -10,9 +14,14 @@ class GadgetQue extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ScreenEntry(),
+      home:  BottomNavigator(),
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          color: kWhiteColor,
+        ),
+      ),
     );
   }
 }
