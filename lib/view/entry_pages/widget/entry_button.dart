@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 
-class ActionButton extends StatelessWidget {
-  const ActionButton({
+class EntryButton extends StatelessWidget {
+  const EntryButton({
     Key? key,
     required this.color,
     required this.height,

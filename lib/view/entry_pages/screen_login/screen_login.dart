@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/entry_pages/widget/action_button.dart';
+import 'package:gadgetque/view/entry_pages/widget/entry_button.dart';
 import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
 import 'package:gadgetque/view/entry_pages/widget/background_image.dart';
 import 'package:gadgetque/view/entry_pages/widget/form_field.dart';
@@ -42,14 +42,14 @@ class ScreenLogin extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        ActionButton(
+                        EntryButton(
                             color: kFormColor,
                             height: size.width * 0.1,
                             // size: size,
                             onTap: () {},
                             buttonName: 'Otp Login?',
                             width: size.width * 0.4),
-                        ActionButton(
+                        EntryButton(
                             color: kFormColor,
                             height: size.width * 0.1,
                             // size: size,

@@ -13,7 +13,7 @@ class FooterCopyrites extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: size.width,
-      height: 60,
+      height: size.width*0.15,
       decoration: const BoxDecoration(
           color: kBlack54Color,
           image: DecorationImage(

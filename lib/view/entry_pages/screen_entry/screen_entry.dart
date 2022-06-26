@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/entry_pages/widget/action_button.dart';
+import 'package:gadgetque/view/entry_pages/widget/entry_button.dart';
 import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
 import 'package:gadgetque/view/entry_pages/widget/background_image.dart';
 
@@ -42,14 +42,14 @@ class ScreenEntry extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      ActionButton(
+                      EntryButton(
                           height: size.width * 0.19,
                           width: size.width * 0.4,
                           color: Colors.grey.withOpacity(0.5),
                           // size: size,
                           buttonName: 'Login',
                           onTap: () {}),
-                      ActionButton(
+                      EntryButton(
                           height: size.width * 0.19,
                           width: size.width * 0.4,
                           color: Colors.grey.withOpacity(0.5),

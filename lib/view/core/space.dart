@@ -12,6 +12,7 @@ const kHeigt150 =SizedBox(height:150);
 const kHeigt300 =SizedBox(height:300);
 
 const kWidth10 =SizedBox(width:10);
+const kWidth5 =SizedBox(width:5);
 const kWidth20 =SizedBox(width:20);
 const kWidth30 =SizedBox(width:30);
 const kWidth50 =SizedBox(width:50);
