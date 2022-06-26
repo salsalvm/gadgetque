@@ -13,7 +13,7 @@ class ScreenSignup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    print(size.width * 0.84);
+   
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -25,7 +25,7 @@ class ScreenSignup extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const EntryAppbar(),
+                  const EntryAppbar(iconColor: kGreyColor,textColor: kWhiteColor),
                   kHeigt80,
                   const Text(
                     'Hey ,\nSign Up Now.',

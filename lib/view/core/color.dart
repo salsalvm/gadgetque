@@ -10,3 +10,4 @@ const kredColor = Colors.red;
 const kGreenColor = Colors.green;
 const kYellowColor = Colors.yellow;
 const kBlack54Color = Colors.black54;
+const kBlueColor = Colors.blue;

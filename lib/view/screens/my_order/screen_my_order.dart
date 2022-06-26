@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-class ScreenMyOrder extends StatelessWidget {
-  const ScreenMyOrder({Key? key}) : super(key: key);
+
+class ScreenOrder extends StatelessWidget {
+  const ScreenOrder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

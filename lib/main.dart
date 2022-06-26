@@ -3,6 +3,7 @@ import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
 import 'package:gadgetque/view/entry_pages/screen_login/screen_login.dart';
 import 'package:gadgetque/view/entry_pages/screen_signup/screen_signup.dart';
+import 'package:get/get.dart';
 import 'view/core/color.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class GadgetQue extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home:  BottomNavigator(),
       theme: ThemeData(

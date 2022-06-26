@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
@@ -21,7 +20,8 @@ class ScreenEntry extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
                 children: [
-                  const EntryAppbar(),
+                  const EntryAppbar(
+                      iconColor: kGreyColor, textColor: kWhiteColor),
                   kHeigt300,
                   const Text(
                     'Discover  Your \n  Unique Style',

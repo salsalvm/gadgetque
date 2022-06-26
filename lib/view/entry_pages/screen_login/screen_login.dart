@@ -25,15 +25,18 @@ class ScreenLogin extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const EntryAppbar(),
+                  const EntryAppbar(
+                    iconColor: kGreyColor,
+                    textColor: kWhiteColor,
+                  ),
                   kHeigt100,
                   const Text(
                     'Hey ,\nLogin Now.',
                     style: TextStyle(color: kWhiteColor, fontSize: 28),
                   ),
                   kHeigt150,
-                const  FormFields(name: 'Email'),
-                const  FormFields(name: 'Password'),
+                  const FormFields(name: 'Email'),
+                  const FormFields(name: 'Password'),
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
                     child: Row(
