@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/screens/home/widget/item_text.dart';
+import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/widget/ratting_item.dart';
 
 class MostRattedItem extends StatelessWidget {

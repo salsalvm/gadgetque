@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/entry_pages/widget/entry_button.dart';
+import 'package:gadgetque/view/entry_pages/widget/action_button.dart';
 import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
 import 'package:gadgetque/view/entry_pages/widget/background_image.dart';
 

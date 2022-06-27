@@ -9,9 +9,12 @@ class DivLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Divider(
-      height: 3,thickness: 1,
-      color: kGreyColor,
+    return Padding(
+      padding: const EdgeInsets.only(top:5),
+      child: const Divider(
+        height: 3,thickness: 1,
+        color: kGreyColor,
+      ),
     );
   }
 }

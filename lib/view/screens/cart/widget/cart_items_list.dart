@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
-import 'package:gadgetque/view/screens/home/widget/item_text.dart';
+import 'package:gadgetque/view/screens/widget/item_text.dart';
 
 class CartitemsList extends StatelessWidget {
   const CartitemsList({

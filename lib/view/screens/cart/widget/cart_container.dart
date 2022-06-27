@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
-import 'package:gadgetque/view/screens/home/widget/item_text.dart';
+import 'package:gadgetque/view/screens/widget/item_text.dart';
 
 class CartContainer extends StatelessWidget {
   const CartContainer({

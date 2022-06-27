@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/entry_pages/widget/entry_button.dart';
+import 'package:gadgetque/view/entry_pages/widget/action_button.dart';
 import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
 import 'package:gadgetque/view/entry_pages/widget/background_image.dart';
 import 'package:gadgetque/view/entry_pages/widget/form_field.dart';
 import 'package:gadgetque/view/entry_pages/widget/switch_bottom_textbutton.dart';
-import 'package:gadgetque/view/screens/cart/screen_cart.dart';
 
 class ScreenSignup extends StatelessWidget {
   const ScreenSignup({Key? key}) : super(key: key);
@@ -33,11 +32,11 @@ class ScreenSignup extends StatelessWidget {
                     style: TextStyle(color: kWhiteColor, fontSize: 28),
                   ),
                   kHeigt100,
-                  const FormFields(name: 'Name'),
-                  const FormFields(name: 'Mobile'),
-                  const FormFields(name: 'Email'),
-                  const FormFields(name: 'Password'),
-                  const FormFields(name: 'Confirm Password'),
+                   FormFields(name: 'Name',color: kFormColor),
+                   FormFields(name: 'Mobile',color: kFormColor,),
+                   FormFields(name: 'Email',color: kFormColor),
+                   FormFields(name: 'Password',color: kFormColor),
+                   FormFields(name: 'Confirm Password',color: kFormColor),
                   kHeigt5,
                   Padding(
                     padding: const EdgeInsets.only(left: 18.0),

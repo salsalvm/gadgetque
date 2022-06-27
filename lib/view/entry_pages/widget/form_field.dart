@@ -3,15 +3,16 @@ import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 
 class FormFields extends StatelessWidget {
-  const FormFields({
+   FormFields({
     Key? key,
-    required this.name,
+    required this.name, required this.color,
   }) : super(key: key);
   final String name;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     return CupertinoTextFormFieldRow(
-      style: TextStyle(color: kWhiteColor),
+      style:const TextStyle(color: kWhiteColor),
       placeholder: '  $name...',
       placeholderStyle: const TextStyle(
         color: kGreyColor,
@@ -19,7 +20,7 @@ class FormFields extends StatelessWidget {
         fontWeight: FontWeight.w600,
       ),
       decoration: BoxDecoration(
-        color: kFormColor,
+        color: color,
         borderRadius: kRAdius10,
       ),
     );

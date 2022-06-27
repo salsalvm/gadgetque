@@ -1,12 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:gadgetque/view/core/space.dart';
+import 'package:gadgetque/view/screens/profile/widget/change_password.dart';
+import 'package:gadgetque/view/screens/profile/widget/wallet_balance.dart';
+import 'package:gadgetque/view/screens/profile/widget/profile_details.dart';
+import 'package:gadgetque/view/screens/widget/action_button.dart';
+import 'package:gadgetque/view/screens/widget/appbar.dart';
 
 class ScreenProfile extends StatelessWidget {
   const ScreenProfile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(70),
+          child: AppbarMain(size: size)),
+      body: Stack(
+        alignment: Alignment.bottomRight,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: SafeArea(
+                child: ListView(
+              children: [
+                ProfileDetails(size: size),
+                kHeigt10,
+                WalletBalance(size: size),
+                kHeigt10,
+                ChangePassword(size: size),
+                kHeigt10,
+              ],
+            )),
+          ),
+          ActionButton(radius: 0,
+            buttonWidth: size.width,
+            buttonHeight: 50,
+            text: 'Log Out',
+            onTap: () {},
+          )
+        ],
+      ),
+    );
   }
 }

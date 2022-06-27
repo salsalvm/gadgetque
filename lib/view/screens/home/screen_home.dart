@@ -5,7 +5,7 @@ import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
 import 'package:gadgetque/view/screens/home/widget/recommended_item.dart';
 import 'package:gadgetque/view/screens/home/widget/copy_right.dart';
 import 'package:gadgetque/view/screens/home/widget/footter_home.dart';
-import 'package:gadgetque/view/screens/home/widget/item_text.dart';
+import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/home/widget/most_ratted_items.dart';
 import 'package:gadgetque/view/screens/home/widget/carousal_slider.dart';
 import 'package:gadgetque/view/screens/home/widget/catogory_search.dart';
@@ -21,7 +21,7 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    print(size.width * 0.48);
+   
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * 0.2),

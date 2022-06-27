@@ -7,21 +7,24 @@ class ItemText extends StatelessWidget {
     required this.weight,
     required this.fontSize,
     required this.color,
-    this.strike
+    this.strike, this.onTap
   }) : super(key: key);
   final String name;
   final FontWeight weight;
   final double fontSize;
-  final Color color;
-  final  strike;
+  final  color;
+  final onTap;
+  final TextDecoration? strike;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 3, left: 5),
-      child: Text(
-        name,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(color: color, fontSize: fontSize, fontWeight: weight,decoration: strike),
+      child: GestureDetector(onTap: onTap,
+        child: Text(
+          name,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(color: color, fontSize: fontSize, fontWeight: weight,decoration: strike),
+        ),
       ),
     );
   }
