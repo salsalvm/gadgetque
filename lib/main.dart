@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
+import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/entry_pages/screen_login/screen_login.dart';
 import 'package:get/get.dart';
 import 'view/core/color.dart';
 
@@ -14,7 +16,7 @@ class GadgetQue extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavigator(),
+      home:const ScreenEntry(),
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           color: kWhiteColor,

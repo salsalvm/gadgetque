@@ -8,7 +8,7 @@ import 'package:gadgetque/view/screens/profile/screen_profile.dart';
 import 'package:gadgetque/view/screens/wishlist/screen_wishlist.dart';
 
 ValueNotifier<int> indexChanger = ValueNotifier(0);
-late Size size;
+
 
 class BottomNavigator extends StatelessWidget {
   BottomNavigator({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class BottomNavigator extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
+    
     return Scaffold(
       body: SafeArea(
         child: ValueListenableBuilder(

@@ -1,13 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/entry_pages/widget/form_field.dart';
+import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
-import 'package:gadgetque/view/screens/widget/divider.dart';
-import 'package:gadgetque/view/screens/widget/main_headding.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
 
 class AddEditAddress extends StatelessWidget {

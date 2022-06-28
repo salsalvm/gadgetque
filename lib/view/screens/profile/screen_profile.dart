@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/space.dart';
+import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
 import 'package:gadgetque/view/screens/profile/widget/change_password.dart';
 import 'package:gadgetque/view/screens/profile/widget/wallet_balance.dart';
 import 'package:gadgetque/view/screens/profile/widget/profile_details.dart';

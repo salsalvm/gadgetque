@@ -5,16 +5,14 @@ import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/entry_pages/widget/form_field.dart';
+import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:gadgetque/view/screens/buy_product/summary/widget/coupon_apply.dart';
 import 'package:gadgetque/view/screens/buy_product/summary/widget/delivery_item.dart';
 import 'package:gadgetque/view/screens/buy_product/summary/widget/delivery_to.dart';
 import 'package:gadgetque/view/screens/buy_product/summary/widget/payment_method.dart';
-import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
-import 'package:gadgetque/view/screens/widget/main_headding.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
 import 'package:gadgetque/view/screens/widget/two_text_elements_in_row.dart';
 
@@ -23,7 +21,7 @@ class ScreenSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(size.width * .53);
+    
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),

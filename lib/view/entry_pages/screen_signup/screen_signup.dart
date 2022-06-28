@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
+import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/entry_pages/screen_login/screen_login.dart';
 import 'package:gadgetque/view/entry_pages/widget/action_button.dart';
 import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
 import 'package:gadgetque/view/entry_pages/widget/background_image.dart';
-import 'package:gadgetque/view/entry_pages/widget/form_field.dart';
+import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:gadgetque/view/entry_pages/widget/switch_bottom_textbutton.dart';
-
+import 'package:get/get.dart';
 class ScreenSignup extends StatelessWidget {
   const ScreenSignup({Key? key}) : super(key: key);
 
@@ -59,12 +61,16 @@ class ScreenSignup extends StatelessWidget {
                         color: kFormColor,
                         height: size.width * 0.12,
                         // size: size,
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(BottomNavigator());
+                        },
                         buttonName: 'Submit',
                         width: size.width * 0.836),
                   ),
                   kHeigt80,
-                  SwitchBottomTextButton(onTap: () {}, text: 'Log In')
+                  SwitchBottomTextButton(onTap: () {
+                    Get.to(ScreenLogin());
+                  }, text: 'Log In')
                 ],
               ),
             ),

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/entry_pages/screen_login/widget/login_button.dart';
+import 'package:gadgetque/view/entry_pages/screen_signup/screen_signup.dart';
 import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
 import 'package:gadgetque/view/entry_pages/widget/background_image.dart';
-import 'package:gadgetque/view/entry_pages/widget/form_field.dart';
+import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:gadgetque/view/entry_pages/widget/switch_bottom_textbutton.dart';
-
+import 'package:get/get.dart';
 class ScreenLogin extends StatelessWidget {
   const ScreenLogin({Key? key}) : super(key: key);
 
@@ -38,7 +39,9 @@ class ScreenLogin extends StatelessWidget {
                   FormFields(name: 'Password', color: kFormColor,inputTextColor: kWhiteColor),
                   LoginButton(),
                   kHeigt150,
-                  SwitchBottomTextButton(onTap: () {}, text: 'Register Now')
+                  SwitchBottomTextButton(onTap: () {
+                   Get.to(ScreenSignup());
+                  }, text: 'Register Now')
                 ],
               ),
             ),
