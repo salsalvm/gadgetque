@@ -1,14 +1,15 @@
 
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 
 class CatogorySearch extends StatelessWidget {
   const CatogorySearch({
     Key? key,
-    required this.size,
+    
   }) : super(key: key);
 
-  final Size size;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -39,13 +40,7 @@ class CatogorySearch extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  child:  Center(
-                    child: Text(
-                      'Laptop',
-                      style: TextStyle(
-                          fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
-                  ),
+                  
                   margin: const EdgeInsets.symmetric(horizontal: 10),
                   width: size.width * 0.45,
                   height: size.width * 0.11,
@@ -53,6 +48,12 @@ class CatogorySearch extends StatelessWidget {
                     color: kBoxColor,
                     borderRadius: BorderRadius.vertical(
                         bottom: Radius.circular(10)),
+                  ),child:const  Center(
+                    child: Text(
+                      'Laptop',
+                      style: TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ],

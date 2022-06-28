@@ -12,8 +12,7 @@ class ScreenCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
+   
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
@@ -25,11 +24,11 @@ class ScreenCart extends StatelessWidget {
         child: ListView(
           children: [
             kHeigt10,
-            CartContainer(size: size),
+            CartContainer(),
             const MainHead(headding: 'Cart Items', top: 20),
             const DivLine(),
-            CartitemsList(size: size),
-            CartTotalAmount(size: size)
+            CartitemsList(),
+            CartTotalAmount()
           ],
         ),
       ),

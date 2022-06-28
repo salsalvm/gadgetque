@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/entry_pages/screen_login/login_button.dart';
+import 'package:gadgetque/view/entry_pages/screen_login/widget/login_button.dart';
 import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
 import 'package:gadgetque/view/entry_pages/widget/background_image.dart';
 import 'package:gadgetque/view/entry_pages/widget/form_field.dart';
@@ -12,8 +12,7 @@ class ScreenLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
+    
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -35,9 +34,9 @@ class ScreenLogin extends StatelessWidget {
                     style: TextStyle(color: kWhiteColor, fontSize: 28),
                   ),
                   kHeigt150,
-                  FormFields(name: 'Email', color: kFormColor),
-                  FormFields(name: 'Password', color: kFormColor),
-                  LoginButton(size: size),
+                  FormFields(name: 'Email', color: kFormColor,inputTextColor: kWhiteColor),
+                  FormFields(name: 'Password', color: kFormColor,inputTextColor: kWhiteColor),
+                  LoginButton(),
                   kHeigt150,
                   SwitchBottomTextButton(onTap: () {}, text: 'Register Now')
                 ],

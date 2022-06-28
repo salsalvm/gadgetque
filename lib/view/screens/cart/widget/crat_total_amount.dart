@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
@@ -8,10 +9,9 @@ import 'package:gadgetque/view/screens/widget/two_text_elements_in_row.dart';
 class CartTotalAmount extends StatelessWidget {
   const CartTotalAmount({
     Key? key,
-    required this.size,
+  
   }) : super(key: key);
 
-  final Size size;
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
@@ -6,10 +7,9 @@ import 'package:gadgetque/view/screens/widget/item_text.dart';
 class CartitemsList extends StatelessWidget {
   const CartitemsList({
     Key? key,
-    required this.size,
+    
   }) : super(key: key);
 
-  final Size size;
 
   @override
   Widget build(BuildContext context) {

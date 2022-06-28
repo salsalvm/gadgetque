@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/entry_pages/widget/action_button.dart';
@@ -12,8 +13,6 @@ class ScreenSignup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-   
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -25,18 +24,34 @@ class ScreenSignup extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const EntryAppbar(iconColor: kGreyColor,textColor: kWhiteColor),
+                  const EntryAppbar(
+                      iconColor: kGreyColor, textColor: kWhiteColor),
                   kHeigt80,
                   const Text(
                     'Hey ,\nSign Up Now.',
                     style: TextStyle(color: kWhiteColor, fontSize: 28),
                   ),
                   kHeigt100,
-                   FormFields(name: 'Name',color: kFormColor),
-                   FormFields(name: 'Mobile',color: kFormColor,),
-                   FormFields(name: 'Email',color: kFormColor),
-                   FormFields(name: 'Password',color: kFormColor),
-                   FormFields(name: 'Confirm Password',color: kFormColor),
+                  FormFields(
+                      name: 'Name',
+                      color: kFormColor,
+                      inputTextColor: kWhiteColor),
+                  FormFields(
+                      name: 'Mobile',
+                      color: kFormColor,
+                      inputTextColor: kWhiteColor),
+                  FormFields(
+                      name: 'Email',
+                      color: kFormColor,
+                      inputTextColor: kWhiteColor),
+                  FormFields(
+                      name: 'Password',
+                      color: kFormColor,
+                      inputTextColor: kWhiteColor),
+                  FormFields(
+                      name: 'Confirm Password',
+                      color: kFormColor,
+                      inputTextColor: kWhiteColor),
                   kHeigt5,
                   Padding(
                     padding: const EdgeInsets.only(left: 18.0),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/screens/cart/screen_cart.dart';
 import 'package:get/get.dart';
@@ -6,10 +7,10 @@ import 'package:get/get.dart';
 class AppbarMain extends StatelessWidget {
   const AppbarMain({
     Key? key,
-    required this.size,
+    
   }) : super(key: key);
 
-  final Size size;
+
 
   @override
   Widget build(BuildContext context) {

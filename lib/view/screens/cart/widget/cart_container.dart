@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 
 class CartContainer extends StatelessWidget {
   const CartContainer({
     Key? key,
-    required this.size,
+  
   }) : super(key: key);
 
-  final Size size;
 
   @override
   Widget build(BuildContext context) {

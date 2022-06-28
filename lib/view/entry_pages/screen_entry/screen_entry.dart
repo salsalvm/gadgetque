@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/entry_pages/widget/action_button.dart';
@@ -10,8 +11,8 @@ class ScreenEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Scaffold(
+    
+    return Scaffold( resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Stack(
           children: [

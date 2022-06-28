@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/radius.dart';
+import 'package:gadgetque/view/screens/buy_product/screen_buy_product.dart';
+import 'package:get/get.dart';
 
 class RecommendedItem extends StatelessWidget {
   const RecommendedItem({
     Key? key,
-    required this.size,
   }) : super(key: key);
-
-  final Size size;
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +20,21 @@ class RecommendedItem extends StatelessWidget {
           shrinkWrap: true,
           itemCount: 10,
           itemBuilder: (context, index) {
-            return Container(margin:const EdgeInsets.symmetric(horizontal: 10),
-              width: size.width,
-              height: size.width * 0.6,
-              decoration: BoxDecoration(
-                borderRadius: kRAdius10,
-                image: const DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(
-                    'asset/login_background.png',
+            return GestureDetector(
+              onTap: () => Get.to(const BuyProduct()),
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                width: size.width,
+                height: size.width * 0.6,
+                decoration: BoxDecoration(
+                  borderRadius: kRAdius10,
+                  image: const DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                      'asset/login_background.png',
+                    ),
+                    filterQuality: FilterQuality.high,
                   ),
-                  filterQuality: FilterQuality.high,
                 ),
               ),
             );

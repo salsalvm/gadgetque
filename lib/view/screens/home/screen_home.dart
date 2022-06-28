@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
@@ -20,27 +21,27 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    
    
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * 0.2),
-        child: AppbarMain(size: size),
+        child: AppbarMain(),
       ),
       body: ListView(
-        children: [
-          const MainHead(headding: 'Deals of The Day'),
-          CarasoulSlider(size: size),
-          const MainHead(headding: 'Explore Catogory'),
-          CatogorySearch(size: size),
-          const MainHead(headding: 'Most Ratted Items'),
-          MostRattedItem(size: size),
-          const MainHead(headding: 'Reccomented Items'),
-          RecommendedItem(size: size),
-          const MainHead(headding: 'Trending Now'),
-          TrendingItem(size: size),
-          FootterHome(size: size),
-          FooterCopyrites(size: size)
+        children:const [
+           MainHead(headding: 'Deals of The Day'),
+          CarasoulSlider(),
+           MainHead(headding: 'Explore Catogory'),
+          CatogorySearch(),
+           MainHead(headding: 'Most Ratted Items'),
+          MostRattedItem(),
+           MainHead(headding: 'Reccomented Items'),
+          RecommendedItem(),
+           MainHead(headding: 'Trending Now'),
+          TrendingItem(),
+          FootterHome(),
+          FooterCopyrites()
         ],
       ),
     );

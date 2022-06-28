@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 
 class FooterCopyrites extends StatelessWidget {
   const FooterCopyrites({
     Key? key,
-    required this.size,
+    
   }) : super(key: key);
 
-  final Size size;
+  
 
   @override
   Widget build(BuildContext context) {

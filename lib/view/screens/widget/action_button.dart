@@ -8,7 +8,7 @@ class ActionButton extends StatelessWidget {
     required this.buttonHeight,
     required this.text,
     required this.onTap,
-    this.fontSize = 24,  this.buttonColor=kButtonColor, this.radius=10,
+    this.fontSize = 24,  this.buttonColor=kButtonColor, this.radius=10,  this.fontColor=kWhiteColor,
   }) : super(key: key);
   final onTap;
   final String text;final double radius;
@@ -16,6 +16,7 @@ class ActionButton extends StatelessWidget {
   final double buttonWidth;
   final double fontSize;
   final Color buttonColor;
+  final Color fontColor;
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
@@ -27,7 +28,7 @@ class ActionButton extends StatelessWidget {
       height: buttonHeight,
       child: Text(
         text,
-        style: TextStyle(
+        style: TextStyle(color: fontColor,
           fontWeight: FontWeight.bold,
           fontSize: fontSize,
         ),

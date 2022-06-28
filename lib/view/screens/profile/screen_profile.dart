@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/screens/profile/widget/change_password.dart';
 import 'package:gadgetque/view/screens/profile/widget/wallet_balance.dart';
@@ -11,11 +12,11 @@ class ScreenProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+   
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(70),
-          child: AppbarMain(size: size)),
+          child: AppbarMain()),
       body: Stack(
         alignment: Alignment.bottomRight,
         children: [
@@ -24,11 +25,11 @@ class ScreenProfile extends StatelessWidget {
             child: SafeArea(
                 child: ListView(
               children: [
-                ProfileDetails(size: size),
+                ProfileDetails(),
                 kHeigt10,
-                WalletBalance(size: size),
+                WalletBalance(),
                 kHeigt10,
-                ChangePassword(size: size),
+                ChangePassword(),
                 kHeigt10,
               ],
             )),

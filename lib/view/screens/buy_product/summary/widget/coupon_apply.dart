@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
@@ -8,61 +9,54 @@ import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 
-class ChangePassword extends StatelessWidget {
-  const ChangePassword({
+class CouponApply extends StatelessWidget {
+  const CouponApply({
     Key? key,
-    
   }) : super(key: key);
-
-  
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
-      height: size.width*.49,
-      width: size.width,
+      
       decoration:
-          BoxDecoration(color: kBoxColor, borderRadius: kRAdius10),
+          BoxDecoration(borderRadius: kRAdius10, color: kBoxColor),
       child: Padding(
-        padding:
-            const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ItemText(
-                name: 'Change Password',
+            ItemText(
+                name: 'COUPON',
                 weight: FontWeight.bold,
                 fontSize: 18,
                 color: kBlackColor),
-            const DivLine(),
+            DivLine(),
             kHeigt5,
-            FormFields(
-              name: 'Current Password',
-              color: Colors.white.withOpacity(0.26),
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: FormFields(
+                fontSize: 22,
+                size: 22,
+                name: 'voucher number',
+                color: Colors.white.withOpacity(.3),
+              ),
             ),
-            FormFields(
-              name: 'New Password',
-              color: Colors.white.withOpacity(0.26),
-            ),
+            kHeigt5,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                kWidth5,
                 ActionButton(
-                    buttonColor: Colors.white.withOpacity(0.1),
-                    buttonWidth: size.width * 0.37,
-                    buttonHeight: size.width * 0.1,
+                    buttonWidth: 140,
+                    buttonHeight: 45,
                     text: 'Cancel',
-                    fontSize: 20,
+                    fontColor: kWhiteColor,
                     onTap: () {}),
                 ActionButton(
-                    buttonWidth: size.width * 0.37,
-                    buttonColor: Colors.white.withOpacity(0.1),
-                    buttonHeight: size.width * 0.1,
-                    text: 'Update',
-                    fontSize: 20,
-                    onTap: () {}),
+                    buttonWidth: 140,
+                    buttonHeight: 45,
+                    fontColor: kWhiteColor,
+                    text: 'Apply',
+                    onTap: () {})
               ],
             )
           ],
