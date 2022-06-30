@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/core/space.dart';
@@ -8,43 +6,65 @@ import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
 import 'package:gadgetque/view/screens/address/widget/add_edit_address.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
-import 'package:gadgetque/view/screens/widget/two_text_elements_in_row.dart';
 import 'package:get/get.dart';
+
 class ListAddress extends StatelessWidget {
   const ListAddress({
     Key? key,
-    
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: size.height * 0.67,
       width: size.width,
-      child: ListView.separated(
+      child: ListView.builder(
           shrinkWrap: true,
-          itemBuilder: (context, index) => Container(
-                height: size.width * 0.465,
-                width: size.width,
-                decoration: BoxDecoration(
-                  borderRadius: kRAdius10,
-                  color: kBoxColor,
-                ),
+          itemBuilder: (context, index) => Card(
+                color: kBoxColor,
+                shape: RoundedRectangleBorder(borderRadius: kRAdius10),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 10, horizontal: 10),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextElementsInRow(
-                          onTap: () {Get.to(AddEditAddress());},
-                          paddding: 5,
-                          firstText: 'Home',
-                          secondText: 'Edit',
-                          wieght: FontWeight.bold,
-                          fontSize: 20,
-                          fontColor: kBlackColor),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const ItemText(
+                              name: 'Home',
+                              weight: FontWeight.bold,
+                              fontSize: 20,
+                              color: kBlackColor),
+                          Wrap(children: [
+                            IconButton(
+                                onPressed: () {
+                                  Get.dialog(
+                                    const AddEditAddress(),
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.edit,
+                                  color: kGreenColor,
+                                )),
+                            IconButton(
+                                onPressed: () {
+                                  Get.defaultDialog(
+                                      backgroundColor: kBoxColor,
+                                      buttonColor: kButtonColor,
+                                      middleText: 'Do you Want to Remove',
+                                      onConfirm: () {},
+                                      title: 'Are You Sure',
+                                      onCancel: () {});
+                                },
+                                icon: const Icon(
+                                  Icons.delete,
+                                  color: kredColor,
+                                ))
+                          ])
+                        ],
+                      ),
                       const DivLine(),
                       kHeigt10,
                       const ItemText(
@@ -94,7 +114,6 @@ class ListAddress extends StatelessWidget {
                   ),
                 ),
               ),
-          separatorBuilder: (context, index) => kHeigt10,
           itemCount: 4),
     );
   }

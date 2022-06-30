@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/core/color.dart';
+import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/screens/widget/appbar.dart';
+import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/main_headding.dart';
 import 'package:gadgetque/view/screens/wishlist/widget/list_wishlists.dart';
 
@@ -17,8 +20,11 @@ class ScreenWishlist extends StatelessWidget {
         child: ListView(
           children: const [
             MainHead(
+              top: 15,
               headding: 'Wishlist',
             ),
+            DivLine(),
+            kHeigt5,
             ListWishlists(),
           ],
         ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
 import 'package:gadgetque/view/screens/address/widget/add_edit_address.dart';
 import 'package:gadgetque/view/screens/address/widget/list_address.dart';
@@ -22,11 +21,14 @@ class ScreenAddress extends StatelessWidget {
         alignment: Alignment.bottomRight,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: SafeArea(
                 child: ListView(
               children: const [
-                MainHead(headding: 'Address', top: 10),
+                MainHead(
+                  headding: 'Address',
+                  top: 10,
+                ),
                 ListAddress(),
               ],
             )),
@@ -34,11 +36,11 @@ class ScreenAddress extends StatelessWidget {
           ActionButton(
             radius: 0,
             buttonWidth: size.width,
-            buttonHeight: 50,
+            buttonHeight: 45,
             text: 'Add New Address',
             onTap: () {
-              Get.to(
-                const AddEditAddress(),
+              Get.dialog(
+               const AddEditAddress(),
               );
             },
           )

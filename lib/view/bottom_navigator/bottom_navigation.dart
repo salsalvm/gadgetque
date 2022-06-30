@@ -9,7 +9,6 @@ import 'package:gadgetque/view/screens/wishlist/screen_wishlist.dart';
 
 ValueNotifier<int> indexChanger = ValueNotifier(0);
 
-
 class BottomNavigator extends StatelessWidget {
   BottomNavigator({Key? key}) : super(key: key);
   final _pages = [
@@ -21,13 +20,13 @@ class BottomNavigator extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: SafeArea(
         child: ValueListenableBuilder(
           valueListenable: indexChanger,
           builder: (context, int index, _) {
-            return _pages[index];
+            return _pages[index]
+            ;
           },
         ),
       ),

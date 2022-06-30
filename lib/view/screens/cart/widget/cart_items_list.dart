@@ -1,33 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
+import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
+import 'package:get/get.dart';
 
 class CartitemsList extends StatelessWidget {
   const CartitemsList({
     Key? key,
-    
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: size.width * 0.765,
+      height: size.height * .497,
       child: Padding(
-        padding: const EdgeInsets.all(5),
-        child: ListView.builder(
-          itemExtent: size.width * 0.255,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        child: ListView.separated(
+          separatorBuilder: (context, index) => kHeigt10,
           shrinkWrap: true,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              width: size.width,
-              decoration: BoxDecoration(
-                borderRadius: kRAdius10,
-                color: kBoxColor,
+          itemBuilder: (context, index) => Container(
+            width: size.width,
+            decoration: BoxDecoration(
+              borderRadius: kRAdius10,
+              color: kBoxColor,
+            ),
+            child: Slidable(
+              endActionPane: ActionPane(
+                extentRatio: 1 / 3.5,
+                motion: const ScrollMotion(),
+                children: [
+                  SlidableAction(
+                    onPressed: (context) {
+                      Get.defaultDialog(
+                          backgroundColor: kBoxColor,
+                          buttonColor: kButtonColor,
+                          middleText: 'Do you Want to Remove',
+                          onConfirm: () {},
+                          title: 'Are You Sure',
+                          onCancel: () {});
+                    },
+                    backgroundColor: kredColor,
+                    foregroundColor: kWhiteColor,
+                    icon: Icons.delete,
+                    label: 'Delete',
+                  ),
+                ],
               ),
               child: Center(
                 child: ListTile(
@@ -69,7 +89,7 @@ class CartitemsList extends StatelessWidget {
               ),
             ),
           ),
-          itemCount: 4,
+          itemCount: 10,
         ),
       ),
     );

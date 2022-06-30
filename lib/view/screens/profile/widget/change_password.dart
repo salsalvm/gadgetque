@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/core/space.dart';

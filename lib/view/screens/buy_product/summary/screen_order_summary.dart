@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:gadgetque/view/screens/buy_product/summary/widget/coupon_apply.dart';
 import 'package:gadgetque/view/screens/buy_product/summary/widget/delivery_item.dart';
 import 'package:gadgetque/view/screens/buy_product/summary/widget/delivery_to.dart';

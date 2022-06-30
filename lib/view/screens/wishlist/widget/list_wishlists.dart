@@ -17,21 +17,20 @@ class ListWishlists extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         height: size.height,
         width: size.width,
         decoration: BoxDecoration(borderRadius: kRAdius10),
-        child: ListView.separated(
+        child: ListView.builder(
           itemBuilder: (context, index) => GestureDetector(
             onTap: () => Get.to(
               const BuyProduct(),
             ),
-            child: Container(
-              height: size.width * .44,
-              width: size.width,
-              decoration:
-                  BoxDecoration(color: kBoxColor, borderRadius: kRAdius10),
+            child: Card(
+              color: kWhiteColor,shadowColor: kGreyColor,
+              shape: RoundedRectangleBorder(borderRadius: kRAdius10),
+             
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -94,7 +93,6 @@ class ListWishlists extends StatelessWidget {
               ),
             ),
           ),
-          separatorBuilder: (context, index) => kHeigt10,
           itemCount: 10,
         ),
       ),

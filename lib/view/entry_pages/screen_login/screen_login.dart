@@ -8,12 +8,12 @@ import 'package:gadgetque/view/entry_pages/widget/background_image.dart';
 import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:gadgetque/view/entry_pages/widget/switch_bottom_textbutton.dart';
 import 'package:get/get.dart';
+
 class ScreenLogin extends StatelessWidget {
   const ScreenLogin({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -35,13 +35,24 @@ class ScreenLogin extends StatelessWidget {
                     style: TextStyle(color: kWhiteColor, fontSize: 28),
                   ),
                   kHeigt150,
-                  FormFields(name: 'Email', color: kFormColor,inputTextColor: kWhiteColor),
-                  FormFields(name: 'Password', color: kFormColor,inputTextColor: kWhiteColor),
-                  LoginButton(),
+                  FormFields(
+                    fontSize: 20,
+                    name: 'Email',
+                    color: kFormColor,
+                    inputTextColor: kWhiteColor,
+                  ),
+                  FormFields(
+                      fontSize: 20,
+                      name: 'Password',
+                      color: kFormColor,
+                      inputTextColor: kWhiteColor),
+                  const LoginButton(),
                   kHeigt150,
-                  SwitchBottomTextButton(onTap: () {
-                   Get.to(ScreenSignup());
-                  }, text: 'Register Now')
+                  SwitchBottomTextButton(
+                      onTap: () {
+                        Get.to(const ScreenSignup());
+                      },
+                      text: 'Register Now')
                 ],
               ),
             ),

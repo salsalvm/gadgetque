@@ -4,15 +4,16 @@ import 'package:get/get.dart';
 
 class AddWishlist extends StatelessWidget {
   const AddWishlist({
-    Key? key,
+    Key? key,  this.radius=24,  this.iconSize=38,
   }) : super(key: key);
-
+final double radius;
+final double iconSize;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: CircleAvatar(
-        radius: 24,
+        radius: radius,
         backgroundColor: kBoxColor,
         child: IconButton(
             padding: const EdgeInsets.only(),
@@ -21,10 +22,10 @@ class AddWishlist extends StatelessWidget {
                   'Added Successfuly', 'product has been added to wishlist',
                   colorText: kBlackColor, snackPosition: SnackPosition.BOTTOM);
             },
-            icon: const Icon(
+            icon:  Icon(
               Icons.favorite,
               color: kredColor,
-              size: 38,
+              size: iconSize,
             )),
       ),
     );

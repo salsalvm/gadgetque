@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
 import 'package:gadgetque/view/screens/cart/screen_cart.dart';
+import 'package:gadgetque/view/screens/search/search_item.dart';
 import 'package:get/get.dart';
 
 class AppbarMain extends StatelessWidget {
   const AppbarMain({
     Key? key,
-    
   }) : super(key: key);
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +47,9 @@ class AppbarMain extends StatelessWidget {
             Wrap(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showSearch(context: context, delegate: MySearch());
+                  },
                   icon: const Icon(
                     Icons.search_outlined,
                     size: 35,
@@ -59,6 +58,12 @@ class AppbarMain extends StatelessWidget {
                 IconButton(
                     onPressed: () {
                       Get.to(const ScreenCart());
+                      Get.snackbar(
+                          colorText: kBlackColor,
+                          margin: const EdgeInsets.only(top: 50),
+                          'Slide to left Remove from Cart',
+                          '',
+                          snackPosition: SnackPosition.TOP);
                     },
                     icon: const Icon(
                       Icons.shopping_cart,

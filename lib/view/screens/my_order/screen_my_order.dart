@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/screens/my_order/widget/list_order.dart';
 import 'package:gadgetque/view/screens/widget/appbar.dart';
 import 'package:gadgetque/view/screens/widget/main_headding.dart';
+import 'package:get/get.dart';
 
 class ScreenOrder extends StatelessWidget {
   const ScreenOrder({Key? key}) : super(key: key);
@@ -18,9 +20,27 @@ class ScreenOrder extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: SafeArea(
           child: ListView(
-            children: const [
-              MainHead(headding: 'My Order', top: 10),
-              OrderList(),
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const MainHead(headding: 'My Order', top: 10),
+                  IconButton(
+                      onPressed: () {
+                        Get.snackbar(
+                            colorText: kBlackColor,
+                            margin: const EdgeInsets.only(top: 60),
+                            'Slide to left Cancel Order',
+                            '',
+                            snackPosition: SnackPosition.TOP);
+                      },
+                      icon: const Icon(
+                        Icons.question_mark,
+                        color: kBlueColor,
+                      ))
+                ],
+              ),
+            const  OrderList(),
               kHeigt20
             ],
           ),

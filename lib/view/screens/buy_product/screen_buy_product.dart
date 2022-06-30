@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/screens/buy_product/summary/screen_order_summary.dart';
 import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';
@@ -17,7 +18,7 @@ class BuyProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(70),
+        preferredSize: Size.fromHeight(60),
         child: SecondAppbar(
           title: 'Mobile',
         ),
@@ -44,7 +45,12 @@ class BuyProduct extends StatelessWidget {
             BottomDoubleButton(
                 secondText: 'Buy Now',
                 firstText: 'Add to Cart',
-                firstOnTap: () {},
+                firstOnTap: () {
+                  Get.snackbar(
+                      'Added succesfully', 'Product has been added to cart',
+                      // colorText: kredColor,
+                      snackPosition: SnackPosition.BOTTOM);
+                },
                 secondOnTap: () {
                   Get.to(const ScreenSummary());
                 })

@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
-import 'package:gadgetque/view/core/color.dart';
-import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
-import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
 import 'package:gadgetque/view/screens/home/widget/recommended_item.dart';
-import 'package:gadgetque/view/screens/home/widget/copy_right.dart';
-import 'package:gadgetque/view/screens/home/widget/footter_home.dart';
-import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/home/widget/most_ratted_items.dart';
 import 'package:gadgetque/view/screens/home/widget/carousal_slider.dart';
 import 'package:gadgetque/view/screens/home/widget/catogory_search.dart';
@@ -22,18 +15,18 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+
    
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * 0.2),
-        child: AppbarMain(),
+        child:const AppbarMain(),
       ),
       body: ListView(
         children:const [
            MainHead(headding: 'Deals of The Day'),
           CarasoulSlider(),
-           MainHead(headding: 'Explore Catogory'),
+           MainHead(headding: 'Explore Category'),
           CatogorySearch(),
            MainHead(headding: 'Most Ratted Items'),
           MostRattedItem(),
@@ -41,8 +34,8 @@ class ScreenHome extends StatelessWidget {
           RecommendedItem(),
            MainHead(headding: 'Trending Now'),
           TrendingItem(),
-          FootterHome(),
-          FooterCopyrites()
+          // FootterHome(),
+          // FooterCopyrites()
         ],
       ),
     );

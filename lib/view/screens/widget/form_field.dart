@@ -21,7 +21,7 @@ class FormFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTextFormFieldRow(
       style: TextStyle(color: inputTextColor, fontSize: fontSize),
-      placeholder: '  $name...',
+      placeholder: '  $name',
       placeholderStyle: TextStyle(
         color: textColor,
         fontSize: size,

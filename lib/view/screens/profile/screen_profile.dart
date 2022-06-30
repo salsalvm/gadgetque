@@ -15,8 +15,8 @@ class ScreenProfile extends StatelessWidget {
   Widget build(BuildContext context) {
    
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(70),
+      appBar:const PreferredSize(
+          preferredSize:  Size.fromHeight(70),
           child: AppbarMain()),
       body: Stack(
         alignment: Alignment.bottomRight,
@@ -25,7 +25,7 @@ class ScreenProfile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: SafeArea(
                 child: ListView(
-              children: [
+              children: const[
                 ProfileDetails(),
                 kHeigt10,
                 WalletBalance(),

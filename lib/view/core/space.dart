@@ -7,7 +7,7 @@ const kHeigt20 =SizedBox(height:20);
 const kHeigt30 =SizedBox(height:30);
 const kHeigt50 =SizedBox(height:50);
 const kHeigt80 =SizedBox(height:80);
-const kHeigt100 =SizedBox(height:100);
+const kHeigt100 =SizedBox(height:115);
 const kHeigt150 =SizedBox(height:150);
 const kHeigt300 =SizedBox(height:300);
 
