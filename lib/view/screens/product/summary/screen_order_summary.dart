@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/screens/buy_product/summary/widget/coupon_apply.dart';
-import 'package:gadgetque/view/screens/buy_product/summary/widget/delivery_item.dart';
-import 'package:gadgetque/view/screens/buy_product/summary/widget/delivery_to.dart';
-import 'package:gadgetque/view/screens/buy_product/summary/widget/payment_method.dart';
+import 'package:gadgetque/view/screens/product/summary/widget/coupon_apply.dart';
+import 'package:gadgetque/view/screens/product/summary/widget/delivery_item.dart';
+import 'package:gadgetque/view/screens/product/summary/widget/delivery_to.dart';
+import 'package:gadgetque/view/screens/product/summary/widget/payment_method.dart';
 import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
@@ -33,13 +33,13 @@ class ScreenSummary extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: ListView(
                 children: [
-                  DeliveryTo(),
+                const  DeliveryTo(),
                   kHeigt10,
-                  DeliveryItem(),
+                 const DeliveryItem(),
                   kHeigt10,
-                  CouponApply(),
+                const  CouponApply(),
                   kHeigt10,
-                  PaymentMethod(),
+                const  PaymentMethod(),
                   kHeigt10,
                   Container(
                     decoration: BoxDecoration(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/screens/buy_product/summary/screen_order_summary.dart';
+import 'package:gadgetque/view/screens/product/summary/screen_order_summary.dart';
+import 'package:gadgetque/view/screens/product/widget/image_details.dart';
+import 'package:gadgetque/view/screens/product/widget/image_item.dart';
+import 'package:gadgetque/view/screens/product/widget/similar_item.dart';
 import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';
-import 'package:gadgetque/view/screens/buy_product/widget/image_details.dart';
-import 'package:gadgetque/view/screens/buy_product/widget/image_item.dart';
-import 'package:gadgetque/view/screens/buy_product/widget/similar_item.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/main_headding.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';

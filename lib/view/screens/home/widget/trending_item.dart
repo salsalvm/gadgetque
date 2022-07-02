@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
-import 'package:gadgetque/view/screens/buy_product/screen_buy_product.dart';
+import 'package:gadgetque/view/screens/product/screen_product.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 

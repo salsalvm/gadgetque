@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
-import 'package:gadgetque/view/screens/buy_product/summary/screen_order_summary.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
-import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
+
 
 class BottomDoubleButton extends StatelessWidget {
   const BottomDoubleButton({
@@ -17,9 +16,10 @@ class BottomDoubleButton extends StatelessWidget {
   }) : super(key: key);
   final String secondText;
   final String firstText;
-  final firstOnTap;
+  final Callback firstOnTap;
   
-  final secondOnTap;
+  final Callback
+   secondOnTap;
   @override
   Widget build(BuildContext context) {
     return Row(

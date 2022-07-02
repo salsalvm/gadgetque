@@ -4,9 +4,10 @@ import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
 import 'package:gadgetque/view/screens/cart/widget/cart_container.dart';
 import 'package:gadgetque/view/screens/cart/widget/cart_items_list.dart';
 import 'package:gadgetque/view/screens/cart/widget/crat_total_amount.dart';
+import 'package:gadgetque/view/screens/product/summary/screen_order_summary.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
-
+import 'package:get/get.dart';
 
 class ScreenCart extends StatelessWidget {
   const ScreenCart({Key? key}) : super(key: key);
@@ -14,7 +15,6 @@ class ScreenCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: SecondAppbar(
@@ -34,7 +34,9 @@ class ScreenCart extends StatelessWidget {
               ],
             ),
             ActionButton(
-              onTap: () {},
+              onTap: () {
+                Get.to(const ScreenSummary());
+              },
               radius: 0,
               buttonWidth: size.width,
               buttonHeight: size.width * 0.13,
