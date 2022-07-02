@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/screens/buy_product/summary/screen_order_summary.dart';
 import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';

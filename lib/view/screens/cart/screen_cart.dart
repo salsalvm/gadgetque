@@ -6,7 +6,7 @@ import 'package:gadgetque/view/screens/cart/widget/cart_items_list.dart';
 import 'package:gadgetque/view/screens/cart/widget/crat_total_amount.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
-import 'package:get/get.dart';
+
 
 class ScreenCart extends StatelessWidget {
   const ScreenCart({Key? key}) : super(key: key);
