@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/radius.dart';
-import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/authentication/screen_entry/screen_entry.dart';
 import 'package:gadgetque/view/screens/product/screen_product.dart';
 import 'package:get/get.dart';
 

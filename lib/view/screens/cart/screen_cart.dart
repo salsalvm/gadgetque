@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/authentication/screen_entry/screen_entry.dart';
 import 'package:gadgetque/view/screens/cart/widget/cart_container.dart';
 import 'package:gadgetque/view/screens/cart/widget/cart_items_list.dart';
 import 'package:gadgetque/view/screens/cart/widget/crat_total_amount.dart';

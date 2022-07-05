@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/entry_pages/screen_entry/screen_entry.dart';
-import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
+import 'package:gadgetque/view/authentication/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/authentication/widget/app_bar.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 
 class FootterHome extends StatelessWidget {

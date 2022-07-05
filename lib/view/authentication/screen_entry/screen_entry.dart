@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/view/authentication/screen_signin/screen_signin.dart';
+import 'package:gadgetque/view/authentication/screen_signup/screen_signup.dart';
+import 'package:gadgetque/view/authentication/widget/action_button.dart';
+import 'package:gadgetque/view/authentication/widget/app_bar.dart';
+import 'package:gadgetque/view/authentication/widget/background_image.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/entry_pages/screen_login/screen_login.dart';
-import 'package:gadgetque/view/entry_pages/screen_signup/screen_signup.dart';
-import 'package:gadgetque/view/entry_pages/widget/action_button.dart';
-import 'package:gadgetque/view/entry_pages/widget/app_bar.dart';
-import 'package:gadgetque/view/entry_pages/widget/background_image.dart';
+
 import 'package:get/get.dart';
-late Size size ;
+
+late Size size;
+
 class ScreenEntry extends StatelessWidget {
   const ScreenEntry({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    size=MediaQuery.of(context).size;
-    return Scaffold( resizeToAvoidBottomInset: false,
+    size = MediaQuery.of(context).size;
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Stack(
           children: [
@@ -50,9 +54,10 @@ class ScreenEntry extends StatelessWidget {
                           width: size.width * 0.4,
                           color: Colors.grey.withOpacity(0.5),
                           // size: size,
-                          buttonName: 'Login',
+                          buttonName: 'Sign In',
                           onTap: () {
-                            Get.to(ScreenLogin());
+                            Get.to(ScreenSignin());
+                            
                           }),
                       EntryButton(
                           height: size.width * 0.15,
@@ -61,7 +66,7 @@ class ScreenEntry extends StatelessWidget {
                           // size: size,
                           buttonName: 'Register',
                           onTap: () {
-                            Get.to(ScreenSignup());
+                            Get.to( ScreenSignup());
                           }),
                     ],
                   ),
