@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/authentication/auth_controller.dart';
-import 'package:gadgetque/view/authentication/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/authentication/screen_signup/screen_signup.dart';
 import 'package:gadgetque/view/authentication/widget/action_button.dart';
 import 'package:gadgetque/view/authentication/widget/app_bar.dart';
@@ -16,8 +15,8 @@ import 'package:get/get.dart';
 class ScreenSignin extends StatelessWidget {
   ScreenSignin({Key? key}) : super(key: key);
   final authController = Get.put(AuthenticationController());
-  final mailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final _mailController = TextEditingController();
+  final _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,50 +41,35 @@ class ScreenSignin extends StatelessWidget {
                   ),
                   kHeigt150,
                   FormFields(
-                    controller: mailController,
+                    controller: _mailController,
                     fontSize: 20,
                     name: 'Mail',
                     color: kFormColor,
                     inputTextColor: kWhiteColor,
                   ),
                   FormFields(
-                      controller: passwordController,
+                      controller: _passwordController,
                       fontSize: 20,
                       name: 'Password',
                       color: kFormColor,
                       inputTextColor: kWhiteColor),
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        EntryButton(
-                            color: kFormColor,
-                            height: size.width * 0.1,
-                            // size: size,
-                            onTap: () {},
-                            buttonName: 'Otp Signin?',
-                            width: size.width * 0.4),
-                        EntryButton(
-                            color: kFormColor,
-                            height: size.width * 0.1,
-                            // size: size,
-                            onTap: () {
-                              // Get.to(BottomNavigator());
-                              authController.signinUser(
-                                  mailController.text.trim(),
-                                  passwordController.text.trim());
-
-                            },
-                            buttonName: 'Sign in',
-                            width: size.width * 0.4)
-                      ],
-                    ),
+                    child: EntryButton(
+                        color: kFormColor,
+                        height: size.width * 0.1,
+                        onTap: () {
+                          authController.signinUser(
+                              _mailController.text.trim(),
+                              _passwordController.text.trim());
+                        },
+                        buttonName: 'Sign in',
+                        width: size.width * 0.83),
                   ),
                   kHeigt150,
                   SwitchBottomTextButton(
                       onTap: () {
-                        Get.to(const ScreenSignup());
+                        Get.offAll(ScreenSignup());
                       },
                       text: 'Register Now'),
                 ],

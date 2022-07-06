@@ -7,16 +7,17 @@ import 'package:gadgetque/view/screens/my_order/screen_my_order.dart';
 import 'package:gadgetque/view/screens/profile/screen_profile.dart';
 import 'package:gadgetque/view/screens/wishlist/screen_wishlist.dart';
 
-ValueNotifier<int> indexChanger = ValueNotifier(0);
+
 
 class BottomNavigator extends StatelessWidget {
   BottomNavigator({Key? key}) : super(key: key);
+ValueNotifier<int> indexChanger = ValueNotifier(0);
   final _pages = [
     const ScreenHome(),
     const ScreenOrder(),
     const ScreenAddress(),
     const ScreenWishlist(),
-    const ScreenProfile()
+    ScreenProfile()
   ];
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,11 @@ class BottomNavigator extends StatelessWidget {
         child: ValueListenableBuilder(
           valueListenable: indexChanger,
           builder: (context, int index, _) {
-            return _pages[index]
-            ;
+            return _pages[index];
           },
         ),
       ),
-      bottomNavigationBar: const BottomBarItems(),
+      bottomNavigationBar:  BottomBarItems(indexChanger: indexChanger),
     );
   }
 }

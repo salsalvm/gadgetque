@@ -4,9 +4,9 @@ import 'package:gadgetque/view/core/color.dart';
 
 class BottomBarItems extends StatelessWidget {
   const BottomBarItems({
-    Key? key,
+    Key? key, this.indexChanger,
   }) : super(key: key);
-
+final indexChanger;
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(

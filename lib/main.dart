@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/authentication/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:get/get.dart';
 import 'view/core/color.dart';
 

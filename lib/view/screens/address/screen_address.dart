@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/authentication/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/address/widget/add_edit_address.dart';
 import 'package:gadgetque/view/screens/address/widget/list_address.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';

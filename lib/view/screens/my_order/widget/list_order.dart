@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
-import 'package:gadgetque/view/authentication/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/my_order/screen_view_order.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/widget/ratting_item.dart';

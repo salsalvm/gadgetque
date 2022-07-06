@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/authentication/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/home/widget/recommended_item.dart';
 import 'package:gadgetque/view/screens/home/widget/most_ratted_items.dart';
 import 'package:gadgetque/view/screens/home/widget/carousal_slider.dart';

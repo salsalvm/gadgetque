@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/authentication/screen_signin/screen_signin.dart';
-import 'package:gadgetque/view/authentication/screen_signup/screen_signup.dart';
-import 'package:gadgetque/view/authentication/widget/action_button.dart';
 import 'package:gadgetque/view/authentication/widget/app_bar.dart';
 import 'package:gadgetque/view/authentication/widget/background_image.dart';
+import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 late Size size;
+final loggedKey = 'login successful';
 
 class ScreenEntry extends StatelessWidget {
   const ScreenEntry({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class ScreenEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
+    checkUserLogin();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -26,11 +28,10 @@ class ScreenEntry extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
-                children: [
-                  const EntryAppbar(
-                      iconColor: kGreyColor, textColor: kWhiteColor),
+                children: const [
+                  EntryAppbar(iconColor: kGreyColor, textColor: kWhiteColor),
                   kHeigt300,
-                  const Text(
+                  Text(
                     'Discover  Your \n  Unique Style',
                     style: TextStyle(
                         fontSize: 25,
@@ -38,7 +39,7 @@ class ScreenEntry extends StatelessWidget {
                         color: kBlackColor),
                   ),
                   kHeigt100,
-                  const Text(
+                  Text(
                     'Explore all the Exiting stuffs...               \nBased on your style.',
                     style: TextStyle(
                         fontSize: 18,
@@ -46,30 +47,6 @@ class ScreenEntry extends StatelessWidget {
                         color: Colors.black54),
                   ),
                   kHeigt50,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      EntryButton(
-                          height: size.width * 0.15,
-                          width: size.width * 0.4,
-                          color: Colors.grey.withOpacity(0.5),
-                          // size: size,
-                          buttonName: 'Sign In',
-                          onTap: () {
-                            Get.to(ScreenSignin());
-                            
-                          }),
-                      EntryButton(
-                          height: size.width * 0.15,
-                          width: size.width * 0.4,
-                          color: Colors.grey.withOpacity(0.5),
-                          // size: size,
-                          buttonName: 'Register',
-                          onTap: () {
-                            Get.to( ScreenSignup());
-                          }),
-                    ],
-                  ),
                 ],
               ),
             ),
@@ -77,5 +54,17 @@ class ScreenEntry extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> checkUserLogin() async {
+  
+    final sharedPref = await SharedPreferences.getInstance();
+    sharedPref.get(loggedKey);
+    if (loggedKey == null || loggedKey == false) {
+       await Future.delayed(const Duration(seconds: 2));
+      Get.offAll(ScreenSignin());
+    } else { await Future.delayed(const Duration(seconds: 2));
+      Get.offAll(BottomNavigator());
+    }
   }
 }

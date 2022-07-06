@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/core/space.dart';
-import 'package:gadgetque/view/authentication/screen_entry/screen_entry.dart';
+import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
