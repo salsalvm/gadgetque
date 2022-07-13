@@ -35,7 +35,7 @@ class AppbarMain extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  'GadgetQue',
+                  'GadgetsQue',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w800,

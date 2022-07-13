@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/core/space.dart';
@@ -17,7 +18,7 @@ class CartitemsList extends StatelessWidget {
     return SizedBox(
       height: size.height * .497,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         child: ListView.separated(
           separatorBuilder: (context, index) => kHeigt10,
           shrinkWrap: true,
@@ -94,4 +95,5 @@ class CartitemsList extends StatelessWidget {
       ),
     );
   }
+ 
 }

@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
+
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/core/space.dart';
@@ -17,24 +16,23 @@ class CouponApply extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
-      decoration:
-          BoxDecoration(borderRadius: kRAdius10, color: kBoxColor),
+      decoration: BoxDecoration(borderRadius: kRAdius10, color: kBoxColor),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ItemText(
+            const ItemText(
                 name: 'COUPON',
                 weight: FontWeight.bold,
                 fontSize: 18,
                 color: kBlackColor),
-            DivLine(),
+            const DivLine(),
             kHeigt5,
             Padding(
               padding: const EdgeInsets.only(right: 20),
-              child: FormFields(
+              child: FormFields(validator: (value) {},
+                icon: Icons.earbuds_rounded,
                 fontSize: 22,
                 size: 22,
                 name: 'voucher number',

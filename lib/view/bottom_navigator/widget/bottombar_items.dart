@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 
 class BottomBarItems extends StatelessWidget {
   const BottomBarItems({
-    Key? key, this.indexChanger,
+    Key? key,
+    this.indexChanger,
   }) : super(key: key);
-final indexChanger;
+  final dynamic indexChanger;
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(

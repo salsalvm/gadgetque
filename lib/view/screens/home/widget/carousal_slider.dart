@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/home/home_controller.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/product/screen_product.dart';
@@ -16,17 +17,20 @@ class CarasoulSlider extends StatelessWidget {
       onTap: () => Get.to(const BuyProduct()),
       child: CarouselSlider(
         items: [
-          Container(
-            width: size.width,
-            height: size.width * 0.6,
-            decoration: BoxDecoration(
-              borderRadius: kRAdius10,
-              image: const DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(
-                  'asset/login_background.png',
+          GetBuilder<HomeController>(
+            init: HomeController(),
+            builder: (conroller) => Container(
+              width: size.width,
+              height: size.width * 0.6,
+              decoration: BoxDecoration(
+                borderRadius: kRAdius10,
+                image: const DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    'asset/login_background.png',
+                  ),
+                  filterQuality: FilterQuality.high,
                 ),
-                filterQuality: FilterQuality.high,
               ),
             ),
           ),

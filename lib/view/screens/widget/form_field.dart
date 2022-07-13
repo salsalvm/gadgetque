@@ -6,12 +6,16 @@ class FormFields extends StatelessWidget {
   FormFields({
     Key? key,
     required this.name,
+    required this.icon,
     required this.color,
     this.size = 18,
     this.inputTextColor,
     this.fontSize,
     this.textColor = kGreyColor,
     this.controller,
+    this.obscureText = false,
+    this.keyboardType = TextInputType.text,
+    this.validator,
   }) : super(key: key);
   final String name;
   final Color color;
@@ -20,20 +24,39 @@ class FormFields extends StatelessWidget {
   final double? fontSize;
   final Color? inputTextColor;
   final TextEditingController? controller;
+  final bool obscureText;
+  final TextInputType keyboardType;
+  final validator;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
-    return CupertinoTextFormFieldRow(
-      controller: controller,
-      style: TextStyle(color: inputTextColor, fontSize: fontSize),
-      placeholder: '  $name',
-      placeholderStyle: TextStyle(
-        color: textColor,
-        fontSize: size,
-        fontWeight: FontWeight.w600,
-      ),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: kRAdius10,
+    return Padding(
+      padding: const EdgeInsets.only(left: 15.0, right: 15, top: 10),
+      child: CupertinoTextField(
+        controller: controller,
+        onChanged: validator,
+        obscuringCharacter: '*',
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: kRAdius10,
+        ),
+        style: TextStyle(
+          fontSize: fontSize,
+          color: inputTextColor,
+        ),
+        placeholder: name,
+        obscureText: obscureText,
+        placeholderStyle: TextStyle(
+            color: textColor, fontWeight: FontWeight.w400, fontSize: size),
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+        prefix: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Icon(
+            icon,
+            color: kGreyColor,
+          ),
+        ),
+        keyboardType: keyboardType,
       ),
     );
   }

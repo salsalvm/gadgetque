@@ -5,12 +5,11 @@ import 'package:gadgetque/view/authentication/widget/background_image.dart';
 import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
-
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 late Size size;
-final loggedKey = 'login successful';
+const loggedKey = 'login successful';
 
 class ScreenEntry extends StatelessWidget {
   const ScreenEntry({Key? key}) : super(key: key);
@@ -57,13 +56,13 @@ class ScreenEntry extends StatelessWidget {
   }
 
   Future<void> checkUserLogin() async {
-  
     final sharedPref = await SharedPreferences.getInstance();
-    sharedPref.get(loggedKey);
-    if (loggedKey == null || loggedKey == false) {
-       await Future.delayed(const Duration(seconds: 2));
+    final preff = sharedPref.get(loggedKey);
+    if (preff == null || preff == false) {
+      await Future.delayed(const Duration(seconds: 1));
       Get.offAll(ScreenSignin());
-    } else { await Future.delayed(const Duration(seconds: 2));
+    } else {
+      await Future.delayed(const Duration(seconds: 1));
       Get.offAll(BottomNavigator());
     }
   }

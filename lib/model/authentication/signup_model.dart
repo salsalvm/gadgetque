@@ -2,25 +2,45 @@
 //
 //     final signupModel = signupModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
-SignupModel signupModelFromJson(String str) => SignupModel.fromJson(json.decode(str));
+SignupModel signupModelFromJson(String str) =>
+    SignupModel.fromJson(json.decode(str));
 
 String signupModelToJson(SignupModel data) => json.encode(data.toJson());
 
 class SignupModel {
-    SignupModel({
-        required this.valid,
-    });
+  SignupModel({
+    required this.response,
+  });
 
-    bool valid;
+  Response response;
 
-    factory SignupModel.fromJson(Map<String, dynamic> json) => SignupModel(
-        valid: json["valid"],
-    );
+  factory SignupModel.fromJson(Map<String, dynamic> json) => SignupModel(
+        response: Response.fromJson(json["response"]),
+      );
 
-    Map<String, dynamic> toJson() => {
-        "valid": valid,
-    };
+  Map<String, dynamic> toJson() => {
+        "response": response.toJson(),
+      };
+}
+
+class Response {
+  Response({
+    required this.acknowledged,
+    required this.insertedId,
+  });
+
+  bool acknowledged;
+  String insertedId;
+
+  factory Response.fromJson(Map<String, dynamic> json) => Response(
+        acknowledged: json["acknowledged"],
+        insertedId: json["insertedId"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "acknowledged": acknowledged,
+        "insertedId": insertedId,
+      };
 }

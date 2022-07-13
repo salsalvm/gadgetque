@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/authentication/auth_controller.dart';
+import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';
-import 'package:gadgetque/view/screens/profile/widget/change_password.dart';
 import 'package:gadgetque/view/screens/profile/widget/wallet_balance.dart';
 import 'package:gadgetque/view/screens/profile/widget/profile_details.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
@@ -29,8 +29,8 @@ class ScreenProfile extends StatelessWidget {
                 kHeigt10,
                 WalletBalance(),
                 kHeigt10,
-                ChangePassword(),
-                kHeigt10,
+                // ChangePassword(),
+                // kHeigt10,
               ],
             )),
           ),
@@ -40,7 +40,16 @@ class ScreenProfile extends StatelessWidget {
             buttonHeight: 50,
             text: 'Sign Out',
             onTap: () {
-              authController.signoutUser();
+              Get.defaultDialog(
+                backgroundColor: kBoxColor,
+                buttonColor: kButtonColor,
+                middleText: 'Do you Want to log out',
+                onConfirm: () {
+                  authController.signoutUser();
+                },
+                title: 'Are You Sure',
+                onCancel: () {},
+              );
             },
           )
         ],

@@ -7,7 +7,7 @@ class SwitchBottomTextButton extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 final String text;
-final onTap;
+final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
     return Row(

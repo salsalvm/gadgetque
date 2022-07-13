@@ -7,16 +7,14 @@ class EntryButton extends StatelessWidget {
     Key? key,
     required this.color,
     required this.height,
-    // required this.size,
     required this.onTap,
     required this.buttonName,
     required this.width,
   }) : super(key: key);
-  final onTap;
-  final height;
-  final width;
-  // final Size size;
-  final color;
+  final VoidCallback onTap;
+  final double height;
+  final double width;
+  final Color color;
   final String buttonName;
   @override
   Widget build(BuildContext context) {
