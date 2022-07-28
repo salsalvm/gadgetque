@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/controller/authentication/auth_controller.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';

@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
-import 'package:gadgetque/model/authentication/signin_model.dart';
-import 'package:gadgetque/model/authentication/signup_model.dart';
 import 'package:gadgetque/model/services/auth_service.dart';
+import 'package:gadgetque/model/signin_model.dart';
+import 'package:gadgetque/model/signup_model.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/authentication/screen_signin/screen_signin.dart';
 import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
@@ -25,9 +25,8 @@ class AuthenticationController extends GetxController {
       final response = await AuthServices().checkLogin(signinData);
 
       if (response!.statusCode == 200 || response.statusCode == 201) {
-        final data = signinModelFromJson(
-          response.data,
-        );
+        final data = signinModelFromJson(response.data);
+
         Get.offAll(
           BottomNavigator(),
         );
@@ -39,7 +38,8 @@ class AuthenticationController extends GetxController {
           padding: const EdgeInsets.all(20),
         );
         final sharedPref = await SharedPreferences.getInstance();
-        sharedPref.setBool(loggedKey, true);
+        sharedPref.setString(loggedKey, data.response.user.id);
+        final userId = sharedPref.get(loggedKey);
       } else {
         Get.snackbar(
           'Login Error',

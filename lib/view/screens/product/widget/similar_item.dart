@@ -14,13 +14,13 @@ class SimilarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: size.width * 1.14,color: kBoxColor,
+      height: size.width * 1.14,
+      color: kBoxColor,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.symmetric(
-              vertical: 10, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

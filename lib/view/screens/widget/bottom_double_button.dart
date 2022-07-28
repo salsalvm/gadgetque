@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';
+import 'package:gadgetque/view/core/enums/cart.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
-
 
 class BottomDoubleButton extends StatelessWidget {
   const BottomDoubleButton({
     Key? key,
     required this.secondText,
     required this.firstText,
-   required this.firstOnTap,
-    
-   required this.secondOnTap,
+    required this.firstOnTap,
+    required this.secondOnTap, this.type,
   }) : super(key: key);
   final String secondText;
   final String firstText;
   final Callback firstOnTap;
-  
-  final Callback
-   secondOnTap;
+final Cart? type;
+  final Callback secondOnTap;
   @override
   Widget build(BuildContext context) {
     return Row(

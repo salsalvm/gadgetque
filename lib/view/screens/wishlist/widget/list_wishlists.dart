@@ -23,9 +23,9 @@ class ListWishlists extends StatelessWidget {
         decoration: BoxDecoration(borderRadius: kRAdius10),
         child: ListView.builder(
           itemBuilder: (context, index) => GestureDetector(
-            onTap: () => Get.to(
-              const BuyProduct(),
-            ),
+            // onTap: () => Get.to(
+            //    BuyProduct(),
+            // ),
             child: Card(
               color: kWhiteColor,shadowColor: kGreyColor,
               shape: RoundedRectangleBorder(borderRadius: kRAdius10),

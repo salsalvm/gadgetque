@@ -1,8 +1,9 @@
 import 'dart:developer';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gadgetque/controller/home/home_controller.dart';
+import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/core/space.dart';
@@ -35,7 +36,9 @@ class CategoryGrid extends StatelessWidget {
               ),
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () => Get.to(const BuyProduct()),
+                  onTap: () => Get.to(BuyProduct(
+                    products: controller.products![index],
+                  )),
                   child: Card(
                     color: kWhiteColor,
                     shape: RoundedRectangleBorder(borderRadius: kRAdius10),
@@ -46,19 +49,30 @@ class CategoryGrid extends StatelessWidget {
                           Stack(
                             alignment: AlignmentDirectional.topEnd,
                             children: [
-                              Container(
+                              CachedNetworkImage(
+                                imageUrl:
+                                    'http://18.144.34.178/product-image/${controller.categoryItems![index].id}/${controller.categoryItems![index].imageId}_1.jpg',
                                 width: size.width * .5,
                                 height: size.width * .45,
-                                decoration: BoxDecoration(
-                                  borderRadius: kRAdius10,
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
+                                placeholder: (context, url) => const Center(
+                                    child: CircularProgressIndicator()),
+                                errorWidget: (context, str, error) =>
+                                    CachedNetworkImage(
+                                  imageUrl:
                                       '$kBaseurl/product-image/${controller.categoryItems![index].id}/${controller.categoryItems![index].imageId}_1.jpg',
-                                    ),
+                                  width: size.width * .5,
+                                  height: size.width * .45,
+                                  placeholder: (context, url) => const Center(
+                                      child: CircularProgressIndicator()),
+                                  errorWidget: (context, str, error) =>
+                                      const Icon(
+                                    Icons.error,
+                                    color: kGreyColor,
+                                    size: 40,
                                   ),
                                 ),
                               ),
+                              // '',
                               const AddWishlist(radius: 20, iconSize: 34),
                             ],
                           ),

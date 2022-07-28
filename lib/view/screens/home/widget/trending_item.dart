@@ -1,5 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:gadgetque/controller/home/home_controller.dart';
+import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/core/radius.dart';
@@ -15,7 +16,7 @@ class TrendingItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: size.width * 0.67,
+      height: size.width * 0.77,
       width: size.width,
       child: GetBuilder<HomeController>(
         init: HomeController(),
@@ -30,21 +31,29 @@ class TrendingItem extends StatelessWidget {
                 shape: RoundedRectangleBorder(borderRadius: kRAdius10),
                 child: GestureDetector(
                   onTap: () => Get.to(
-                    const BuyProduct(),
+                     BuyProduct(products:controller.products![index]),
                   ),
                   child: Column(
                     children: [
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 10),
-                        width: size.width * 0.45,
-                        height: size.width * 0.4,
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.vertical(
-                              top: Radius.circular(10)),
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                                'http://54.176.6.232/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
+                      CachedNetworkImage(
+                        imageUrl:
+                            'http://54.176.6.232/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg',
+                        width: size.width * .5,
+                        height: size.width * .5,
+                        placeholder: (context, url) =>
+                            const Center(child: CircularProgressIndicator()),
+                        errorWidget: (context, str, error) =>
+                            CachedNetworkImage(
+                          imageUrl:
+                              'http://10.0.2.2:3000/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg',
+                          width: size.width * .5,
+                          height: size.width * .5,
+                          placeholder: (context, url) =>
+                              const Center(child: CircularProgressIndicator()),
+                          errorWidget: (context, str, error) => const Icon(
+                            Icons.error,
+                            color: kGreyColor,
+                            size: 40,
                           ),
                         ),
                       ),

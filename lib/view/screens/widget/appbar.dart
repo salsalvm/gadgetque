@@ -58,12 +58,12 @@ class AppbarMain extends StatelessWidget {
                 IconButton(
                     onPressed: () {
                       Get.to(const ScreenCart());
-                      Get.snackbar(
-                          colorText: kBlackColor,
-                          margin: const EdgeInsets.only(top: 50),
-                          'Slide to left Remove from Cart',
-                          '',
-                          snackPosition: SnackPosition.TOP);
+                      // Get.snackbar(
+                      //     colorText: kBlackColor,
+                      //     margin: const EdgeInsets.only(top: 50),
+                      //     'Slide to left Remove from Cart',
+                      //     '',
+                      //     snackPosition: SnackPosition.TOP);
                     },
                     icon: const Icon(
                       Icons.shopping_cart,

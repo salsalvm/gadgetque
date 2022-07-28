@@ -12,6 +12,7 @@ class ScreenAddress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(70),
@@ -48,4 +49,5 @@ class ScreenAddress extends StatelessWidget {
       ),
     );
   }
+  
 }

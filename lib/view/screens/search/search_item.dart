@@ -74,7 +74,7 @@ class MySearch extends SearchDelegate {
       ),
       itemBuilder: (context, index) {
         return InkWell(
-          onTap: () => Get.to(const BuyProduct()),
+          // onTap: () => Get.to( BuyProduct()),
           child: Card(
             color: kWhiteColor,
             shape: RoundedRectangleBorder(borderRadius: kRAdius10),
@@ -161,7 +161,7 @@ class MySearch extends SearchDelegate {
       ),
       itemBuilder: (context, index) {
         return InkWell(
-          onTap: () => Get.to(const BuyProduct()),
+          // onTap: () => Get.to( BuyProduct()),
           child: Card(
             color: kWhiteColor,
             shape: RoundedRectangleBorder(borderRadius: kRAdius10),

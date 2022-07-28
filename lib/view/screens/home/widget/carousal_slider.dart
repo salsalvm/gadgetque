@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:gadgetque/controller/home/home_controller.dart';
+import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/core/radius.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/product/screen_product.dart';
@@ -14,7 +14,7 @@ class CarasoulSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(const BuyProduct()),
+      // onTap: () => Get.to(const BuyProduct()),
       child: CarouselSlider(
         items: [
           GetBuilder<HomeController>(

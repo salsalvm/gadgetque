@@ -1,0 +1,4 @@
+enum Cart {
+  isAddCart,
+  isViewCart,
+}

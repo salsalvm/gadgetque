@@ -15,9 +15,9 @@ class ItemDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(
-        const BuyProduct(),
-      ),
+      // onTap: () => Get.to(
+      //   const BuyProduct(),
+      // ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 30),
         child: Row(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/controller/authentication/auth_controller.dart';
-import 'package:gadgetque/controller/authentication/validationController.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
+import 'package:gadgetque/controller/validationController.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/authentication/screen_signin/screen_signin.dart';
 import 'package:gadgetque/view/authentication/widget/action_button.dart';

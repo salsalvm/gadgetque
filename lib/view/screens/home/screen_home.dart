@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/core/color.dart';
@@ -8,6 +10,7 @@ import 'package:gadgetque/view/screens/home/widget/catogory_search.dart';
 import 'package:gadgetque/view/screens/home/widget/trending_item.dart';
 import 'package:gadgetque/view/screens/widget/appbar.dart';
 import 'package:gadgetque/view/screens/widget/main_headding.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
@@ -16,6 +19,7 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    a();
     return Scaffold(
       backgroundColor: kFormColor,
       appBar: PreferredSize(
@@ -34,10 +38,12 @@ class ScreenHome extends StatelessWidget {
           RecommendedItem(),
           MainHead(headding: 'Trending Now'),
           TrendingItem(),
-          // FootterHome(),
-          // FooterCopyrites()
         ],
       ),
     );
   }
+  a()async{ final sharedPref = await SharedPreferences.getInstance();
+      final userId = sharedPref.get(loggedKey);
+      log(userId.toString());
+      }
 }

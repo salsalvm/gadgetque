@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/controller/authentication/auth_controller.dart';
-import 'package:gadgetque/controller/authentication/validationController.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
+import 'package:gadgetque/controller/validationController.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/authentication/screen_signup/screen_signup.dart';
 import 'package:gadgetque/view/authentication/widget/action_button.dart';
@@ -79,8 +79,13 @@ class ScreenSignin extends StatelessWidget {
                       buttonName: 'Sign in',
                       width: size.width * 0.823),
                   kHeigt20,
-                  Obx(() => Visibility(visible: authController.isLoading.value,
-                      child:const Center(child: CircularProgressIndicator(color: Colors.green,))),
+                  Obx(
+                    () => Visibility(
+                        visible: authController.isLoading.value,
+                        child: const Center(
+                            child: CircularProgressIndicator(
+                          color: Colors.green,
+                        ))),
                   ),
                   const Spacer(),
                   SwitchBottomTextButton(

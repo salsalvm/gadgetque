@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:gadgetque/view/core/color.dart';
 import 'package:gadgetque/view/core/space.dart';
 import 'package:gadgetque/view/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/cart/widget/cart_container.dart';
@@ -16,6 +19,7 @@ class ScreenCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBoxColor,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: SecondAppbar(
@@ -40,7 +44,7 @@ class ScreenCart extends StatelessWidget {
               },
               radius: 0,
               buttonWidth: size.width,
-              buttonHeight: size.width * 0.13,
+              buttonHeight: size.width * 0.115,
               text: 'Proceed To Checkout',
             ),
           ],

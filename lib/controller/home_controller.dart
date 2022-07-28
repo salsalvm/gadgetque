@@ -1,6 +1,6 @@
 import 'dart:developer';
-import 'package:gadgetque/model/home/category_datas_model.dart';
-import 'package:gadgetque/model/home/home_datas_model.dart';
+import 'package:gadgetque/model/category_datas_model.dart';
+import 'package:gadgetque/model/home_datas_model.dart';
 import 'package:gadgetque/model/services/home_services.dart';
 import 'package:gadgetque/view/screens/home/category/screen_category.dart';
 import 'package:get/get.dart';
@@ -19,13 +19,6 @@ class HomeController extends GetxController {
         categories = datas.category.obs;
         update();
       }
-      // else {
-      //   ItemText(
-      //       name: 'No datas available',
-      //       weight: FontWeight.w400,
-      //       fontSize: 16,
-      //       color: kGreenColor);
-      // }
     } catch (e) {
       log(e.toString());
     }
