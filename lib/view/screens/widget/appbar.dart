@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/core/color.dart';
-import 'package:gadgetque/view/authentication/splash/splash.dart';
-import 'package:gadgetque/view/screens/cart/screen_cart.dart';
-import 'package:gadgetque/view/screens/search/search_item.dart';
+import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
+import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
+import 'package:gadgetque/view/screens/search_page/search_item.dart';
 import 'package:get/get.dart';
 
 class AppbarMain extends StatelessWidget {

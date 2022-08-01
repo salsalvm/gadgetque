@@ -1,0 +1,4 @@
+enum Address {
+  isadding,
+  isEditting,
+}

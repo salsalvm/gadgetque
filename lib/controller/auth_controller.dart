@@ -1,13 +1,13 @@
 import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
-import 'package:gadgetque/model/services/auth_service.dart';
 import 'package:gadgetque/model/signin_model.dart';
 import 'package:gadgetque/model/signup_model.dart';
-import 'package:gadgetque/view/authentication/splash/splash.dart';
-import 'package:gadgetque/view/authentication/screen_signin/screen_signin.dart';
-import 'package:gadgetque/view/bottom_navigator/bottom_navigation.dart';
-import 'package:gadgetque/view/core/color.dart';
+import 'package:gadgetque/services/auth_services.dart';
+import 'package:gadgetque/view/constant/authentication/screen_signin/screen_signin.dart';
+import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
+import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
+import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,7 +39,7 @@ class AuthenticationController extends GetxController {
         );
         final sharedPref = await SharedPreferences.getInstance();
         sharedPref.setString(loggedKey, data.response.user.id);
-        final userId = sharedPref.get(loggedKey);
+        sharedPref.get(loggedKey);
       } else {
         Get.snackbar(
           'Login Error',

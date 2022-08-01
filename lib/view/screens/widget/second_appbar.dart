@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/core/color.dart';
+import 'package:gadgetque/view/constant/core/color.dart';
 
 class SecondAppbar extends StatelessWidget {
   const SecondAppbar({
@@ -14,7 +14,7 @@ final String title;
       centerTitle: true,
       title:  Text(
         title,
-        style: TextStyle(
+        style:const TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.bold,
           color: kBlackColor,

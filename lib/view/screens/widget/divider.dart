@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/core/color.dart';
+import 'package:gadgetque/view/constant/core/color.dart';
 
 class DivLine extends StatelessWidget {
   const DivLine({

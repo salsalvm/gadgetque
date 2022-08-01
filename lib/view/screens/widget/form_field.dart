@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:gadgetque/view/core/color.dart';
-import 'package:gadgetque/view/core/radius.dart';
+import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/constant/core/radius.dart';
 
 class FormFields extends StatelessWidget {
-  FormFields({
+ const FormFields({
     Key? key,
     required this.name,
     required this.icon,

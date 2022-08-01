@@ -1,8 +1,8 @@
 import 'dart:developer';
 import 'package:gadgetque/model/category_datas_model.dart';
 import 'package:gadgetque/model/home_datas_model.dart';
-import 'package:gadgetque/model/services/home_services.dart';
-import 'package:gadgetque/view/screens/home/category/screen_category.dart';
+import 'package:gadgetque/services/home_services.dart';
+import 'package:gadgetque/view/screens/home_page/category/screen_category.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
