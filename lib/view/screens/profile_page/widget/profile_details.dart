@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/profile_controller.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/radius.dart';
@@ -26,62 +27,67 @@ class ProfileDetails extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextElementsInRow(
-                onTap: () {
-                  Get.dialog(
-                  const  EditProfile()
-                  );
-                },
-                paddding: 5,
-                firstText: 'Profile',
-                secondText: 'Edit',
-                wieght: FontWeight.bold,
-                fontSize: 20,
-                fontColor: kBlackColor),
-            const DivLine(),
-            Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: GestureDetector(
-                onTap: () {},
-                child: CircleAvatar(
-                  backgroundColor: kGreenColor,
-                  radius: 45,
-                  child: const Text('no image'),
+        child: GetBuilder<ProfileController>(
+          init: ProfileController(),
+          builder: (controller) => controller.userName == null
+              ? const Center(child: CircularProgressIndicator())
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextElementsInRow(
+                        onTap: () {
+                          Get.dialog(EditProfile(
+                            name: controller.userName!,
+                            mail: controller.mail!,
+                          ));
+                        },
+                        paddding: 5,
+                        firstText: 'Profile',
+                        secondText: 'Edit',
+                        wieght: FontWeight.bold,
+                        fontSize: 20,
+                        fontColor: kBlackColor),
+                    const DivLine(),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: CircleAvatar(
+                          backgroundImage:
+                              const AssetImage('asset/noimage.jpeg'),
+                          backgroundColor: kGreenColor,
+                          radius: 45,
+                        ),
+                      ),
+                    ),
+                    kHeigt5,
+                    TextElementsInRow(
+                        firstText: 'NAME    :',
+                        secondText: controller.userName!.toUpperCase(),
+                        wieght: FontWeight.w600,
+                        fontSize: 20,
+                        fontColor: kBlackColor),
+                    kHeigt10,
+                    TextElementsInRow(
+                        firstText: 'Mail         :',
+                        secondText: controller.mail ?? 'mail not available',
+                        wieght: FontWeight.w600,
+                        fontSize: 18,
+                        fontColor: kBlack54Color),
+                    kHeigt5,
+                    ActionButton(
+                        buttonColor: Colors.white.withOpacity(0.1),
+                        fontSize: 18,
+                        buttonWidth: size.width,
+                        buttonHeight: 38,
+                        text: 'Change Password',
+                        onTap: () {
+                          Get.dialog(const ChangePassword());
+                        })
+                  ],
                 ),
-              ),
-            ),
-            kHeigt5,
-            const TextElementsInRow(
-                firstText: 'NAME   :',
-                secondText: "SALSAL VM",
-                wieght: FontWeight.w600,
-                fontSize: 20,
-                fontColor: kBlackColor),
-            kHeigt10,
-            const TextElementsInRow(
-                firstText: 'Mail         :',
-                secondText: "abc@gmail.com",
-                wieght: FontWeight.w600,
-                fontSize: 18,
-                fontColor: kBlack54Color),
-            kHeigt5,
-            ActionButton(
-                buttonColor: Colors.white.withOpacity(0.1),
-                fontSize: 18,
-                buttonWidth: size.width,
-                buttonHeight: 38,
-                text: 'Change Password',
-                onTap: () {
-                  Get.dialog(const ChangePassword());
-                })
-          ],
         ),
       ),
     );
   }
-
-
 }

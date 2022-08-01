@@ -20,7 +20,7 @@ class HomeController extends GetxController {
         update();
       }
     } catch (e) {
-      log(e.toString());
+      log('get home controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
     }
     return [];
   }
@@ -38,7 +38,7 @@ class HomeController extends GetxController {
         ScreenCategory(category: category),
       );
     } catch (e) {
-      log(e.toString());
+       log('get category controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
     }
   }
 

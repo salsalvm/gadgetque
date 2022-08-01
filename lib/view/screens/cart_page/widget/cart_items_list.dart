@@ -4,6 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/constant/core/space.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
@@ -105,11 +106,54 @@ class CartitemsList extends StatelessWidget {
                                         weight: FontWeight.bold,
                                         fontSize: 20,
                                         color: kBlackColor),
-                                    subtitle: const ItemText(
-                                        name: '1',
-                                        weight: FontWeight.bold,
-                                        fontSize: 22,
-                                        color: kBlackColor),
+
+                                    // item count //
+                                    subtitle: Row(
+                                      children: [
+                                        kWidth5,
+                                        Stack(
+                                          alignment:
+                                              AlignmentDirectional.center,
+                                          children: [
+                                            Container(
+                                              height: 22,
+                                              width: 22,
+                                              color: kBoxColor,
+                                            ),
+                                            ItemText(
+                                                onTap: () {},
+                                                name: '-',
+                                                weight: FontWeight.bold,
+                                                fontSize: 30,
+                                                color: kredColor),
+                                          ],
+                                        ),
+                                        kWidth5,
+                                        const ItemText(
+                                            name: '1',
+                                            weight: FontWeight.bold,
+                                            fontSize: 20,
+                                            color: kBlackColor),
+                                        kWidth10,
+                                        Stack(
+                                          alignment:
+                                              AlignmentDirectional.center,
+                                          children: [
+                                            Container(
+                                              height: 22,
+                                              width: 22,
+                                              color: kBoxColor,
+                                            ),
+                                            ItemText(
+                                                onTap: () {},
+                                                name: '+',
+                                                weight: FontWeight.bold,
+                                                fontSize: 26,
+                                                color: kGreenColor),
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                     trailing: Column(
                                       children: [
                                         ItemText(

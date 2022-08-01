@@ -6,6 +6,7 @@ import 'package:gadgetque/view/constant/core/radius.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
 import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
+import 'package:get/get.dart';
 
 class ChangePassword extends StatelessWidget {
   const ChangePassword({
@@ -27,48 +28,45 @@ class ChangePassword extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // const ItemText(
-                //     name: 'Change Password',
-                //     weight: FontWeight.bold,
-                //     fontSize: 18,
-                //     color: kBlackColor),
-                // const DivLine(),
                 kHeigt5,
-                FormFields(validator: (value) {
-                  
-                },
+                FormFields(
+                  validator: (value) {},
                   obscureText: true,
                   icon: Icons.lock,
                   name: 'Current Password',
                   color: Colors.white.withOpacity(0.26),
                 ),
-                FormFields(validator: (value) {
-                  
-                },
+                FormFields(
+                  validator: (value) {},
                   obscureText: true,
                   icon: Icons.lock,
                   name: 'New Password',
                   color: Colors.white.withOpacity(0.26),
                 ),
+                kHeigt10,
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ActionButton(
-                          buttonWidth: size.width * .33,
+                          buttonWidth: size.width * .32,
                           buttonColor: Colors.white.withOpacity(0.2),
                           buttonHeight: size.width * 0.12,
                           text: 'Cancel',
                           fontSize: 16,
-                          onTap: () {}),
+                          onTap: () {
+                            Get.back();
+                          }),
                       ActionButton(
-                          buttonWidth: size.width * .33,
+                          buttonWidth: size.width * .32,
                           buttonColor: Colors.white.withOpacity(0.2),
                           buttonHeight: size.width * 0.12,
                           text: 'Update',
                           fontSize: 16,
-                          onTap: () {})
+                          onTap: () {
+                            Get.back();
+                          })
                     ],
                   ),
                 )

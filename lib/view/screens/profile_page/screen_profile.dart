@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/auth_controller.dart';
+import 'package:gadgetque/services/profile_services.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
@@ -29,8 +30,6 @@ class ScreenProfile extends StatelessWidget {
                 kHeigt10,
                 WalletBalance(),
                 kHeigt10,
-                // ChangePassword(),
-                // kHeigt10,
               ],
             )),
           ),
