@@ -29,18 +29,18 @@ class ProfileController extends GetxController {
       "Name": name,
       "Emailaddress": mail,
     };
-   final response=await ProfileServicesEndPoint().updateProfile(updatedDetails);
-   log(response.toString());
-   if (response!.statusCode == 200 || response.statusCode == 201) {
-   final datas=  updateProfileModelFromJson(response.data);
-   if (datas.acknowledged) {
-     getProfile();
-     update();
-             Get.snackbar(
-              'updatted succesfully', 'profile has been updatted',
-              colorText: kGreenColor, snackPosition: SnackPosition.BOTTOM);
-   }
-   }
+    final response =
+        await ProfileServicesEndPoint().updateProfile(updatedDetails);
+    log(response.toString());
+    if (response!.statusCode == 200 || response.statusCode == 201) {
+      final datas = updateProfileModelFromJson(response.data);
+      if (datas.acknowledged) {
+        getProfile();
+        update();
+        Get.snackbar('updatted succesfully', 'profile has been updatted',
+            colorText: kGreenColor, snackPosition: SnackPosition.BOTTOM);
+      }
+    }
   }
 
   @override

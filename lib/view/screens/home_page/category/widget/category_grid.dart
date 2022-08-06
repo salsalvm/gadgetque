@@ -4,7 +4,7 @@ import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/radius.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
-import 'package:gadgetque/view/screens/product_page/screen_product.dart';
+import 'package:gadgetque/view/screens/product_view_page/screen_product.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/wishlist_page/widget/add_wishlists.dart';
 import 'package:get/get.dart';
@@ -50,31 +50,7 @@ class CategoryGrid extends StatelessWidget {
                                   height: size.width * .45,
                                   placeholder: 'asset/noimage.jpeg',
                                   image:
-                                      'http://10.0.2.2:3000/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
-                              // CachedNetworkImage(
-                              //   imageUrl:
-                              //       'http://18.144.34.178/product-image/${controller.categoryItems![index].id}/${controller.categoryItems![index].imageId}_1.jpg',
-                              //   width: size.width * .5,
-                              //   height: size.width * .45,
-                              //   placeholder: (context, url) => const Center(
-                              //       child: CircularProgressIndicator()),
-                              //   errorWidget: (context, str, error) =>
-                              //       CachedNetworkImage(
-                              //     imageUrl:
-                              //         '$kBaseurl/product-image/${controller.categoryItems![index].id}/${controller.categoryItems![index].imageId}_1.jpg',
-                              //     width: size.width * .5,
-                              //     height: size.width * .45,
-                              //     placeholder: (context, url) => const Center(
-                              //         child: CircularProgressIndicator()),
-                              //     errorWidget: (context, str, error) =>
-                              //         const Icon(
-                              //       Icons.error,
-                              //       color: kGreyColor,
-                              //       size: 40,
-                              //     ),
-                              //   ),
-                              // ),
-
+                                      'http://10.0.2.2:3000/product-image/${controller.categoryItems![index].id}/${controller.categoryItems![index].imageId}_1.jpg'),
                               const AddWishlist(radius: 20, iconSize: 34),
                             ],
                           ),

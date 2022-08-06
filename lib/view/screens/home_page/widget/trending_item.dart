@@ -3,7 +3,7 @@ import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/screens/product_page/screen_product.dart';
+import 'package:gadgetque/view/screens/product_view_page/screen_product.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
@@ -30,39 +30,17 @@ class TrendingItem extends StatelessWidget {
                 shape: RoundedRectangleBorder(borderRadius: kRAdius10),
                 child: GestureDetector(
                   onTap: () => Get.to(
-                     BuyProduct(products:controller.products![index]),
+                    BuyProduct(products: controller.products![index]),
                   ),
                   child: Column(
                     children: [
-                               FadeInImage.assetNetwork(
-                              fit: BoxFit.fill,
-                              width: size.width * .5,
-                              height: size.width * .5,
-                              placeholder: 'asset/noimage.jpeg',
-                              image:
-                                  'http://10.0.2.2:3000/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
-                      // CachedNetworkImage(
-                      //   imageUrl:
-                      //       'http://54.176.6.232/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg',
-                      //   width: size.width * .5,
-                      //   height: size.width * .5,
-                      //   placeholder: (context, url) =>
-                      //       const Center(child: CircularProgressIndicator()),
-                      //   errorWidget: (context, str, error) =>
-                      //       CachedNetworkImage(
-                      //     imageUrl:
-                      //         'http://10.0.2.2:3000/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg',
-                      //     width: size.width * .5,
-                      //     height: size.width * .5,
-                      //     placeholder: (context, url) =>
-                      //         const Center(child: CircularProgressIndicator()),
-                      //     errorWidget: (context, str, error) => const Icon(
-                      //       Icons.error,
-                      //       color: kGreyColor,
-                      //       size: 40,
-                      //     ),
-                      //   ),
-                      // ),
+                      FadeInImage.assetNetwork(
+                          fit: BoxFit.fill,
+                          width: size.width * .5,
+                          height: size.width * .5,
+                          placeholder: 'asset/noimage.jpeg',
+                          image:
+                              'http://10.0.2.2:3000/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 10),
                         width: size.width * 0.45,

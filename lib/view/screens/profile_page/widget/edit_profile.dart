@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/profile_controller.dart';
+import 'package:gadgetque/controller/validationController.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
+import 'package:gadgetque/view/constant/authentication/widget/error_text.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
@@ -12,7 +14,7 @@ import 'package:get/get.dart';
 class EditProfile extends StatefulWidget {
   final String name;
   final String mail;
-  EditProfile({
+ const EditProfile({
     Key? key,
     required this.name,
     required this.mail,
@@ -41,20 +43,34 @@ class _EditProfileState extends State<EditProfile> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               FormFields(
-                  validator: (value) {},
+                  validator: (name) {
+                    validController.nameValidation(name);
+                  },
                   fontSize: 20,
                   controller: nameController,
                   icon: Icons.person,
                   name: 'name',
                   color: kFormColor,
                   textColor: kBlack54Color),
+              Obx(
+                () => ErrorText(
+                    errorText: 'minimum 3 character required',
+                    isVisible: validController.names.value),
+              ),
               FormFields(
                   controller: mailController,
-                  validator: (value) {},
+                  validator: (mail) {
+                    validController.mailValidation(mail);
+                  },
                   icon: Icons.mail,
                   name: 'mail',
                   color: kFormColor,
                   textColor: kBlack54Color),
+              Obx(
+                () => ErrorText(
+                    errorText: 'enter valid mail',
+                    isVisible: validController.email.value),
+              ),
               kHeigt10,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 13.0),
@@ -106,6 +122,6 @@ class _EditProfileState extends State<EditProfile> {
   final nameController = TextEditingController();
 
   final mailController = TextEditingController();
-
+  final validController = Get.put(ValidationController());
   final profileController = Get.put(ProfileController());
 }

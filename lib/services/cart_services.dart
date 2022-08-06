@@ -42,4 +42,17 @@ class CartServiceEndPoint {
     }
     return null;
   }
+
+//>>>>>>>>>>>>>increment item<<<<<<<<<<<<<<<//
+  Future<Response<dynamic>?> quantityCartItem(
+      Map<String, dynamic> cartDetails) async {
+    try {
+      final response = await dio.post('change-product-quantity',
+          data: jsonEncode(cartDetails));
+      return response;
+    } catch (e) {
+      log('quantity services>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<');
+    }
+    return null;
+  }
 }

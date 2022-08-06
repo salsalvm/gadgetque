@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
 import 'package:gadgetque/view/screens/search_page/search_item.dart';
+import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
 class AppbarMain extends StatelessWidget {
-  const AppbarMain({
+  AppbarMain({
     Key? key,
   }) : super(key: key);
 
@@ -37,7 +39,7 @@ class AppbarMain extends StatelessWidget {
                 const Text(
                   'GadgetsQue',
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 28,
                     fontWeight: FontWeight.w800,
                     color: kBlackColor,
                   ),
@@ -55,20 +57,33 @@ class AppbarMain extends StatelessWidget {
                     size: 35,
                   ),
                 ),
-                IconButton(
-                    onPressed: () {
-                      Get.to(const ScreenCart());
-                      // Get.snackbar(
-                      //     colorText: kBlackColor,
-                      //     margin: const EdgeInsets.only(top: 50),
-                      //     'Slide to left Remove from Cart',
-                      //     '',
-                      //     snackPosition: SnackPosition.TOP);
-                    },
-                    icon: const Icon(
-                      Icons.shopping_cart,
-                      size: 35,
-                    ))
+                Stack(
+                  alignment: AlignmentDirectional.topEnd,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Get.to(const ScreenCart());
+                      },
+                      icon: const Icon(
+                        Icons.shopping_cart_checkout,
+                        size: 35,
+                      ),
+                    ),
+                    GetBuilder<CartController>(
+                      init: CartController(),
+                      builder: (controller) => controller.cartCount == null
+                          ? const Center(
+                              child: CircularProgressIndicator(
+                              color: Colors.teal,
+                            ))
+                          : ItemText(
+                              name: ' ${controller.cartCount}',
+                              weight: FontWeight.bold,
+                              fontSize: 22,
+                              color: kBlueColor),
+                    ),
+                  ],
+                )
               ],
             ),
           ],

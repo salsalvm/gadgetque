@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:gadgetque/model/cart/add_to_cart.dart';
 import 'package:gadgetque/model/cart/get_cart_items.dart';
+import 'package:gadgetque/model/cart/increment_cart_item_model.dart';
+
 import 'package:gadgetque/model/cart/remove_cart.dart';
 import 'package:gadgetque/services/cart_services.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
@@ -12,7 +14,8 @@ class CartController extends GetxController {
   var isAdd = true.obs;
   List<ProductElement>? productElemnt;
   int total = 0;
-  int? cartCount = 0;
+  Rx<int?>? cartCount;
+
   //>>>>>>>>>>>>>get item<<<<<<<<<<<<<<<//
   getCartItems() async {
     try {
@@ -22,9 +25,9 @@ class CartController extends GetxController {
         final datas = getCartItemsModelFromJson(response.data);
 
         productElemnt = datas.products!.obs;
-        log(datas.total.toString());
+
         total = datas.total!;
-        cartCount = datas.cartCount;
+        cartCount = datas.cartCount.obs;
         update();
       }
     } catch (e) {
@@ -36,8 +39,7 @@ class CartController extends GetxController {
   addCartItems(String productId) async {
     try {
       final response = await CartServiceEndPoint().addCartItems(productId);
-      log(response!.data);
-      if (response.statusCode == 200 || response.statusCode == 201) {
+      if (response!.statusCode == 200 || response.statusCode == 201) {
         final datas = addCartModelFromJson(response.data);
         if (datas.status) {
           Get.snackbar('Added succesfully', 'Product has been added to cart',
@@ -59,9 +61,9 @@ class CartController extends GetxController {
       "product": productId,
     };
     try {
-      final respose = await CartServiceEndPoint().removeCartItems(removeData);
-      if (respose!.statusCode == 200 || respose.statusCode == 201) {
-        final datas = removeCartModelFromJson(respose.data);
+      final response = await CartServiceEndPoint().removeCartItems(removeData);
+      if (response!.statusCode == 200 || response.statusCode == 201) {
+        final datas = removeCartModelFromJson(response.data);
         if (datas.removeProduct) {
           getCartItems();
           update();
@@ -72,6 +74,29 @@ class CartController extends GetxController {
       }
     } catch (e) {
       log('remove controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
+    }
+  }
+
+  quantityCartItem(String? prodId, String cartId, int count) async {
+    final cartDetails = {
+      'user': userId,
+      'cart': cartId,
+      'product': prodId,
+      'count': count,
+    };
+    try {
+      final response =
+          await CartServiceEndPoint().quantityCartItem(cartDetails);
+
+      if (response!.statusCode == 200 || response.statusCode == 201) {
+        final datas = quantityCartItemModelFromJson(response.data);
+        if (datas.status) {
+          getCartItems();
+          update();
+        }
+      }
+    } catch (e) {
+      log('increment controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
     }
   }
 

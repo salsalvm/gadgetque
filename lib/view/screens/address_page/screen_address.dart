@@ -14,8 +14,8 @@ class ScreenAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(70),
+      appBar:  PreferredSize(
+        preferredSize:const Size.fromHeight(70),
         child: AppbarMain(),
       ),
       body: Stack(
@@ -43,7 +43,8 @@ class ScreenAddress extends StatelessWidget {
             onTap: () {
               Get.dialog(
                const AddEditAddress(types: Address.isadding),
-              );
+             
+              ); 
             },
           )
         ],

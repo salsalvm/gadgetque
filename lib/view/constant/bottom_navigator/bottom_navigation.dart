@@ -12,7 +12,7 @@ class BottomNavigator extends StatelessWidget {
   BottomNavigator({Key? key}) : super(key: key);
 ValueNotifier<int> indexChanger = ValueNotifier(0);
   final _pages = [
-    const ScreenHome(),
+     ScreenHome(),
     const ScreenOrder(),
     const ScreenAddress(),
     const ScreenWishlist(),

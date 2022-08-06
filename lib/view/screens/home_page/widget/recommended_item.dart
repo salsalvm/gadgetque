@@ -3,7 +3,7 @@ import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/screens/product_page/screen_product.dart';
+import 'package:gadgetque/view/screens/product_view_page/screen_product.dart';
 import 'package:get/get.dart';
 
 class RecommendedItem extends StatelessWidget {
@@ -22,8 +22,8 @@ class RecommendedItem extends StatelessWidget {
             reverse: true,
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: controller.products!.length <= 4
+            // shrinkWrap: true,
+            itemCount: controller.products!.length < 4
                 ? controller.products!.length
                 : 4,
             itemBuilder: (context, index) {
@@ -35,33 +35,11 @@ class RecommendedItem extends StatelessWidget {
                   shape: RoundedRectangleBorder(borderRadius: kRAdius10),
                   color: kWhiteColor,
                   child: FadeInImage.assetNetwork(
-                      // fit: BoxFit.fill,
                       width: size.width,
                       height: size.width * .4,
                       placeholder: 'asset/noimage.jpeg',
                       image:
                           'http://10.0.2.2:3000/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
-                  //     CachedNetworkImage(
-                  //   imageUrl:
-                  //       'http://54.176.6.232/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg',
-                  //   width: size.width,
-                  //   height: size.width * .4,
-                  //   placeholder: (context, url) =>
-                  //       const Center(child: CircularProgressIndicator()),
-                  //   errorWidget: (context, str, error) => CachedNetworkImage(
-                  //     imageUrl:
-                  //         'http://10.0.2.2:3000/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg',
-                  //     width: size.width,
-                  //     height: size.width * .4,
-                  //     placeholder: (context, url) =>
-                  //         const Center(child: CircularProgressIndicator()),
-                  //     errorWidget: (context, str, error) => const Icon(
-                  //       Icons.error,
-                  //       color: kGreyColor,
-                  //       size: 40,
-                  //     ),
-                  //   ),
-                  // ),
                 ),
               );
             }),

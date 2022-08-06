@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
 import 'package:get/get.dart';
 
 class CarasoulSlider extends StatelessWidget {
@@ -13,47 +12,51 @@ class CarasoulSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // onTap: () => Get.to(const BuyProduct()),
-      child: CarouselSlider(
-        items: [
-          GetBuilder<HomeController>(
-            init: HomeController(),
-            builder: (conroller) => Container(
-              width: size.width,
-              height: size.width * 0.6,
-              decoration: BoxDecoration(
-                borderRadius: kRAdius10,
-                image: const DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(
-                    'asset/login_background.png',
-                  ),
-                  filterQuality: FilterQuality.high,
-                ),
+      child: GetBuilder<HomeController>(
+        init: HomeController(),
+        builder: (controller) => controller.products == null
+            ? const Center(child: CircularProgressIndicator())
+            : CarouselSlider(
+                items: [
+                  CourasalList(
+                      image:
+                          'http://10.0.2.2:3000/product-image/${controller.products![0].id}/${controller.products![0].imageId}_2.jpg'),
+                  CourasalList(
+                      image:
+                          'http://10.0.2.2:3000/product-image/${controller.products![1].id}/${controller.products![1].imageId}_1.jpg'),
+                  CourasalList(
+                      image:
+                          'http://10.0.2.2:3000/product-image/${controller.products![0].id}/${controller.products![0].imageId}_3.jpg'),
+                  CourasalList(
+                      image:
+                          'http://10.0.2.2:3000/product-image/${controller.products![4].id}/${controller.products![4].imageId}_1.jpg')
+                ],
+                options: CarouselOptions(
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: true),
               ),
-            ),
-          ),
-          Container(
-            width: size.width,
-            height: size.width * 0.6,
-            decoration: BoxDecoration(
-              borderRadius: kRAdius10,
-              image: const DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(
-                    'asset/entry_background.png',
-                  ),
-                  filterQuality: FilterQuality.high),
-            ),
-          ),
-        ],
-        options: CarouselOptions(
-            autoPlay: true,
-            // viewportFraction: 10,
-
-            enlargeCenterPage: true,
-            enableInfiniteScroll: true),
       ),
+    );
+  }
+}
+
+class CourasalList extends StatelessWidget {
+  final String image;
+  const CourasalList({
+    Key? key,
+    required this.image,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: FadeInImage.assetNetwork(
+          fit: BoxFit.fill,
+          width: size.width,
+          height: size.width * 0.6,
+          placeholder: 'asset/noimage.jpeg',
+          image: image),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/checkout_controller.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/radius.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
@@ -6,9 +7,10 @@ import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
+import 'package:get/get.dart';
 
 class CouponApply extends StatelessWidget {
-  const CouponApply({
+  CouponApply({
     Key? key,
   }) : super(key: key);
 
@@ -28,32 +30,35 @@ class CouponApply extends StatelessWidget {
                 color: kBlackColor),
             const DivLine(),
             kHeigt5,
-            Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: FormFields(validator: (value) {},
-                icon: Icons.earbuds_rounded,
-                fontSize: 22,
-                size: 22,
-                name: 'voucher number',
-                color: Colors.white.withOpacity(.3),
-              ),
+            FormFields(
+              controller: couponController,
+              validator: (value) {},
+              icon: Icons.earbuds_rounded,
+              fontSize: 20,
+              size: 18,
+              name: 'voucher code exp:(OFFA20)',
+              color: Colors.white.withOpacity(.3),
             ),
             kHeigt5,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ActionButton(
-                    buttonWidth: 140,
-                    buttonHeight: 45,
+                    buttonWidth: 120,
+                    buttonHeight: 40,
                     text: 'Cancel',
                     fontColor: kWhiteColor,
                     onTap: () {}),
                 ActionButton(
-                    buttonWidth: 140,
-                    buttonHeight: 45,
+                    buttonWidth: 120,
+                    buttonHeight: 40,
                     fontColor: kWhiteColor,
                     text: 'Apply',
-                    onTap: () {})
+                    onTap: () {
+                      checkController.appyCoupon(
+                        couponController.text.toString().toUpperCase(),
+                      );
+                    })
               ],
             )
           ],
@@ -61,4 +66,7 @@ class CouponApply extends StatelessWidget {
       ),
     );
   }
+
+  final couponController = TextEditingController();
+  final checkController = Get.put(CheckoutController());
 }

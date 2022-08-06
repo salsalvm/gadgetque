@@ -4,7 +4,7 @@ import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/radius.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
-import 'package:gadgetque/view/screens/product_page/screen_product.dart';
+import 'package:gadgetque/view/screens/product_view_page/screen_product.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/widget/ratting_item.dart';
 import 'package:get/get.dart';
@@ -47,31 +47,6 @@ class MostRattedItem extends StatelessWidget {
                               placeholder: 'asset/noimage.jpeg',
                               image:
                                   'http://10.0.2.2:3000/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
-                          // CachedNetworkImage(
-                          //   imageUrl:
-                          //       'http://54.176.6.232/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg',
-                          //   width: size.width * .5,
-                          //   height: size.width * .5,
-                          //   placeholder: (context, url) =>
-                          //       FadeInImage.assetNetwork(
-                          //           placeholder: 'asset/noimage.jpeg',
-                          //           image: 'asset/noimage.jpeg'),
-                          //   errorWidget: (context, str, error) =>
-                          //       CachedNetworkImage(
-                          //     imageUrl:
-                          //         'http://34.227.15.1/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg',
-                          //     width: size.width * .5,
-                          //     height: size.width * .5,
-                          //     placeholder: (context, url) => const Center(
-                          //       child: CircularProgressIndicator(),
-                          //     ),
-                          //     errorWidget: (context, str, error) => const Icon(
-                          //       Icons.error,
-                          //       color: kGreyColor,
-                          //       size: 40,
-                          //     ),
-                          //   ),
-                          // ),
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 10),
                             width: size.width * 0.45,

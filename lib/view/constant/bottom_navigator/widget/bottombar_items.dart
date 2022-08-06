@@ -21,12 +21,12 @@ class BottomBarItems extends StatelessWidget {
               items: const [
                 BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.home,
+                      Icons.home_outlined,
                     ),
                     label: 'Home'),
                 BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.local_shipping,
+                      Icons.local_shipping_outlined,
                     ),
                     label: 'MyOrder'),
                 BottomNavigationBarItem(
@@ -36,7 +36,7 @@ class BottomBarItems extends StatelessWidget {
                     label: 'Address'),
                 BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.favorite,
+                      Icons.favorite_border_outlined,
                     ),
                     label: 'Wishlist'),
                 BottomNavigationBarItem(

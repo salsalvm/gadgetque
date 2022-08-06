@@ -3,10 +3,10 @@ import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/model/home_datas_model.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
 import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
-import 'package:gadgetque/view/screens/product_page/summary/screen_order_summary.dart';
-import 'package:gadgetque/view/screens/product_page/widget/image_details.dart';
-import 'package:gadgetque/view/screens/product_page/widget/product_image.dart';
-import 'package:gadgetque/view/screens/product_page/widget/similar_item.dart';
+import 'package:gadgetque/view/screens/checkout_summary_page/screen_order_summary.dart';
+import 'package:gadgetque/view/screens/product_view_page/widget/image_details.dart';
+import 'package:gadgetque/view/screens/product_view_page/widget/product_image.dart';
+import 'package:gadgetque/view/screens/product_view_page/widget/similar_item.dart';
 import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/main_headding.dart';
@@ -57,7 +57,7 @@ class BuyProduct extends StatelessWidget {
                       : Get.to(const ScreenCart());
                 },
                 secondOnTap: () {
-                  Get.to(const ScreenSummary());
+                  Get.to( ScreenSummary());
                 },
               ),
             )

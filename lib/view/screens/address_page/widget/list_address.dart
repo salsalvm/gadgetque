@@ -44,8 +44,12 @@ class ListAddress extends StatelessWidget {
                           .addressList![index].address!.address!
                           .split(',');
                       String temp = '';
-                      for (var e in str) {
-                        temp = e + ',\n' + temp;
+                      for (var i = 0; i < str.length; i++) {
+                        if (i % 2 == 0) {
+                          temp = '${str[i]},\n$temp';
+                        } else {
+                          temp = '${str[i]},$temp';
+                        }
                       }
 
                       return Card(
@@ -81,20 +85,21 @@ class ListAddress extends StatelessWidget {
                                   color: kBlackColor),
                               ItemText(
                                   name: temp,
+                                  lines: 2,
                                   weight: FontWeight.w500,
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   color: kBlack54Color),
                               ItemText(
                                   name: controller
                                       .addressList![index].address!.pincode!,
                                   weight: FontWeight.w500,
                                   fontSize: 16,
-                                  color: kBlack54Color),
+                                  color: kBlackColor),
                               ItemText(
                                   name: controller
                                       .addressList![index].address!.mobile!,
                                   weight: FontWeight.w700,
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   color: kBlackColor)
                             ],
                           ),

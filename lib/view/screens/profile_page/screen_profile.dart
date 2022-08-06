@@ -16,7 +16,7 @@ class ScreenProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
+      appBar:  PreferredSize(
           preferredSize: Size.fromHeight(70), child: AppbarMain()),
       body: Stack(
         alignment: Alignment.bottomRight,

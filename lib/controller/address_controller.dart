@@ -41,7 +41,7 @@ class AddressController extends GetxController {
       "pincode": pin
     };
     final response = await AddressServiceEndPoint().addAddress(addressDetails);
-
+    log(response.toString());
     try {
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final datas = addAddressModelFromJson(response.data);
