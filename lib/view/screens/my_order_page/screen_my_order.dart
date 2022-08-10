@@ -12,8 +12,8 @@ class ScreenOrder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  PreferredSize(
-        preferredSize: Size.fromHeight(70),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
         child: AppbarMain(),
       ),
       body: Padding(
@@ -40,7 +40,7 @@ class ScreenOrder extends StatelessWidget {
                       ))
                 ],
               ),
-            const  OrderList(),
+              const OrderList(),
               kHeigt20
             ],
           ),

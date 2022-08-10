@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
-import 'package:gadgetque/model/signin_model.dart';
-import 'package:gadgetque/model/signup_model.dart';
+import 'package:gadgetque/model/authentication/signin_model.dart';
+import 'package:gadgetque/model/authentication/signup_model.dart';
 import 'package:gadgetque/services/auth_services.dart';
 import 'package:gadgetque/view/constant/authentication/screen_signin/screen_signin.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/auth_controller.dart';
-import 'package:gadgetque/services/profile_services.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/screens/profile_page/widget/all_coupon.dart';
 import 'package:gadgetque/view/screens/profile_page/widget/wallet_balance.dart';
 import 'package:gadgetque/view/screens/profile_page/widget/profile_details.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/appbar.dart';
+import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
 class ScreenProfile extends StatelessWidget {
@@ -16,22 +17,30 @@ class ScreenProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  PreferredSize(
-          preferredSize: Size.fromHeight(70), child: AppbarMain()),
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(70), child: AppbarMain()),
       body: Stack(
         alignment: Alignment.bottomRight,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: SafeArea(
-                child: ListView(
-              children: const [
-                ProfileDetails(),
-                kHeigt10,
-                WalletBalance(),
-                kHeigt10,
-              ],
-            )),
+              child: ListView(
+                children: const [
+                  ProfileDetails(),
+                  kHeigt10,
+                  WalletBalance(),
+                  kHeigt10,
+                  ItemText(
+                      name: 'Coupon Offers',
+                      weight: FontWeight.bold,
+                      fontSize: 22,
+                      color: kBlackColor),
+                  kHeigt5,
+                  AllCoupons(),
+                ],
+              ),
+            ),
           ),
           ActionButton(
             radius: 0,

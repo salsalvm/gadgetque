@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
 import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/services/checkout_services.dart';
+import 'package:gadgetque/services/order_service.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/screens/home_page/widget/carousal_slider.dart';
-import 'package:gadgetque/view/screens/home_page/widget/catogory_search.dart';
-import 'package:gadgetque/view/screens/home_page/widget/most_ratted_items.dart';
-import 'package:gadgetque/view/screens/home_page/widget/recommended_item.dart';
-import 'package:gadgetque/view/screens/home_page/widget/trending_item.dart';
+import 'package:gadgetque/view/screens/home/widget/carousal_slider.dart';
+import 'package:gadgetque/view/screens/home/widget/catogory_search.dart';
+import 'package:gadgetque/view/screens/home/widget/most_ratted_items.dart';
+import 'package:gadgetque/view/screens/home/widget/recommended_item.dart';
+import 'package:gadgetque/view/screens/home/widget/trending_item.dart';
 import 'package:gadgetque/view/screens/widget/appbar.dart';
 import 'package:gadgetque/view/screens/widget/main_headding.dart';
 import 'package:get/get.dart';
@@ -19,11 +20,9 @@ ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
 class ScreenHome extends StatelessWidget {
   ScreenHome({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    CheckoutServiceEndPoint().getcheckoutDatas();
-    CheckoutController().getcheckoutDatas();
+    
     return Scaffold(
       backgroundColor: kFormColor,
       appBar: PreferredSize(

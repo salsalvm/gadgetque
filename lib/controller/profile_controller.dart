@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:gadgetque/model/get_profile_model.dart';
-import 'package:gadgetque/model/update_profile_model.dart';
+import 'package:gadgetque/model/profile/get_profile_model.dart';
+import 'package:gadgetque/model/profile/update_profile_model.dart';
 import 'package:gadgetque/services/profile_services.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:get/get.dart';

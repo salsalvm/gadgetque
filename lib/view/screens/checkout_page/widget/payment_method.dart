@@ -26,12 +26,8 @@ class PaymentMethod extends StatelessWidget {
                 fontSize: 22,
                 color: kBlackColor),
             const DivLine(),
-            Payment(
-              name: 'Razor Pay',
-            ),
-            Payment(
-              name: 'COD',
-            )
+            Payment(name: 'Razor Pay'),
+            Payment(name: 'COD')
           ],
         ),
       ),
@@ -58,7 +54,7 @@ class Payment extends StatelessWidget {
             fontSize: 22,
             color: kBlackColor),
         value: name,
-        groupValue: controller.select,
+        groupValue: controller.selectMethod,
         onChanged: (value) {
           controller.selectRadioButton(value.toString());
           controller.update();

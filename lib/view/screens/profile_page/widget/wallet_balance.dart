@@ -10,10 +10,7 @@ import 'package:gadgetque/view/screens/widget/item_text.dart';
 class WalletBalance extends StatelessWidget {
   const WalletBalance({
     Key? key,
-   
   }) : super(key: key);
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +22,7 @@ class WalletBalance extends StatelessWidget {
         color: kBoxColor,
       ),
       child: Padding(
-        padding:
-            const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+        padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -37,7 +33,7 @@ class WalletBalance extends StatelessWidget {
                 color: kBlackColor),
             const DivLine(),
             kHeigt5,
-             ItemText(
+            ItemText(
                 name: '€14,040',
                 weight: FontWeight.w600,
                 fontSize: 18,

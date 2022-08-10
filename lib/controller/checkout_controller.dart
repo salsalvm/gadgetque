@@ -1,17 +1,27 @@
 import 'dart:developer';
 
-import 'package:gadgetque/model/apply_coupon.dart';
-import 'package:gadgetque/model/checkout_model.dart';
+import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/cart_controller.dart';
+import 'package:gadgetque/controller/home_controller.dart';
+import 'package:gadgetque/model/cod_model.dart';
+import 'package:gadgetque/model/placeorder/apply_coupon.dart';
+import 'package:gadgetque/model/placeorder/checkout_model.dart';
 import 'package:gadgetque/services/checkout_services.dart';
+import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/screens/cart_page/widget/cart_container.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class CheckoutController extends GetxController {
   List<CheckoutDetailsModelAddress>? address;
   List<ProductElement>? products;
   Rx<int?>? total;
   int? colorChange;
-  String? select;
+  String? selectMethod;
+  String? addressId;
+  Map<String, dynamic>? couponCode;
+
   // get checkout datas //
   getcheckoutDatas() async {
     try {
@@ -26,25 +36,26 @@ class CheckoutController extends GetxController {
         update();
       }
     } catch (e) {
-      log('get controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
+      log('get controller>>>>>>>>>$e<<<<<<<<<<<');
     }
   }
 
-  selectedColorChange(index, addressId) {
-    log('message');
+//select address//
+  selectedColorChange(int index, String addressId) {
     colorChange = index;
+    this.addressId = addressId;
     update();
   }
 
 // apply coupon //
   appyCoupon(String code) async {
-    Map<String, dynamic> couponCode = {"Coupon": code};
+    couponCode = {"Coupon": code};
     try {
-      final response = await CheckoutServiceEndPoint().applyCoupon(couponCode);
+      final response = await CheckoutServiceEndPoint().applyCoupon(couponCode!);
 
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final datas = applyCouponModelFromJson(response.data);
-        if (datas.status == false) {
+        if (datas.status) {
           Get.snackbar('succesfully', 'coupon applyed successfully',
               colorText: kGreenColor, snackPosition: SnackPosition.BOTTOM);
         } else {
@@ -60,14 +71,79 @@ class CheckoutController extends GetxController {
 // payment select  //
 
   selectRadioButton(String value) {
-    select = value.toString();
-    log('>><<>><<$select');
+    selectMethod = value.toString();
+
     update();
+  }
+
+  // place order //
+  placeOrder() async {
+    try {
+      final response =
+          await CheckoutServiceEndPoint().placeOrder(selectMethod, addressId);
+      if (response!.statusCode == 200 || response.statusCode == 201) {
+        final datas = codModelFromJson(response.data);
+        if (datas.codSuccess) {
+          showGeneralDialog(
+            context: Get.context!,
+            barrierLabel: "Barrier",
+            barrierDismissible: true,
+            barrierColor: Colors.black.withOpacity(0.5),
+            transitionDuration: const Duration(milliseconds: 1500),
+            pageBuilder: (_, __, ___) {
+              return Center(
+                child: GestureDetector(
+                  onTap: () {
+                    // homeController.homeDatas();
+                    cartController.getCartItems();
+                    update();
+                    Get.offAll(
+                      BottomNavigator(),
+                    );
+                  },
+                  child: Container(
+                    height: 240,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(40)),
+                    child: SizedBox.expand(
+                        child:
+                            Lottie.asset('asset/69013-successful-check.json')),
+                  ),
+                ),
+              );
+            },
+            transitionBuilder: (_, anim, __, child) {
+              Tween<Offset> tween;
+              if (anim.status == AnimationStatus.reverse) {
+                tween = Tween(begin: const Offset(-1, 0), end: Offset.zero);
+              } else {
+                tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              }
+
+              return SlideTransition(
+                position: tween.animate(anim),
+                child: FadeTransition(
+                  opacity: anim,
+                  child: child,
+                ),
+              );
+            },
+          );
+        }
+      }
+    } catch (e) {
+      log('placeOrder controller>>>>>>>>$e<<<<<<<<<<');
+    }
   }
 
   @override
   void onInit() {
     getcheckoutDatas();
+
     super.onInit();
   }
+
+  final cartController = Get.put(CartController());
 }

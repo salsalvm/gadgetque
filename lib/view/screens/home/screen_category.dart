@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/screens/home_page/category/widget/category_grid.dart';
+import 'package:gadgetque/view/screens/home/widget/category_grid.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
 
 

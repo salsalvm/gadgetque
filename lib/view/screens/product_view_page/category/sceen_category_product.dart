@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
-import 'package:gadgetque/model/home_datas_model.dart';
+import 'package:gadgetque/model/category_datas_model.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
 import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
 import 'package:gadgetque/view/screens/checkout_page/screen_order_summary.dart';
-import 'package:gadgetque/view/screens/product_view_page/widget/image_details.dart';
-import 'package:gadgetque/view/screens/product_view_page/widget/product_image.dart';
+import 'package:gadgetque/view/screens/product_view_page/category/widget/image_details.dart';
+import 'package:gadgetque/view/screens/product_view_page/category/widget/product_image.dart';
 import 'package:gadgetque/view/screens/product_view_page/widget/similar_item.dart';
 import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
@@ -13,9 +13,10 @@ import 'package:gadgetque/view/screens/widget/main_headding.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
 import 'package:get/get.dart';
 
-class BuyProduct extends StatelessWidget {
-  final Product products;
-  const BuyProduct({Key? key, required this.products}) : super(key: key);
+class BuyCategoryProduct extends StatelessWidget {
+  final Prodatum products;
+  const BuyCategoryProduct({Key? key, required this.products})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +33,11 @@ class BuyProduct extends StatelessWidget {
           children: [
             ListView(
               children: [
-                ProductImage(products: products),
+                CatProductImage(products: products),
                 // kHeigt30,
                 MainHead(headding: products.name, top: 20),
                 const DivLine(),
-                ImageDetails(products: products),
+                CatImageDetails(products: products),
                 const MainHead(
                   headding: 'You May Also Like',
                 ),

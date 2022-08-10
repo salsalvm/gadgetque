@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/controller/address_controller.dart';
 
 import 'package:gadgetque/controller/checkout_controller.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
@@ -64,14 +63,14 @@ class DeliveryTo extends StatelessWidget {
                       child: GestureDetector(
                         onTap: () {
                           controller.selectedColorChange(
-                              index, address.addressId);
+                              index, '${address.addressId}');
                           controller.update();
                         },
                         child: Container(
                           decoration: BoxDecoration(
                               borderRadius: kRAdius10,
                               color: controller.colorChange == index
-                                  ? Colors.teal
+                                  ? Color.fromARGB(255, 158, 228, 221)
                                   : kBoxColor),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -119,7 +118,7 @@ class DeliveryTo extends StatelessWidget {
                                     color: kBlackColor),
                                 kHeigt5,
                                 ItemText(
-                                    name: temp,
+                                    name: temp.trim(),
                                     lines: 2,
                                     weight: FontWeight.w500,
                                     fontSize: 16,

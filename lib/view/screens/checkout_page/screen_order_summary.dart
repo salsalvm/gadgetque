@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
+import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
-import 'package:gadgetque/view/screens/checkout_summary_page/widget/coupon_apply.dart';
-import 'package:gadgetque/view/screens/checkout_summary_page/widget/delivery_item.dart';
-import 'package:gadgetque/view/screens/checkout_summary_page/widget/delivery_to.dart';
-import 'package:gadgetque/view/screens/checkout_summary_page/widget/payment_method.dart';
-import 'package:gadgetque/view/screens/checkout_summary_page/widget/price_details.dart';
+import 'package:gadgetque/view/screens/checkout_page/widget/coupon_apply.dart';
+import 'package:gadgetque/view/screens/checkout_page/widget/delivery_item.dart';
+import 'package:gadgetque/view/screens/checkout_page/widget/delivery_to.dart';
+import 'package:gadgetque/view/screens/checkout_page/widget/payment_method.dart';
+import 'package:gadgetque/view/screens/checkout_page/widget/price_details.dart';
 import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
 
 class ScreenSummary extends StatelessWidget {
   const ScreenSummary({Key? key}) : super(key: key);
@@ -47,10 +48,22 @@ class ScreenSummary extends StatelessWidget {
                 ),
               ),
               BottomDoubleButton(
-                  secondText: 'Continue',
-                  firstText: 'Cancel Order',
-                  firstOnTap: () {},
-                  secondOnTap: () {})
+                  secondText: 'Place Order',
+                  firstText: 'Clear Order',
+                  firstOnTap: () {
+                    Get.back();
+                  },
+                  secondOnTap: () {
+                    if (controller.selectMethod == "Razor Pay") {
+                    } else if (controller.selectMethod == "COD") {
+                      controller.placeOrder();
+                    } else {
+                      Get.snackbar('payment method not selectted',
+                          'please select a payment method',
+                          colorText: kredColor,
+                          snackPosition: SnackPosition.BOTTOM);
+                    }
+                  })
             ],
           ),
         ),

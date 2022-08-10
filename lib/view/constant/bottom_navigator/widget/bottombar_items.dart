@@ -34,11 +34,11 @@ class BottomBarItems extends StatelessWidget {
                       Icons.location_on_outlined,
                     ),
                     label: 'Address'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.favorite_border_outlined,
-                    ),
-                    label: 'Wishlist'),
+                // BottomNavigationBarItem(
+                //     icon: Icon(
+                //       Icons.favorite_border_outlined,
+                //     ),
+                //     label: 'Wishlist'),
                 BottomNavigationBarItem(
                     icon: Icon(
                       Icons.person_outline_rounded,

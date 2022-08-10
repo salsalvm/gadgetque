@@ -43,6 +43,7 @@ class ListAddress extends StatelessWidget {
                       List<String> str = controller
                           .addressList![index].address!.address!
                           .split(',');
+                          str=str.reversed.toList();
                       String temp = '';
                       for (var i = 0; i < str.length; i++) {
                         if (i % 2 == 0) {
@@ -84,7 +85,7 @@ class ListAddress extends StatelessWidget {
                                   fontSize: 18,
                                   color: kBlackColor),
                               ItemText(
-                                  name: temp,
+                                  name: temp.trim().toUpperCase(),
                                   lines: 2,
                                   weight: FontWeight.w500,
                                   fontSize: 18,

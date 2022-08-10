@@ -62,7 +62,7 @@ class AppbarMain extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {
-                        Get.to(const ScreenCart());
+                        Get.to( ScreenCart());
                       },
                       icon: const Icon(
                         Icons.shopping_cart_checkout,

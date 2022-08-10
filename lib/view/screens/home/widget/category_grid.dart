@@ -4,7 +4,7 @@ import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/radius.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
-import 'package:gadgetque/view/screens/product_view_page/screen_product.dart';
+import 'package:gadgetque/view/screens/product_view_page/category/sceen_category_product.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/wishlist_page/widget/add_wishlists.dart';
 import 'package:get/get.dart';
@@ -31,9 +31,8 @@ class CategoryGrid extends StatelessWidget {
               ),
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () => Get.to(BuyProduct(
-                    products: controller.products![index],
-                  )),
+                  onTap: () => Get.to(BuyCategoryProduct(
+                      products: controller.categoryItems![index])),
                   child: Card(
                     color: kWhiteColor,
                     shape: RoundedRectangleBorder(borderRadius: kRAdius10),

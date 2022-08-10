@@ -2,13 +2,14 @@ import 'dart:developer';
 import 'package:gadgetque/model/category_datas_model.dart';
 import 'package:gadgetque/model/home_datas_model.dart';
 import 'package:gadgetque/services/home_services.dart';
-import 'package:gadgetque/view/screens/home_page/category/screen_category.dart';
+import 'package:gadgetque/view/screens/home/screen_category.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   List<Product>? products;
   List<Category>? categories;
   List<Prodatum>? categoryItems;
+  List<AllCoupon>? coupon;
   Future<List<HomeDatasModel>?> homeDatas() async {
     try {
       final response = await HomeServices().getHomeDatas();
@@ -17,6 +18,7 @@ class HomeController extends GetxController {
 
         products = datas.products.obs;
         categories = datas.category.obs;
+        coupon = datas.allCoupons.obs;
         update();
       }
     } catch (e) {
@@ -38,7 +40,7 @@ class HomeController extends GetxController {
         ScreenCategory(category: category),
       );
     } catch (e) {
-       log('get category controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
+      log('get category controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
     }
   }
 
