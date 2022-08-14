@@ -123,7 +123,30 @@ class CartitemsList extends StatelessWidget {
                                                       .productElemnt![index].id,
                                                   count);
                                             }
-                                          : () {}),
+                                          : () {
+                                              Get.defaultDialog(
+                                                backgroundColor: kBoxColor,
+                                                buttonColor: kButtonColor,
+                                                middleText:
+                                                    'Do you Want to Remove',
+                                                onConfirm: () {
+                                                  controller.removeCartItems(
+                                                      controller
+                                                          .productElemnt![index]
+                                                          .product
+                                                          .id
+                                                          .toString(),
+                                                      controller
+                                                          .productElemnt![index]
+                                                          .id);
+                                                  Get.back();
+                                                },
+                                                title: 'Are You Sure',
+                                                onCancel: () {
+                                                  Get.back();
+                                                },
+                                              );
+                                            }),
                                   kWidth5,
                                   Padding(
                                     padding: const EdgeInsets.only(

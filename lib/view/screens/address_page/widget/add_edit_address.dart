@@ -50,6 +50,13 @@ class _AddEditAddressState extends State<AddEditAddress> {
 
   @override
   Widget build(BuildContext context) {
+    //  if (widget.types == Address.isEditting) {
+    //   nameController.text = widget.name!;
+    //   addressController.text = widget.address!;
+    //   mobileController.text = widget.mobile!;
+    //   pinController.text = widget.pin!;
+    //   typeController.text = widget.type!;
+    // }
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
       child: Dialog(

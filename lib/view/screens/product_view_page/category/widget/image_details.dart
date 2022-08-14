@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/model/category_datas_model.dart';
-import 'package:gadgetque/model/home_datas_model.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
@@ -23,7 +22,7 @@ class CatImageDetails extends StatelessWidget {
           SizedBox(
             width: size.width * 0.815,
             child: ItemText(
-                lines: 2,
+                lines: 2,spacing: 1.2,
                 name: products.description,
                 weight: FontWeight.w500,
                 fontSize: 20,

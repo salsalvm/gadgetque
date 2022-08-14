@@ -1,10 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:gadgetque/controller/checkout_controller.dart';
 import 'package:gadgetque/controller/home_controller.dart';
-import 'package:gadgetque/services/checkout_services.dart';
-import 'package:gadgetque/services/order_service.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/screens/home/widget/carousal_slider.dart';
@@ -22,7 +17,6 @@ class ScreenHome extends StatelessWidget {
   ScreenHome({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: kFormColor,
       appBar: PreferredSize(
@@ -37,7 +31,7 @@ class ScreenHome extends StatelessWidget {
           CatogorySearch(),
           const MainHead(headding: 'Most Ratted Items'),
           const MostRattedItem(),
-          const MainHead(headding: 'Reccomented Items'),
+          const MainHead(headding: 'Recomented Items'),
           controller.products == null
               ? const Center(child: CircularProgressIndicator())
               : RecommendedItem(),

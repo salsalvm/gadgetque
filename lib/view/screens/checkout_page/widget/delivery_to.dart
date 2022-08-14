@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:gadgetque/controller/checkout_controller.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
@@ -23,7 +22,8 @@ class DeliveryTo extends StatelessWidget {
       alignment: AlignmentDirectional.bottomEnd,
       children: [
         SizedBox(
-          height: size.width * .8,
+          height: size.width * .54,
+          width: size.width,
           child: GetBuilder<CheckoutController>(
             init: CheckoutController(),
             builder: (controller) {
@@ -45,6 +45,7 @@ class DeliveryTo extends StatelessWidget {
                 );
               } else {
                 return ListView.builder(
+                  scrollDirection: Axis.horizontal,
                   itemCount: controller.address!.length,
                   itemBuilder: (context, index) {
                     final address = controller.address![index].address;
@@ -66,75 +67,80 @@ class DeliveryTo extends StatelessWidget {
                               index, '${address.addressId}');
                           controller.update();
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: kRAdius10,
-                              color: controller.colorChange == index
-                                  ? Color.fromARGB(255, 158, 228, 221)
-                                  : kBoxColor),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ItemText(
-                                        name:
-                                            'Delivery To :  ${address.type!.toUpperCase()}',
-                                        weight: FontWeight.bold,
-                                        fontSize: 20,
-                                        color: kBlack54Color),
-                                    ActionButton(
-                                      buttonWidth: size.width * .1,
-                                      buttonHeight: size.width * .08,
-                                      radius: 5,
-                                      text: 'Edit',
-                                      fontColor: kWhiteColor,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: kRAdius10,
+                                color: controller.colorChange == index
+                                    ? const Color.fromARGB(255, 158, 228, 221)
+                                    : kBoxColor),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      ItemText(
+                                          name:
+                                              'Delivery To :  ${address.type!.toUpperCase()}',
+                                          weight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: kBlack54Color),
+                                      kWidth100,
+                                      kWidth10,
+                                      ActionButton(
+                                        buttonWidth: size.width * .1,
+                                        buttonHeight: size.width * .08,
+                                        radius: 5,
+                                        text: 'Edit',
+                                        fontColor: kWhiteColor,
+                                        fontSize: 16,
+                                        onTap: () {
+                                          Get.dialog(
+                                            AddEditAddress(
+                                              types: Address.isEditting,
+                                              address: address.address,
+                                              name: address.name,
+                                              mobile: address.mobile,
+                                              pin: address.pincode,
+                                              type: address.type,
+                                              addId: address.addressId,
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                  const DivLine(),
+                                  ItemText(
+                                      name: '${address.name}'.toUpperCase(),
+                                      weight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: kBlackColor),
+                                  kHeigt5,
+                                  ItemText(
+                                      name: temp.trim(),
+                                      lines: 2,
+                                      weight: FontWeight.w500,
                                       fontSize: 16,
-                                      onTap: () {
-                                        Get.dialog(
-                                          AddEditAddress(
-                                            types: Address.isEditting,
-                                            address: address.address,
-                                            name: address.name,
-                                            mobile: address.mobile,
-                                            pin: address.pincode,
-                                            type: address.type,
-                                            addId: address.addressId,
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ],
-                                ),
-                                const DivLine(),
-                                ItemText(
-                                    name: '${address.name}'.toUpperCase(),
-                                    weight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: kBlackColor),
-                                kHeigt5,
-                                ItemText(
-                                    name: temp.trim(),
-                                    lines: 2,
-                                    weight: FontWeight.w500,
-                                    fontSize: 16,
-                                    color: kBlack54Color),
-                                kHeigt5,
-                                ItemText(
-                                    name: '${address.pincode}',
-                                    weight: FontWeight.w500,
-                                    fontSize: 16,
-                                    color: kBlack54Color),
-                                ItemText(
-                                    name: '+91 ${address.mobile}',
-                                    weight: FontWeight.w700,
-                                    fontSize: 16,
-                                    color: kBlackColor)
-                              ],
+                                      color: kBlack54Color),
+                                  kHeigt5,
+                                  ItemText(
+                                      name: '${address.pincode}',
+                                      weight: FontWeight.w500,
+                                      fontSize: 16,
+                                      color: kBlack54Color),
+                                  ItemText(
+                                      name: '+91 ${address.mobile}',
+                                      weight: FontWeight.w700,
+                                      fontSize: 16,
+                                      color: kBlackColor)
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -157,7 +163,7 @@ class DeliveryTo extends StatelessWidget {
             backgroundColor: kButtonColor,
             child: const Icon(Icons.add),
           ),
-        )
+        ),
       ],
     );
   }

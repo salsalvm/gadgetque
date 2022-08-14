@@ -22,27 +22,6 @@ class ProductImage extends StatelessWidget {
             placeholder: 'asset/noimage.jpeg',
             image:
                 'http://10.0.2.2:3000/product-image/${products.id}/${products.imageId}_1.jpg'),
-        // CachedNetworkImage(
-        //   imageUrl:
-        //       'http://54.176.6.232/product-image/${products.id}/${products.imageId}_1.jpg',
-        //   width: size.width,
-        //   height: size.width * .89,
-        //   placeholder: (context, url) =>
-        //       const Center(child: CircularProgressIndicator()),
-        //   errorWidget: (context, str, error) => CachedNetworkImage(
-        //     imageUrl:
-        //         'http://10.0.2.2:3000/product-image/${products.id}/${products.imageId}_1.jpg',
-        //     width: size.width,
-        //     height: size.width * .89,
-        //     placeholder: (context, url) =>
-        //         const Center(child: CircularProgressIndicator()),
-        //     errorWidget: (context, str, error) => const Icon(
-        //       Icons.error,
-        //       color: kGreyColor,
-        //       size: 40,
-        //     ),
-        //   ),
-        // ),
         const Padding(
           padding: EdgeInsets.all(15.0),
           child: AddWishlist(),

@@ -53,10 +53,14 @@ class BuyProduct extends StatelessWidget {
                 firstOnTap: () {
                   controller.isAdd.value
                       ? controller.addCartItems(products.id)
-                      : Get.to(ScreenCart());
+                      : Get.to(
+                          ScreenCart(),
+                        );
                 },
                 secondOnTap: () {
-                  Get.to(ScreenSummary());
+                  Get.to(
+                    const ScreenSummary(),
+                  );
                 },
               ),
             )

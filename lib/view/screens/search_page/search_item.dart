@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/radius.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/screens/product_view_page/screen_product.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/wishlist_page/widget/add_wishlists.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 class MySearch extends SearchDelegate {
   @override
@@ -61,168 +65,200 @@ class MySearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return GridView.builder(
-      itemCount: 10,
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 5,
-        crossAxisSpacing: 5,
-        childAspectRatio: 1 / 1.75,
-      ),
-      itemBuilder: (context, index) {
-        return InkWell(
-          // onTap: () => Get.to( BuyProduct()),
-          child: Card(
-            color: kWhiteColor,
-            shape: RoundedRectangleBorder(borderRadius: kRAdius10),
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Column(
-                children: [
-                  Stack(
-                    alignment: AlignmentDirectional.topEnd,
-                    children: [
-                      Container(
-                        width: size.width * .5,
-                        height: size.width * .45,
-                        decoration: BoxDecoration(
-                          borderRadius: kRAdius10,
-                          image: const DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(
-                              'asset/mobile.png',
-                            ),
-                          ),
-                        ),
-                      ),
-                      const AddWishlist(radius: 20, iconSize: 34),
-                    ],
-                  ),
-                  kHeigt5,
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        child: ItemText(
-                            lines: 2,
-                            name:
-                                'Smart Phone Apple Dual core Fully  Watter proof',
-                            weight: FontWeight.w500,
-                            fontSize: 18,
-                            color: kBlackColor),
-                      ),
-                      kHeigt5,
-                      const ItemText(
-                          name: 'Apple',
-                          weight: FontWeight.w500,
-                          fontSize: 16,
-                          color: kBlack54Color),
-                      ItemText(
-                          name: '€40,000',
-                          weight: FontWeight.bold,
-                          fontSize: 20,
-                          color: kGreenColor),
-                      const ItemText(
-                          name: 'free delivery',
-                          weight: FontWeight.w500,
-                          fontSize: 18,
-                          color: kBlack54Color)
-                    ],
-                  ),
-                ],
-              ),
+    final searched = homeController.products!
+        .toList()
+        .where((element) =>
+            element.name.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+
+    return searched.isEmpty
+        ? const Center(
+            child: ItemText(
+                name: 'No Product Found',
+                weight: FontWeight.normal,
+                fontSize: 14,
+                color: kGreyColor))
+        : GridView.builder(
+            itemCount: searched.length,
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 5,
+              childAspectRatio: 1 / 1.75,
             ),
-          ),
-        );
-      },
-    );
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () => Get.to(BuyProduct(
+                  products: searched[index],
+                )),
+                child: Card(
+                  color: kWhiteColor,
+                  shape: RoundedRectangleBorder(borderRadius: kRAdius10),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Column(
+                      children: [
+                        Stack(
+                          alignment: AlignmentDirectional.topEnd,
+                          children: [
+                            FadeInImage.assetNetwork(
+                                fit: BoxFit.fill,
+                                width: size.width * .5,
+                                height: size.width * .45,
+                                placeholder: 'asset/noimage.jpeg',
+                                image:
+                                    'http://10.0.2.2:3000/product-image/${searched[index].id}/${searched[index].imageId}_1.jpg'),
+                            const AddWishlist(radius: 20, iconSize: 34),
+                          ],
+                        ),
+                        kHeigt5,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              child: ItemText(
+                                  lines: 2,
+                                  name: searched[index].name,
+                                  weight: FontWeight.w500,
+                                  fontSize: 18,
+                                  color: kBlackColor),
+                            ),
+                            kHeigt5,
+                            ItemText(
+                                name: searched[index].description,
+                                weight: FontWeight.w500,
+                                fontSize: 16,
+                                color: kBlack54Color),
+                            Row(
+                              children: [
+                                ItemText(
+                                    name: searched[index].price,
+                                    weight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: kGreenColor),
+                                ItemText(
+                                    strike: TextDecoration.lineThrough,
+                                    name: searched[index].originalPrice,
+                                    weight: FontWeight.normal,
+                                    fontSize: 17,
+                                    color: kBlack54Color),
+                              ],
+                            ),
+                            const ItemText(
+                                name: 'free delivery',
+                                weight: FontWeight.w500,
+                                fontSize: 18,
+                                color: kBlack54Color)
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          );
   }
 
 // search element
   @override
   Widget buildSuggestions(BuildContext context) {
-    // final searched = productList
-    //     .toList()
-    //     .where((element) =>
-    //         element.metas.title!.toLowerCase().contains(query.toLowerCase()))
-    //     .toList();
+    final searched = homeController.products!
+        .toList()
+        .where((element) =>
+            element.name.toLowerCase().contains(query.toLowerCase()))
+        .toList();
 
-    return GridView.builder(
-      itemCount: 10,
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 5,
-        crossAxisSpacing: 5,
-        childAspectRatio: 1 / 1.75,
-      ),
-      itemBuilder: (context, index) {
-        return InkWell(
-          // onTap: () => Get.to( BuyProduct()),
-          child: Card(
-            color: kWhiteColor,
-            shape: RoundedRectangleBorder(borderRadius: kRAdius10),
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Column(
-                children: [
-                  Stack(
-                    alignment: AlignmentDirectional.topEnd,
-                    children: [
-                      Container(
-                        width: size.width * .5,
-                        height: size.width * .45,
-                        decoration: BoxDecoration(
-                          borderRadius: kRAdius10,
-                          image: const DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(
-                              'asset/mobile.png',
-                            ),
-                          ),
-                        ),
-                      ),
-                      const AddWishlist(radius: 20, iconSize: 34),
-                    ],
-                  ),
-                  kHeigt5,
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        child: ItemText(
-                            lines: 2,
-                            name:
-                                'Smart Phone Apple Dual core Fully  Watter proof',
-                            weight: FontWeight.w500,
-                            fontSize: 18,
-                            color: kBlackColor),
-                      ),
-                      kHeigt5,
-                      const ItemText(
-                          name: 'Apple',
-                          weight: FontWeight.w500,
-                          fontSize: 16,
-                          color: kBlack54Color),
-                      ItemText(
-                          name: '€40,000',
-                          weight: FontWeight.bold,
-                          fontSize: 20,
-                          color: kGreenColor),
-                      const ItemText(
-                          name: 'free delivery',
-                          weight: FontWeight.w500,
-                          fontSize: 18,
-                          color: kBlack54Color)
-                    ],
-                  ),
-                ],
-              ),
+    return searched.isEmpty
+        ? const Center(
+            child: ItemText(
+                name: 'No Product Found',
+                weight: FontWeight.normal,
+                fontSize: 14,
+                color: kGreyColor))
+        : GridView.builder(
+            itemCount: searched.length,
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 5,
+              childAspectRatio: 1 / 1.75,
             ),
-          ),
-        );
-      },
-    );
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () => Get.to(BuyProduct(
+                  products: searched[index],
+                )),
+                child: Card(
+                  color: kWhiteColor,
+                  shape: RoundedRectangleBorder(borderRadius: kRAdius10),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Column(
+                      children: [
+                        Stack(
+                          alignment: AlignmentDirectional.topEnd,
+                          children: [
+                            FadeInImage.assetNetwork(
+                                fit: BoxFit.fill,
+                                width: size.width * .5,
+                                height: size.width * .45,
+                                placeholder: 'asset/noimage.jpeg',
+                                image:
+                                    'http://10.0.2.2:3000/product-image/${searched[index].id}/${searched[index].imageId}_1.jpg'),
+                            const AddWishlist(radius: 20, iconSize: 34),
+                          ],
+                        ),
+                        kHeigt5,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              child: ItemText(
+                                  lines: 2,
+                                  name: searched[index].name,
+                                  weight: FontWeight.w500,
+                                  fontSize: 18,
+                                  color: kBlackColor),
+                            ),
+                            kHeigt5,
+                            ItemText(
+                                name: searched[index].description,
+                                weight: FontWeight.w500,
+                                fontSize: 16,
+                                color: kBlack54Color),
+                            Row(
+                              children: [
+                                ItemText(
+                                    name: searched[index].price,
+                                    weight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: kGreenColor),
+                                ItemText(
+                                    strike: TextDecoration.lineThrough,
+                                    name: searched[index].originalPrice,
+                                    weight: FontWeight.normal,
+                                    fontSize: 17,
+                                    color: kBlack54Color),
+                              ],
+                            ),
+                            const ItemText(
+                                name: 'free delivery',
+                                weight: FontWeight.w500,
+                                fontSize: 18,
+                                color: kBlack54Color)
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          );
   }
+
+  final homeController = Get.put(HomeController());
 }

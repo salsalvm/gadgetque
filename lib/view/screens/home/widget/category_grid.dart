@@ -31,8 +31,11 @@ class CategoryGrid extends StatelessWidget {
               ),
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () => Get.to(BuyCategoryProduct(
-                      products: controller.categoryItems![index])),
+                  onTap: () => Get.to(
+                    BuyCategoryProduct(
+                      products: controller.categoryItems![index],
+                    ),
+                  ),
                   child: Card(
                     color: kWhiteColor,
                     shape: RoundedRectangleBorder(borderRadius: kRAdius10),
@@ -65,7 +68,7 @@ class CategoryGrid extends StatelessWidget {
                                   color: kBlackColor),
                               SizedBox(
                                 child: ItemText(
-                                    lines: 2,
+                                    lines: 2,spacing: 1.2,
                                     name: controller
                                         .categoryItems![index].description,
                                     weight: FontWeight.w400,

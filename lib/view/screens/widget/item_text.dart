@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
-import 'package:get/route_manager.dart';
 
 class ItemText extends StatelessWidget {
   const ItemText(
@@ -16,10 +14,10 @@ class ItemText extends StatelessWidget {
   final String name;
   final FontWeight weight;
   final double fontSize;
-  final color;
-  final onTap;
-  final spacing;
-  final lines;
+  final Color? color;
+  final void Function()? onTap;
+  final double? spacing;
+  final int lines;
   final TextDecoration? strike;
   @override
   Widget build(BuildContext context) {
