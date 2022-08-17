@@ -13,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthenticationController extends GetxController {
   var isLoading = false.obs;
+  int? wallet;
   //>>>signin user<<<//
   signinUser(String mail, String password) async {
     isLoading(true);
@@ -26,6 +27,9 @@ class AuthenticationController extends GetxController {
 
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final data = signinModelFromJson(response.data);
+
+          wallet=data.response.user.wallet;
+      
 
         Get.offAll(
           BottomNavigator(),
@@ -75,8 +79,9 @@ class AuthenticationController extends GetxController {
       final response = await AuthServices().checkSignin(signupData);
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final data = signupModelFromJson(response.data);
-        log(data.response.toString());
+     
         if (data.response.acknowledged) {
+
           Get.snackbar(
             'successfully creatted',
             'discover your own style',

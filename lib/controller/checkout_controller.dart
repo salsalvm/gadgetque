@@ -20,7 +20,8 @@ class CheckoutController extends GetxController {
   int? colorChange;
   String? selectMethod;
   String? addressId;
-  Map<String, dynamic>? couponCode;
+ num? offer;
+  // Map<String, dynamic>? couponCode;
 
   // get checkout datas //
   getcheckoutDatas() async {
@@ -49,13 +50,14 @@ class CheckoutController extends GetxController {
 
 // apply coupon //
   appyCoupon(String code) async {
-    couponCode = {"Coupon": code};
+    // Map<String, dynamic>  couponCode = {"Coupon": code};
     try {
-      final response = await CheckoutServiceEndPoint().applyCoupon(couponCode!);
+      final response = await CheckoutServiceEndPoint().applyCoupon(code);
 
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final datas = applyCouponModelFromJson(response.data);
-        if (datas.status) {
+        if (datas.coupon == code) {
+        offer=  datas.offer;
           Get.snackbar('succesfully', 'coupon applyed successfully',
               colorText: kGreenColor, snackPosition: SnackPosition.BOTTOM);
         } else {
@@ -137,6 +139,7 @@ class CheckoutController extends GetxController {
       log('placeOrder controller>>>>>>>>$e<<<<<<<<<<');
     }
   }
+  // payment
 
   @override
   void onInit() {

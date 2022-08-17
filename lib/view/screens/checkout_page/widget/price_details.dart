@@ -50,6 +50,7 @@ class PriceDetails extends StatelessWidget {
               kHeigt10,
               TextElementsInRow(
                   firstText: 'Amount Payable   :',
+                  //  secondText:'${ (controller.total??'0.00'*int.parse(controller.offer))/100}',
                   secondText: '${controller.total ?? '0.00'}',
                   wieght: FontWeight.bold,
                   fontSize: 22,

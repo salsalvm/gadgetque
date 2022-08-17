@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/model/home_datas_model.dart';
+import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
-import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
-import 'package:gadgetque/view/screens/checkout_page/screen_order_summary.dart';
 import 'package:gadgetque/view/screens/product_view_page/widget/image_details.dart';
 import 'package:gadgetque/view/screens/product_view_page/widget/product_image.dart';
 import 'package:gadgetque/view/screens/product_view_page/widget/similar_item.dart';
-import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';
+import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/main_headding.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
 import 'package:get/get.dart';
 
+String? productId;
+
 class BuyProduct extends StatelessWidget {
   final Product products;
-  const BuyProduct({Key? key, required this.products}) : super(key: key);
-
+  BuyProduct({Key? key, required this.products}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    productId = products.id;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
@@ -46,24 +47,26 @@ class BuyProduct extends StatelessWidget {
               ],
             ),
             GetBuilder<CartController>(
-              init: CartController(),
-              builder: (controller) => BottomDoubleButton(
-                secondText: 'Buy Now',
-                firstText: controller.isAdd.value ? 'Add to Cart' : 'View Cart',
-                firstOnTap: () {
-                  controller.isAdd.value
-                      ? controller.addCartItems(products.id)
-                      : Get.to(
-                          ScreenCart(),
-                        );
-                },
-                secondOnTap: () {
-                  Get.to(
-                    const ScreenSummary(),
-                  );
-                },
-              ),
-            )
+                init: CartController(),
+                builder: (controller) {
+                  return controller.isAdd!
+                      ? ActionButton(
+                          buttonWidth: size.width,
+                          buttonHeight: size.width * .14,
+                          radius: 0,
+                          text: 'View Cart',
+                          onTap: () {
+                            Get.to(CartController());
+                          })
+                      : ActionButton(
+                          buttonWidth: size.width,
+                          buttonHeight: size.width * .14,
+                          radius: 0,
+                          text: 'Add To Cart',
+                          onTap: () {
+                            controller.addCartItems(products.id);
+                          });
+                })
           ],
         ),
       ),

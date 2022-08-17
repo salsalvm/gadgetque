@@ -89,19 +89,12 @@ class DeliveryItem extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              Container(
-                                width: size.width * .35,
-                                height: size.width * .36,
-                                decoration: BoxDecoration(
-                                  color: kWhiteColor,
-                                  borderRadius: kRAdius10,
-                                  image: const DecorationImage(
-                                    image: AssetImage(
-                                      'asset/mobile.png',
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              FadeInImage.assetNetwork(
+                                  width: size.width * .35,
+                                  height: size.width * .36,
+                                  placeholder: 'asset/noimage.jpeg',
+                                  image:
+                                      'http://10.0.2.2:3000/product-image/${controller.products![index].product.id}/${controller.products![index].product.imageId}_1.jpg'),
                             ],
                           ),
                           kHeigt5,

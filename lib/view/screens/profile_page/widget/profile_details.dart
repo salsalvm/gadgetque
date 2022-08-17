@@ -51,7 +51,9 @@ class ProfileDetails extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          
+                        },
                         child: CircleAvatar(
                           backgroundImage:
                               const AssetImage('asset/noimage.jpeg'),

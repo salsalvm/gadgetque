@@ -29,11 +29,11 @@ class ScreenCart extends StatelessWidget {
           alignment: AlignmentDirectional.bottomCenter,
           children: [
             ListView(
-              children:const [
+              children: const [
                 kHeigt10,
-                 CartContainer(),
+                CartContainer(),
                 CartitemsList(),
-                 CartTotalAmount()
+                CartTotalAmount()
               ],
             ),
             cartController.productElemnt!.isEmpty
@@ -48,7 +48,7 @@ class ScreenCart extends StatelessWidget {
                   )
                 : ActionButton(
                     onTap: () {
-                      Get.to(const ScreenSummary());
+                      Get.to(ScreenSummary());
                     },
                     radius: 0,
                     buttonWidth: size.width,

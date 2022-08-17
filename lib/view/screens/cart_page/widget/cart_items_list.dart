@@ -138,8 +138,9 @@ class CartitemsList extends StatelessWidget {
                                                           .toString(),
                                                       controller
                                                           .productElemnt![index]
-                                                          .id);
+                                                          .id);  controller.update();
                                                   Get.back();
+                                                
                                                 },
                                                 title: 'Are You Sure',
                                                 onCancel: () {
@@ -178,8 +179,8 @@ class CartitemsList extends StatelessWidget {
                               trailing: Column(
                                 children: [
                                   ItemText(
-                                      name: controller
-                                          .productElemnt![index].product.price!,
+                                      name:
+                                          '${int.parse(controller.productElemnt![index].product.price!) * controller.productElemnt![index].quantity}',
                                       weight: FontWeight.w600,
                                       fontSize: 20,
                                       color: kBlackColor),

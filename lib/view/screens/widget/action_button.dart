@@ -10,7 +10,7 @@ class ActionButton extends StatelessWidget {
     required this.onTap,
     this.fontSize = 24,  this.buttonColor=kButtonColor, this.radius=10,  this.fontColor=kWhiteColor,
   }) : super(key: key);
-  final onTap;
+  final VoidCallback onTap;
   final String text;final double radius;
   final double buttonHeight;
   final double buttonWidth;

@@ -26,7 +26,7 @@ class ImageDetails extends StatelessWidget {
                 name: products.description,
                 weight: FontWeight.w500,
                 fontSize: 20,
-                color: kBlack54Color),
+                color: kBlackColor),
           ),
           kHeigt5,
           ItemText(
@@ -39,7 +39,7 @@ class ImageDetails extends StatelessWidget {
               strike: TextDecoration.lineThrough,
               name: products.originalPrice,
               weight: FontWeight.normal,
-              fontSize: 17,
+              fontSize: 20,
               color: kBlack54Color),
           const ItemText(
               name: 'free delivery',

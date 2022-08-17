@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
+import 'package:gadgetque/controller/payment_controller.dart';
+import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
 import 'package:gadgetque/view/screens/checkout_page/widget/coupon_apply.dart';
@@ -7,13 +9,14 @@ import 'package:gadgetque/view/screens/checkout_page/widget/delivery_item.dart';
 import 'package:gadgetque/view/screens/checkout_page/widget/delivery_to.dart';
 import 'package:gadgetque/view/screens/checkout_page/widget/payment_method.dart';
 import 'package:gadgetque/view/screens/checkout_page/widget/price_details.dart';
-import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';
+import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
 import 'package:get/get.dart';
 
 class ScreenSummary extends StatelessWidget {
-  const ScreenSummary({Key? key}) : super(key: key);
+  ScreenSummary({Key? key}) : super(key: key);
 
+  final paymentController = Get.put(PaymentController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,14 +50,14 @@ class ScreenSummary extends StatelessWidget {
                   ],
                 ),
               ),
-              BottomDoubleButton(
-                  secondText: 'Place Order',
-                  firstText: 'Clear Order',
-                  firstOnTap: () {
-                    Get.back();
-                  },
-                  secondOnTap: () {
+              ActionButton(
+                  radius: 0,
+                  buttonWidth: size.width,
+                  buttonHeight: size.width * 0.14,
+                  text: 'Place Order',
+                  onTap: () {
                     if (controller.selectMethod == "Razor Pay") {
+                      paymentController.razorPay();
                     } else if (controller.selectMethod == "COD") {
                       controller.placeOrder();
                     } else {

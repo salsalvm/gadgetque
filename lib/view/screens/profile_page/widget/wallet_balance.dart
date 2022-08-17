@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
+import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/color.dart';
 import 'package:gadgetque/view/constant/core/radius.dart';
@@ -6,6 +8,7 @@ import 'package:gadgetque/view/constant/core/space.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 class WalletBalance extends StatelessWidget {
   const WalletBalance({
@@ -33,11 +36,16 @@ class WalletBalance extends StatelessWidget {
                 color: kBlackColor),
             const DivLine(),
             kHeigt5,
-            ItemText(
-                name: '€14,040',
-                weight: FontWeight.w600,
-                fontSize: 18,
-                color: kGreenColor),
+            GetBuilder<AuthenticationController>(
+              init: AuthenticationController(),
+              builder: (controller) => ItemText(
+                  name: controller.wallet == null
+                      ? '€100'
+                      : '€${controller.wallet}',
+                  weight: FontWeight.w600,
+                  fontSize: 18,
+                  color: kGreenColor),
+            ),
             kHeigt5,
             ActionButton(
                 buttonColor: Colors.white.withOpacity(0.1),

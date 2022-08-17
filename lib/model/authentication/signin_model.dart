@@ -67,7 +67,7 @@ class User {
   String confirmPass;
   String refer;
   String referedBy;
-  int wallet;
+  int? wallet;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
         id: json["_id"],

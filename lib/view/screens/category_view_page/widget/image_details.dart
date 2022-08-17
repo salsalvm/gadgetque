@@ -22,11 +22,11 @@ class CatImageDetails extends StatelessWidget {
           SizedBox(
             width: size.width * 0.815,
             child: ItemText(
-                lines: 2,spacing: 1.2,
+                lines: 2,spacing: 1.1,
                 name: products.description,
                 weight: FontWeight.w500,
                 fontSize: 20,
-                color: kBlack54Color),
+                color: kBlackColor),
           ),
           kHeigt5,
           ItemText(
@@ -39,7 +39,7 @@ class CatImageDetails extends StatelessWidget {
               strike: TextDecoration.lineThrough,
               name: products.originalPrice,
               weight: FontWeight.normal,
-              fontSize: 17,
+              fontSize: 20,
               color: kBlack54Color),
           const ItemText(
               name: 'free delivery',

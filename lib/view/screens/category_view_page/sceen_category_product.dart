@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/model/category_datas_model.dart';
+import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/core/space.dart';
 import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
-import 'package:gadgetque/view/screens/checkout_page/screen_order_summary.dart';
-import 'package:gadgetque/view/screens/product_view_page/category/widget/image_details.dart';
-import 'package:gadgetque/view/screens/product_view_page/category/widget/product_image.dart';
+import 'package:gadgetque/view/screens/category_view_page/widget/image_details.dart';
+import 'package:gadgetque/view/screens/category_view_page/widget/product_image.dart';
 import 'package:gadgetque/view/screens/product_view_page/widget/similar_item.dart';
-import 'package:gadgetque/view/screens/widget/bottom_double_button.dart';
+import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/main_headding.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
@@ -48,18 +48,30 @@ class BuyCategoryProduct extends StatelessWidget {
             ),
             GetBuilder<CartController>(
               init: CartController(),
-              builder: (controller) => BottomDoubleButton(
-                secondText: 'Buy Now',
-                firstText: controller.isAdd.value ? 'Add to Cart' : 'View Cart',
-                firstOnTap: () {
-                  controller.isAdd.value
-                      ? controller.addCartItems(products.id)
-                      : Get.to(ScreenCart());
-                },
-                secondOnTap: () {
-                  Get.to(ScreenSummary());
-                },
-              ),
+              builder: (controller) {
+               
+                return controller.isAdd!
+                    ? ActionButton(
+                        buttonWidth: size.width,
+                        buttonHeight: size.width * .14,
+                        radius: 0,
+                        text: 'View Cart',
+                        onTap: () {
+                          Get.to(
+                            ScreenCart(),
+                          );
+                        },
+                      )
+                    : ActionButton(
+                        buttonWidth: size.width,
+                        buttonHeight: size.width * .14,
+                        radius: 0,
+                        text: 'Add To Cart',
+                        onTap: () {
+                          controller.addCartItems(products.id);
+                        },
+                      );
+              },
             )
           ],
         ),

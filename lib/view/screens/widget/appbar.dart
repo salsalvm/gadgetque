@@ -62,7 +62,8 @@ class AppbarMain extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {
-                        Get.to( ScreenCart());
+                        Get.to(ScreenCart());
+                        cartController.update();
                       },
                       icon: const Icon(
                         Icons.shopping_cart_checkout,
@@ -91,4 +92,5 @@ class AppbarMain extends StatelessWidget {
       ),
     );
   }
+  final cartController = Get.put(CartController());
 }

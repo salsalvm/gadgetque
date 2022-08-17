@@ -22,11 +22,12 @@ class CheckoutServiceEndPoint {
     return null;
   }
 
-  Future<Response<dynamic>?> applyCoupon(Map<String, dynamic> code) async {
+  Future<Response<dynamic>?> applyCoupon( code) async {
+    
     try {
       final response =
-          await dio.post('check-coupon/$userId', data: jsonEncode(code));
-
+          await dio.post('check-coupon/$userId/$code');
+log(',.,.,.$response');
       return response;
     } catch (e) {
       log('get service>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
