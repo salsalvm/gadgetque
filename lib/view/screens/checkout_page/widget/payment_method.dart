@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -20,7 +20,7 @@ class PaymentMethod extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ItemText(
+            const CustomText(
                 name: 'Payment Methods',
                 weight: FontWeight.bold,
                 fontSize: 22,
@@ -48,7 +48,7 @@ class Payment extends StatelessWidget {
     return GetBuilder<CheckoutController>(
       init: CheckoutController(),
       builder: (controller) => RadioListTile(
-        title: ItemText(
+        title: CustomText(
             name: name,
             weight: FontWeight.w500,
             fontSize: 22,

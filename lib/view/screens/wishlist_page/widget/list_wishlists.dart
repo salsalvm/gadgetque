@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/wishlist_page/widget/add_wishlists.dart';
 
@@ -40,7 +40,7 @@ class ListWishlists extends StatelessWidget {
                       children: [
                         SizedBox(
                           width: size.width * .435,
-                          child: const ItemText(
+                          child: const CustomText(
                               lines: 2,
                               name: 'Smart Watch Apple Dual core',
                               weight: FontWeight.bold,
@@ -48,19 +48,19 @@ class ListWishlists extends StatelessWidget {
                               color: kBlackColor),
                         ),
                         kHeigt5,
-                        const ItemText(
+                        const CustomText(
                             name: 'Apple 6',
                             weight: FontWeight.bold,
                             fontSize: 18,
                             color: kBlack54Color),
                         // kHeigt5,
-                        const ItemText(
+                        const CustomText(
                             name: 'seller :  Apple Inc.',
                             weight: FontWeight.w500,
                             fontSize: 20,
                             color: kBlack54Color),
                         kHeigt10,
-                        ItemText(
+                        CustomText(
                             name: '€14,000',
                             weight: FontWeight.bold,
                             fontSize: 22,

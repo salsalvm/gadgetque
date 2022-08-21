@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
@@ -23,7 +23,7 @@ class AllCoupons extends StatelessWidget {
               )
             : controller.coupon!.isEmpty
                 ? const Center(
-                    child: ItemText(
+                    child: CustomText(
                         name:
                             'no offers\navailable now\nplease waite for your next time',
                         weight: FontWeight.normal,
@@ -61,7 +61,7 @@ class AllCoupons extends StatelessWidget {
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                             right: 4.0, bottom: 3),
-                                        child: ItemText(
+                                        child: CustomText(
                                             weight: FontWeight.w500,
                                             fontSize: 16,
                                             name: '${index + 1}',
@@ -73,14 +73,14 @@ class AllCoupons extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        ItemText(
+                                        CustomText(
                                             lines: 2,
                                             name: coupon.coupon,
                                             weight: FontWeight.bold,
                                             fontSize: 22,
                                             color: kGreenColor),
                                         kHeigt5,
-                                        ItemText(
+                                        CustomText(
                                             lines: 2,
                                             name: 'EXP: ${str[0]}',
                                             weight: FontWeight.w500,
@@ -97,7 +97,7 @@ class AllCoupons extends StatelessWidget {
                                         color: kYellowColor,
                                       ),
                                       child: Center(
-                                          child: ItemText(
+                                          child: CustomText(
                                               weight: FontWeight.w500,
                                               fontSize: 25,
                                               name: '${coupon.offer}%',

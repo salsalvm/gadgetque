@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/product_view_page/screen_product.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/wishlist_page/widget/add_wishlists.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class MySearch extends SearchDelegate {
   @override
@@ -73,7 +72,7 @@ class MySearch extends SearchDelegate {
 
     return searched.isEmpty
         ? const Center(
-            child: ItemText(
+            child: CustomText(
                 name: 'No Product Found',
                 weight: FontWeight.normal,
                 fontSize: 14,
@@ -117,7 +116,7 @@ class MySearch extends SearchDelegate {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                              child: ItemText(
+                              child: CustomText(
                                   lines: 2,
                                   name: searched[index].name,
                                   weight: FontWeight.w500,
@@ -125,19 +124,19 @@ class MySearch extends SearchDelegate {
                                   color: kBlackColor),
                             ),
                             kHeigt5,
-                            ItemText(
+                            CustomText(
                                 name: searched[index].description,
                                 weight: FontWeight.w500,
                                 fontSize: 16,
                                 color: kBlack54Color),
                             Row(
                               children: [
-                                ItemText(
+                                CustomText(
                                     name: searched[index].price,
                                     weight: FontWeight.bold,
                                     fontSize: 20,
                                     color: kGreenColor),
-                                ItemText(
+                                CustomText(
                                     strike: TextDecoration.lineThrough,
                                     name: searched[index].originalPrice,
                                     weight: FontWeight.normal,
@@ -145,7 +144,7 @@ class MySearch extends SearchDelegate {
                                     color: kBlack54Color),
                               ],
                             ),
-                            const ItemText(
+                            const CustomText(
                                 name: 'free delivery',
                                 weight: FontWeight.w500,
                                 fontSize: 18,
@@ -172,7 +171,7 @@ class MySearch extends SearchDelegate {
 
     return searched.isEmpty
         ? const Center(
-            child: ItemText(
+            child: CustomText(
                 name: 'No Product Found',
                 weight: FontWeight.normal,
                 fontSize: 14,
@@ -216,7 +215,7 @@ class MySearch extends SearchDelegate {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                              child: ItemText(
+                              child: CustomText(
                                   lines: 2,
                                   name: searched[index].name,
                                   weight: FontWeight.w500,
@@ -224,19 +223,19 @@ class MySearch extends SearchDelegate {
                                   color: kBlackColor),
                             ),
                             kHeigt5,
-                            ItemText(
+                            CustomText(
                                 name: searched[index].description,
                                 weight: FontWeight.w500,
                                 fontSize: 16,
                                 color: kBlack54Color),
                             Row(
                               children: [
-                                ItemText(
+                                CustomText(
                                     name: searched[index].price,
                                     weight: FontWeight.bold,
                                     fontSize: 20,
                                     color: kGreenColor),
-                                ItemText(
+                                CustomText(
                                     strike: TextDecoration.lineThrough,
                                     name: searched[index].originalPrice,
                                     weight: FontWeight.normal,
@@ -244,7 +243,7 @@ class MySearch extends SearchDelegate {
                                     color: kBlack54Color),
                               ],
                             ),
-                            const ItemText(
+                            const CustomText(
                                 name: 'free delivery',
                                 weight: FontWeight.w500,
                                 fontSize: 18,

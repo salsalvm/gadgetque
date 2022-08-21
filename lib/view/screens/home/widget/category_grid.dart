@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/category_view_page/sceen_category_product.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/wishlist_page/widget/add_wishlists.dart';
@@ -60,14 +60,14 @@ class CategoryGrid extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              ItemText(
+                              CustomText(
                                   name: controller.categoryItems![index].name
                                       .toUpperCase(),
                                   weight: FontWeight.bold,
                                   fontSize: 18,
                                   color: kBlackColor),
                               SizedBox(
-                                child: ItemText(
+                                child: CustomText(
                                     lines: 2,spacing: 1.2,
                                     name: controller
                                         .categoryItems![index].description,
@@ -75,7 +75,7 @@ class CategoryGrid extends StatelessWidget {
                                     fontSize: 16,
                                     color: kBlack54Color),
                               ),
-                              ItemText(
+                              CustomText(
                                   name:
                                       controller.categoryItems![index].category,
                                   weight: FontWeight.w500,
@@ -83,14 +83,14 @@ class CategoryGrid extends StatelessWidget {
                                   color: kBlackColor),
                               Row(
                                 children: [
-                                  ItemText(
+                                  CustomText(
                                       name: controller
                                           .categoryItems![index].price,
                                       weight: FontWeight.bold,
                                       fontSize: 22,
                                       color: kGreenColor),
                                   kWidth5,
-                                  ItemText(
+                                  CustomText(
                                       name: controller
                                           .categoryItems![index].originalPrice,
                                       weight: FontWeight.w400,

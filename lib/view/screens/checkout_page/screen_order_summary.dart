@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
 import 'package:gadgetque/controller/payment_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/checkout_page/widget/coupon_apply.dart';
 import 'package:gadgetque/view/screens/checkout_page/widget/delivery_item.dart';
 import 'package:gadgetque/view/screens/checkout_page/widget/delivery_to.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gadgetque/controller/order_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +25,7 @@ class OrderList extends StatelessWidget {
               )
             : controller.orderList!.isEmpty
                 ? const Center(
-                    child: ItemText(
+                    child: CustomText(
                         name:
                             'No order\nYet find your\nstyle and shop something...',
                         weight: FontWeight.normal,
@@ -103,7 +103,7 @@ class OrderList extends StatelessWidget {
                                               : kGreenColor,
                                         ),
                                         child: Center(
-                                          child: ItemText(
+                                          child: CustomText(
                                               name: controller
                                                   .orderList![index].status!
                                                   .toUpperCase(),
@@ -122,25 +122,25 @@ class OrderList extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
-                                          ItemText(
+                                          CustomText(
                                               name:
                                                   'Date ${controller.orderList![index].date!}',
                                               weight: FontWeight.bold,
                                               fontSize: 18,
                                               color: kBlackColor),
-                                          ItemText(
+                                          CustomText(
                                               name: temp.toUpperCase().trim(),
                                               lines: 2,
                                               weight: FontWeight.w500,
                                               fontSize: 18,
                                               color: kBlack54Color),
-                                          ItemText(
+                                          CustomText(
                                               name:
                                                   'Total :  ${controller.orderList![index].totalAmount!} ',
                                               weight: FontWeight.w500,
                                               fontSize: 20,
                                               color: kGreenColor),
-                                          ItemText(
+                                          CustomText(
                                               name:
                                                   'Method  : ${controller.orderList![index].paymentMethod!}',
                                               weight: FontWeight.bold,

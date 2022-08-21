@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/order_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/wishlist_page/widget/add_wishlists.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -56,14 +56,14 @@ class ViewProduct extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ItemText(
+                            CustomText(
                                 name: '${product.product!.name}'.toUpperCase(),
                                 weight: FontWeight.w500,
                                 fontSize: 20,
                                 color: kBlackColor),
                             kHeigt5,
                             SizedBox(
-                              child: ItemText(
+                              child: CustomText(
                                   lines: 2,
                                   name: '${product.product!.description}',
                                   weight: FontWeight.w500,
@@ -71,19 +71,19 @@ class ViewProduct extends StatelessWidget {
                                   color: kBlack54Color),
                             ),
                             kHeigt5,
-                            ItemText(
+                            CustomText(
                                 name: '${product.product!.category}',
                                 weight: FontWeight.w500,
                                 fontSize: 18,
                                 color: kBlackColor),
                             Row(
                               children: [
-                                ItemText(
+                                CustomText(
                                     name: '${product.product!.price}',
                                     weight: FontWeight.bold,
                                     fontSize: 22,
                                     color: kGreenColor),
-                                ItemText(
+                                CustomText(
                                     name: '${product.product!.originalPrice}',
                                     weight: FontWeight.normal,
                                     fontSize: 18,
@@ -91,7 +91,7 @@ class ViewProduct extends StatelessWidget {
                                     color: kBlack54Color),
                               ],
                             ),
-                            ItemText(
+                            CustomText(
                                 name: 'Qty  :   ${product.quantity} ',
                                 weight: FontWeight.bold,
                                 fontSize: 20,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/widget/two_text_elements_in_row.dart';
@@ -24,7 +24,7 @@ class PriceDetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const ItemText(
+              const CustomText(
                   name: 'Price Details',
                   weight: FontWeight.bold,
                   fontSize: 22,

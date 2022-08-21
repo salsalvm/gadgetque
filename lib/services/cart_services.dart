@@ -1,14 +1,13 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/url.dart';
+import 'package:gadgetque/view/constant/url.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 
 class CartServiceEndPoint {
   final dio =
       Dio(BaseOptions(baseUrl: kBaseurl, responseType: ResponseType.plain));
-  //>>>>>>>>>>>>>get item<<<<<<<<<<<<<<<//
+  //------------------get-------------------//
   Future<Response<dynamic>?> getCartItems(userId) async {
     try {
       final response = await dio.get('cart/$userId');
@@ -19,7 +18,7 @@ class CartServiceEndPoint {
     return null;
   }
 
-//>>>>>>>>>>>>>add item<<<<<<<<<<<<<<<//
+ //------------------add-------------------//
   Future<Response<dynamic>?> addCartItems(String productId) async {
     try {
       final response = await dio.get('add-to-cart/$productId/$userId');
@@ -30,7 +29,7 @@ class CartServiceEndPoint {
     return null;
   }
 
-//>>>>>>>>>>>>>delete item<<<<<<<<<<<<<<<//
+ //------------------remove-------------------//
   Future<Response<dynamic>?> removeCartItems(
       Map<String, dynamic> removeData) async {
     try {
@@ -43,7 +42,7 @@ class CartServiceEndPoint {
     return null;
   }
 
-//>>>>>>>>>>>>>increment item<<<<<<<<<<<<<<<//
+ //------------------quantity actions-------------------//
   Future<Response<dynamic>?> quantityCartItem(
       Map<String, dynamic> cartDetails) async {
     try {

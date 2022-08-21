@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/model/home_datas_model.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 
 class ImageDetails extends StatelessWidget {
@@ -21,7 +21,7 @@ class ImageDetails extends StatelessWidget {
         children: [
           SizedBox(
             width: size.width * 0.815,
-            child: ItemText(
+            child: CustomText(
                 lines: 2,
                 name: products.description,
                 weight: FontWeight.w500,
@@ -29,19 +29,19 @@ class ImageDetails extends StatelessWidget {
                 color: kBlackColor),
           ),
           kHeigt5,
-          ItemText(
+          CustomText(
               name: products.price,
               weight: FontWeight.bold,
               fontSize: 24,
               color: kGreenColor),
           kHeigt5,
-          ItemText(
+          CustomText(
               strike: TextDecoration.lineThrough,
               name: products.originalPrice,
               weight: FontWeight.normal,
               fontSize: 20,
               color: kBlack54Color),
-          const ItemText(
+          const CustomText(
               name: 'free delivery',
               weight: FontWeight.w500,
               fontSize: 20,

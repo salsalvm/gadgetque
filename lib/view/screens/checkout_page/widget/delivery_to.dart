@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/enums/address.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/enums/address.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/address_page/widget/add_edit_address.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
@@ -35,7 +35,7 @@ class DeliveryTo extends StatelessWidget {
                 );
               } else if (controller.address!.isEmpty) {
                 return const Center(
-                  child: ItemText(
+                  child: CustomText(
                       name:
                           'Address is\nnot available now\nplease add a new address',
                       weight: FontWeight.normal,
@@ -84,14 +84,13 @@ class DeliveryTo extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      ItemText(
+                                      CustomText(
                                           name:
                                               'Delivery To :  ${address.type!.toUpperCase()}',
                                           weight: FontWeight.bold,
                                           fontSize: 20,
                                           color: kBlack54Color),
-                                      kWidth100,
-                                      kWidth10,
+                                     const SizedBox(width: 110,),
                                       ActionButton(
                                         buttonWidth: size.width * .1,
                                         buttonHeight: size.width * .08,
@@ -116,25 +115,25 @@ class DeliveryTo extends StatelessWidget {
                                     ],
                                   ),
                                   const DivLine(),
-                                  ItemText(
+                                  CustomText(
                                       name: '${address.name}'.toUpperCase(),
                                       weight: FontWeight.bold,
                                       fontSize: 20,
                                       color: kBlackColor),
                                   kHeigt5,
-                                  ItemText(
+                                  CustomText(
                                       name: temp.trim(),
                                       lines: 2,
                                       weight: FontWeight.w500,
                                       fontSize: 16,
                                       color: kBlack54Color),
                                   kHeigt5,
-                                  ItemText(
+                                  CustomText(
                                       name: '${address.pincode}',
                                       weight: FontWeight.w500,
                                       fontSize: 16,
                                       color: kBlack54Color),
-                                  ItemText(
+                                  CustomText(
                                       name: '+91 ${address.mobile}',
                                       weight: FontWeight.w700,
                                       fontSize: 16,

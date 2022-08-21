@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/controller/validationController.dart';
-import 'package:gadgetque/view/constant/authentication/screen_signup/screen_signup.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/authentication/widget/action_button.dart';
-import 'package:gadgetque/view/constant/authentication/widget/app_bar.dart';
-import 'package:gadgetque/view/constant/authentication/widget/background_image.dart';
-import 'package:gadgetque/view/constant/authentication/widget/error_text.dart';
-import 'package:gadgetque/view/constant/authentication/widget/switch_bottom_textbutton.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/screen_signup/screen_signup.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/widget/action_button.dart';
+import 'package:gadgetque/view/screens/authentication/widget/app_bar.dart';
+import 'package:gadgetque/view/screens/authentication/widget/background_image.dart';
+import 'package:gadgetque/view/screens/authentication/widget/error_text.dart';
+import 'package:gadgetque/view/screens/authentication/widget/switch_bottom_textbutton.dart';
 import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:get/get.dart';
 

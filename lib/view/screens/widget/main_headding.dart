@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/constant/color.dart';
 
 class MainHead extends StatelessWidget {
   final String headding;

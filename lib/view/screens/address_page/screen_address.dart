@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/enums/address.dart';
+import 'package:gadgetque/view/constant/enums/address.dart';
 import 'package:gadgetque/view/screens/address_page/widget/add_edit_address.dart';
 import 'package:gadgetque/view/screens/address_page/widget/list_address.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/appbar.dart';
 import 'package:gadgetque/view/screens/widget/main_headding.dart';

@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:get/get.dart';
 
 class CarasoulSlider extends StatelessWidget {

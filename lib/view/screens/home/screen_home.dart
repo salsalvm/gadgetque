@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
-import 'package:gadgetque/services/checkout_services.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/home/widget/carousal_slider.dart';
 import 'package:gadgetque/view/screens/home/widget/catogory_search.dart';
 import 'package:gadgetque/view/screens/home/widget/most_ratted_items.dart';

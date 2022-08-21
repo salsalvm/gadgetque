@@ -1,15 +1,14 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/url.dart';
+import 'package:gadgetque/view/constant/url.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 
 class AddressServiceEndPoint {
   final dio =
       Dio(BaseOptions(baseUrl: kBaseurl, responseType: ResponseType.plain));
 
-  // get //
+   //------------------get-------------------//
   Future<Response<dynamic>?> getAddress(String userId) async {
     try {
       final response = await dio.get('my-address/$userId');
@@ -20,7 +19,7 @@ class AddressServiceEndPoint {
     return null;
   }
 
-// add //
+ //------------------add-------------------//
   Future<Response<dynamic>?> addAddress(
       Map<String, dynamic> addressDetails) async {
     try {
@@ -33,7 +32,7 @@ class AddressServiceEndPoint {
     return null;
   }
 
-// remove //
+ //------------------remove-------------------//
   Future<Response<dynamic>?> removeAddress(String userId, String addId) async {
     try {
       final response = await dio.get('delete-address/$userId/$addId');
@@ -44,7 +43,7 @@ class AddressServiceEndPoint {
     return null;
   }
 
-// update //
+ //------------------update-------------------//
   Future<Response<dynamic>?> updateAddress(
       Map<String, dynamic> updattedDetails) async {
     try {

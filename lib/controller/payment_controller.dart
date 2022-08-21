@@ -16,7 +16,7 @@ class PaymentController extends GetxController {
     razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
     super.onInit();
   }
-
+ //------------------razor pay-------------------//
   void razorPay() async {
     var options = {
       'key': 'rzp_test_fD35e9IGT4idn9',
@@ -75,14 +75,11 @@ class PaymentController extends GetxController {
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
-    print('Payment Error');
-    print(response.code.toString());
-    print(response.message);
+   
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {
-    print('External Wallet');
-    print(response.walletName);
+  
   }
 
   @override

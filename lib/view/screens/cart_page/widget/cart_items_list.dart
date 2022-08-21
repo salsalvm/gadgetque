@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +23,7 @@ class CartitemsList extends StatelessWidget {
           init: CartController(),
           builder: (controller) => controller.cartCount == 0
               ? const Center(
-                  child: ItemText(
+                  child: CustomText(
                       lines: 3,
                       name:
                           'no cart items\nplease add product\nand check daily status',
@@ -95,7 +95,7 @@ class CartitemsList extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              title: ItemText(
+                              title: CustomText(
                                   name: controller
                                       .productElemnt![index].product.name!,
                                   weight: FontWeight.bold,
@@ -152,7 +152,7 @@ class CartitemsList extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         right: 3.0, bottom: 3),
-                                    child: ItemText(
+                                    child: CustomText(
                                         name: controller
                                             .productElemnt![index].quantity
                                             .toString(),
@@ -178,13 +178,13 @@ class CartitemsList extends StatelessWidget {
                               ),
                               trailing: Column(
                                 children: [
-                                  ItemText(
+                                  CustomText(
                                       name:
                                           '${int.parse(controller.productElemnt![index].product.price!) * controller.productElemnt![index].quantity}',
                                       weight: FontWeight.w600,
                                       fontSize: 20,
                                       color: kBlackColor),
-                                  ItemText(
+                                  CustomText(
                                       strike: TextDecoration.lineThrough,
                                       name: controller.productElemnt![index]
                                           .product.originalPrice!,
@@ -230,7 +230,7 @@ class QuantityAction extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(right: 3.0, bottom: 3),
-          child: ItemText(
+          child: CustomText(
               onTap: onTap,
               name: action,
               weight: FontWeight.bold,

@@ -2,14 +2,12 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
-import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/model/cod_model.dart';
 import 'package:gadgetque/model/placeorder/apply_coupon.dart';
 import 'package:gadgetque/model/placeorder/checkout_model.dart';
 import 'package:gadgetque/services/checkout_services.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/screens/cart_page/widget/cart_container.dart';
+import 'package:gadgetque/view/constant/color.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -20,10 +18,10 @@ class CheckoutController extends GetxController {
   int? colorChange;
   String? selectMethod;
   String? addressId;
- num? offer;
-  // Map<String, dynamic>? couponCode;
+  num? offer;
+  
 
-  // get checkout datas //
+   //------------------get-------------------//
   getcheckoutDatas() async {
     try {
       final response = await CheckoutServiceEndPoint().getcheckoutDatas();
@@ -41,23 +39,23 @@ class CheckoutController extends GetxController {
     }
   }
 
-//select address//
+ //------------------select address-------------------//
   selectedColorChange(int index, String addressId) {
     colorChange = index;
     this.addressId = addressId;
     update();
   }
 
-// apply coupon //
+ //------------------apply coupon-------------------//
   appyCoupon(String code) async {
-    // Map<String, dynamic>  couponCode = {"Coupon": code};
+    
     try {
       final response = await CheckoutServiceEndPoint().applyCoupon(code);
 
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final datas = applyCouponModelFromJson(response.data);
         if (datas.coupon == code) {
-        offer=  datas.offer;
+          offer = datas.offer;
           Get.snackbar('succesfully', 'coupon applyed successfully',
               colorText: kGreenColor, snackPosition: SnackPosition.BOTTOM);
         } else {
@@ -70,7 +68,7 @@ class CheckoutController extends GetxController {
       log('apply controller>>>>>>>>$e<<<<<<<<<<');
     }
   }
-// payment select  //
+ //------------------paymnet radio-------------------//
 
   selectRadioButton(String value) {
     selectMethod = value.toString();
@@ -78,7 +76,7 @@ class CheckoutController extends GetxController {
     update();
   }
 
-  // place order //
+   //------------------cod-------------------//
   placeOrder() async {
     try {
       final response =
@@ -99,6 +97,7 @@ class CheckoutController extends GetxController {
                     // homeController.homeDatas();
                     cartController.getCartItems();
                     update();
+                    indexChanger.value = 0;
                     Get.offAll(
                       BottomNavigator(),
                     );
@@ -139,7 +138,7 @@ class CheckoutController extends GetxController {
       log('placeOrder controller>>>>>>>>$e<<<<<<<<<<');
     }
   }
-  // payment
+   //------------------razor pay-------------------//
 
   @override
   void onInit() {

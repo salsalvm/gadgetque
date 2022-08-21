@@ -4,7 +4,6 @@ import 'package:gadgetque/view/screens/address_page/screen_address.dart';
 import 'package:gadgetque/view/screens/home/screen_home.dart';
 import 'package:gadgetque/view/screens/my_order_page/screen_my_order.dart';
 import 'package:gadgetque/view/screens/profile_page/screen_profile.dart';
-import 'package:gadgetque/view/screens/wishlist_page/screen_wishlist.dart';
 
 ValueNotifier<int> indexChanger = ValueNotifier(0);
 

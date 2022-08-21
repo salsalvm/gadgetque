@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/my_order_page/widget/list_order.dart';
 import 'package:gadgetque/view/screens/widget/appbar.dart';
 import 'package:gadgetque/view/screens/widget/main_headding.dart';

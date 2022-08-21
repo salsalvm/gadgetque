@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -48,7 +48,7 @@ class DeliveryItem extends StatelessWidget {
                                 children: [
                                   SizedBox(
                                     width: size.width * .5,
-                                    child: ItemText(
+                                    child: CustomText(
                                         lines: 2,
                                         name: controller
                                             .products![index].product.name,
@@ -57,14 +57,14 @@ class DeliveryItem extends StatelessWidget {
                                         color: kBlackColor),
                                   ),
                                   kHeigt5,
-                                  ItemText(
+                                  CustomText(
                                       name: controller
                                           .products![index].product.category,
                                       weight: FontWeight.bold,
                                       fontSize: 18,
                                       color: kBlack54Color),
                                   kHeigt5,
-                                  const ItemText(
+                                  const CustomText(
                                       name: 'seller : GadgetsQue',
                                       weight: FontWeight.bold,
                                       fontSize: 16,
@@ -72,13 +72,13 @@ class DeliveryItem extends StatelessWidget {
                                   kHeigt5,
                                   Row(
                                     children: [
-                                      ItemText(
+                                      CustomText(
                                           name: controller
                                               .products![index].product.price,
                                           weight: FontWeight.bold,
                                           fontSize: 24,
                                           color: kGreenColor),
-                                      ItemText(
+                                      CustomText(
                                           name: controller.products![index]
                                               .product.originalPrice,
                                           weight: FontWeight.normal,
@@ -101,7 +101,7 @@ class DeliveryItem extends StatelessWidget {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              ItemText(
+                              CustomText(
                                   name:
                                       'Delivery by ${now.day}-${now.month}-${now.year}',
                                   weight: FontWeight.bold,

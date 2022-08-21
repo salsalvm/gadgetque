@@ -5,8 +5,8 @@ import 'package:gadgetque/model/cart/get_cart_items.dart';
 import 'package:gadgetque/model/cart/increment_cart_item_model.dart';
 import 'package:gadgetque/model/cart/remove_cart.dart';
 import 'package:gadgetque/services/cart_services.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/product_view_page/screen_product.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +17,7 @@ class CartController extends GetxController {
   int total = 0;
   Rx<int?>? cartCount;
 
-  //>>>>>>>>>>>>>get item<<<<<<<<<<<<<<<//
+  //------------------get-------------------//
   getCartItems() async {
     try {
       final response = await CartServiceEndPoint().getCartItems(userId);
@@ -35,9 +35,9 @@ class CartController extends GetxController {
       log('get controller>>>>>>>>>>>>>>>>>>.$e<<<<<<<<<<<<<<<<<<');
     }
   }
-
+ //------------------check cart state-------------------//
   checkCartItem() {
-    log("villichu");
+  
     if (productElemnt != null) {
       for (int i = 0; i < productElemnt!.length; i++) {
         if (productElemnt![i].product.id == productId) {
@@ -51,7 +51,7 @@ class CartController extends GetxController {
     }
   }
 
-  //>>>>>>>>>>>>>add item<<<<<<<<<<<<<<<//
+   //------------------add-------------------//
   addCartItems(String productId) async {
     try {
       final response = await CartServiceEndPoint().addCartItems(productId);
@@ -71,7 +71,7 @@ class CartController extends GetxController {
     }
   }
 
-  //>>>>>>>>>>>>>remove item<<<<<<<<<<<<<<<//
+  //------------------remove-------------------//
   removeCartItems(String productId, String cartId) async {
     Map<String, dynamic> removeData = {
       "cart": cartId,
@@ -93,7 +93,7 @@ class CartController extends GetxController {
       log('remove controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
     }
   }
-
+ //------------------quantity-------------------//
   quantityCartItem(String? prodId, String cartId, int count) async {
     final cartDetails = {
       'user': userId,
@@ -118,20 +118,20 @@ class CartController extends GetxController {
   }
 
   void functionCall() {
-    log("function villichu");
+   
     getCartItems();
     checkCartItem();
   }
 
 @override
   void onInit() {
-    // TODO: implement onInit
+   
     functionCall();
     super.onInit();
   }
   @override
   void onReady() {
-    // TODO: implement onReady
+
     functionCall();
     super.onReady();
   }

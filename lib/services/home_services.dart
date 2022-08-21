@@ -1,12 +1,13 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:gadgetque/view/constant/core/url.dart';
+import 'package:gadgetque/view/constant/url.dart';
 
 class HomeServices {
   final dio = Dio(
     BaseOptions(responseType: ResponseType.plain, baseUrl: kBaseurl),
   );
+   //------------------get home-------------------//
   Future<Response<dynamic>?> getHomeDatas() async {
     try {
       final response = await dio.get('');
@@ -16,7 +17,7 @@ class HomeServices {
     }
     return null;
   }
-
+ //------------------get categories-------------------//
   Future<Response<dynamic>?> getCatogoriesDatas(String category) async {
     try {
       final response = await dio.get('categoryWise/$category');

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:gadgetque/view/screens/wishlist_page/widget/add_wishlists.dart';
 import 'package:get/get.dart';
@@ -60,12 +60,12 @@ class SimilarItem extends StatelessWidget {
                           ],
                         ),
                         kHeigt5,
-                        ItemText(
+                        CustomText(
                             name: controller.products![index].category,
                             weight: FontWeight.w500,
                             fontSize: 18,
                             color: kBlack54Color),
-                        ItemText(
+                        CustomText(
                             name: controller.products![index].name,
                             weight: FontWeight.w500,
                             fontSize: 22,
@@ -73,13 +73,13 @@ class SimilarItem extends StatelessWidget {
                         kHeigt5,
                         Row(
                           children: [
-                            ItemText(
+                            CustomText(
                                 name: controller.products![index].price,
                                 weight: FontWeight.bold,
                                 fontSize: 22,
                                 color: kGreenColor),
                             kWidth5,
-                            ItemText(
+                            CustomText(
                               name: controller.products![index].originalPrice,
                               weight: FontWeight.w500,
                               fontSize: 20,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/model/category_datas_model.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
 import 'package:gadgetque/view/screens/category_view_page/widget/image_details.dart';
 import 'package:gadgetque/view/screens/category_view_page/widget/product_image.dart';
@@ -49,7 +49,8 @@ class BuyCategoryProduct extends StatelessWidget {
             GetBuilder<CartController>(
               init: CartController(),
               builder: (controller) {
-               
+                // controller.checkCartItem();
+
                 return controller.isAdd!
                     ? ActionButton(
                         buttonWidth: size.width,

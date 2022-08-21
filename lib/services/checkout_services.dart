@@ -1,9 +1,8 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/url.dart';
+import 'package:gadgetque/view/constant/url.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 
 class CheckoutServiceEndPoint {
   String discount = '0';
@@ -11,6 +10,7 @@ class CheckoutServiceEndPoint {
   final dio = Dio(
     BaseOptions(baseUrl: kBaseurl, responseType: ResponseType.plain),
   );
+   //------------------get-------------------//
   Future<Response<dynamic>?> getcheckoutDatas() async {
     try {
       final response = await dio.get('checkout/$userId');
@@ -21,13 +21,13 @@ class CheckoutServiceEndPoint {
     }
     return null;
   }
-
+ //------------------apply coupon-------------------//
   Future<Response<dynamic>?> applyCoupon( code) async {
     
     try {
       final response =
           await dio.post('check-coupon/$userId/$code');
-log(',.,.,.$response');
+
       return response;
     } catch (e) {
       log('get service>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
@@ -35,7 +35,7 @@ log(',.,.,.$response');
     return null;
   }
 
-// `/place-order?payment=${paymentMethod}&addressId=${checkoutAddressId}&disc=${discount}&code=${code}`,
+ //------------------place order-------------------//
   Future<Response<dynamic>?> placeOrder(paymentMethod, addId) async {
     try {
       final response = await dio.get(

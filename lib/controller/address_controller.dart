@@ -5,14 +5,14 @@ import 'package:gadgetque/model/address/get_address_model.dart';
 import 'package:gadgetque/model/address/remove_address_model.dart';
 import 'package:gadgetque/model/address/update_address_model.dart';
 import 'package:gadgetque/services/address_services.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:get/get.dart';
 
 class AddressController extends GetxController {
   List<AddressElement>? addressList;
 
-  // get //
+ //------------------get-------------------//
   getAddress() async {
     try {
       final response =
@@ -30,7 +30,7 @@ class AddressController extends GetxController {
     }
   }
 
-//add address //
+ //------------------add-------------------//
   addAddress(String name, String address, String pin, String mobile,
       String type) async {
     Map<String, dynamic> addressDetails = {
@@ -58,7 +58,7 @@ class AddressController extends GetxController {
     }
   }
 
-  //remove address//
+   //------------------remove-------------------//
   removeAddress(String addId) async {
     final response =
         await AddressServiceEndPoint().removeAddress(userId.toString(), addId);
@@ -79,7 +79,7 @@ class AddressController extends GetxController {
     }
   }
 
-// update //
+ //------------------update-------------------//
   updateAddress(String name, String address, String pin, String mobile,
       String type, String addId) async {
     Map<String, dynamic> updattedDetails = {

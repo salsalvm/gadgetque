@@ -4,14 +4,14 @@ import 'package:gadgetque/model/placeorder/cancel_order_model.dart';
 import 'package:gadgetque/model/placeorder/order_mode.dart';
 import 'package:gadgetque/model/placeorder/ordered_product_model.dart';
 import 'package:gadgetque/services/order_service.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/screens/my_order_page/screen_view_product.dart';
 import 'package:get/get.dart';
 
 class OrderController extends GetxController {
   List<Order>? orderList;
   List<ProductElement>? products;
-
+ //------------------get oDet-------------------//
   getOrderDetails() async {
     try {
       final response = await OrderServicesEndPoint().getOrderDetails();
@@ -26,7 +26,7 @@ class OrderController extends GetxController {
       log('get controller>>>>>>>>$e<<<<<<<<');
     }
   }
-
+ //------------------get oProd-------------------//
   getOrderProduct(String orderId) async {
     try {
       final response = await OrderServicesEndPoint().getOrderProduct(orderId);
@@ -41,7 +41,7 @@ class OrderController extends GetxController {
       log('get controller>>>>>>>>>>>>$e<<<<<<<<<<');
     }
   }
-
+ //------------------cancel ord-------------------//
   cancelOrder(String orderId) async {
     try {
       final response = await OrderServicesEndPoint().canceOrder(orderId);

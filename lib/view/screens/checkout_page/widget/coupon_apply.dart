@@ -23,7 +23,7 @@
 //         child: Column(
 //           crossAxisAlignment: CrossAxisAlignment.start,
 //           children: [
-//             const ItemText(
+//             const CustomText(
 //                 name: 'COUPON',
 //                 weight: FontWeight.bold,
 //                 fontSize: 18,
@@ -74,10 +74,9 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
 import 'package:gadgetque/controller/home_controller.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
-import 'package:gadgetque/view/screens/widget/form_field.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
@@ -97,7 +96,7 @@ class CouponApply extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ItemText(
+            const CustomText(
                 name: 'COUPON',
                 weight: FontWeight.bold,
                 fontSize: 18,

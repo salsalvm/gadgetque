@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/address_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/enums/address.dart';
-import 'package:gadgetque/view/constant/core/radius.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/enums/address.dart';
+import 'package:gadgetque/view/constant/radius.dart';
+import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/address_page/widget/add_edit_address.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
@@ -29,7 +29,7 @@ class ListAddress extends StatelessWidget {
               ))
             : controller.addressList!.isEmpty
                 ? const Center(
-                    child: ItemText(
+                    child: CustomText(
                         name:
                             'Address is\nnot available now\nplease add a new address',
                         weight: FontWeight.normal,
@@ -66,7 +66,7 @@ class ListAddress extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  ItemText(
+                                  CustomText(
                                       name: controller
                                           .addressList![index].address!.type!,
                                       weight: FontWeight.bold,
@@ -77,26 +77,26 @@ class ListAddress extends StatelessWidget {
                               ),
                               const DivLine(),
                               kHeigt10,
-                              ItemText(
+                              CustomText(
                                   name: controller
                                       .addressList![index].address!.name!
                                       .toUpperCase(),
                                   weight: FontWeight.bold,
                                   fontSize: 18,
                                   color: kBlackColor),
-                              ItemText(
+                              CustomText(
                                   name: temp.trim().toUpperCase(),
                                   lines: 2,
                                   weight: FontWeight.w500,
                                   fontSize: 18,
                                   color: kBlack54Color),
-                              ItemText(
+                              CustomText(
                                   name: controller
                                       .addressList![index].address!.pincode!,
                                   weight: FontWeight.w500,
                                   fontSize: 16,
                                   color: kBlackColor),
-                              ItemText(
+                              CustomText(
                                   name: controller
                                       .addressList![index].address!.mobile!,
                                   weight: FontWeight.w700,

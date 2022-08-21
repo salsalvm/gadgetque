@@ -10,6 +10,7 @@ class HomeController extends GetxController {
   List<Category>? categories;
   List<Prodatum>? categoryItems;
   List<AllCoupon>? coupon;
+   //------------------get home-------------------//
   Future<List<HomeDatasModel>?> homeDatas() async {
     try {
       final response = await HomeServices().getHomeDatas();
@@ -26,7 +27,7 @@ class HomeController extends GetxController {
     }
     return [];
   }
-
+ //------------------get category-------------------//
   getCategoryDatas(String category) async {
     try {
       final response = await HomeServices().getCatogoriesDatas(category);

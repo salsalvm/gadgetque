@@ -4,17 +4,17 @@ import 'package:flutter/widgets.dart';
 import 'package:gadgetque/model/authentication/signin_model.dart';
 import 'package:gadgetque/model/authentication/signup_model.dart';
 import 'package:gadgetque/services/auth_services.dart';
-import 'package:gadgetque/view/constant/authentication/screen_signin/screen_signin.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/screens/authentication/screen_signin/screen_signin.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthenticationController extends GetxController {
   var isLoading = false.obs;
   int? wallet;
-  //>>>signin user<<<//
+   //------------------sign in-------------------//
   signinUser(String mail, String password) async {
     isLoading(true);
     Map<String, dynamic> signinData = {
@@ -64,7 +64,7 @@ class AuthenticationController extends GetxController {
     }
   }
 
-//>>>signup user<<<//
+ //------------------sign up-------------------//
   signupUser(String name, String mobile, String mail, String password,
       String confirmPassword) async {
     isLoading(true);
@@ -111,7 +111,7 @@ class AuthenticationController extends GetxController {
     }
   }
 
-//>>>signout user<<<//
+ //------------------sign out-------------------//
   signoutUser() async {
     try {
       final response = await AuthServices().checkSignout();

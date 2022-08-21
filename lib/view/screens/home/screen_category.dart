@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/screens/home/widget/category_grid.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
 

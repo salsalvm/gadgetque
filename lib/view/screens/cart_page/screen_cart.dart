@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/cart_page/widget/cart_container.dart';
 import 'package:gadgetque/view/screens/cart_page/widget/cart_items_list.dart';
 import 'package:gadgetque/view/screens/cart_page/widget/crat_total_amount.dart';

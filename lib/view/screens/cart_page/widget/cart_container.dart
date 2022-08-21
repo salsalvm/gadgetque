@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/constant/authentication/splash/splash.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 
 class CartContainer extends StatelessWidget {
@@ -18,12 +18,12 @@ class CartContainer extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
-            ItemText(
+            CustomText(
                 name: 'Shopping Cart',
                 weight: FontWeight.bold,
                 fontSize: 28,
                 color: kBlackColor),
-            ItemText(
+            CustomText(
                 name: 'Shop',
                 weight: FontWeight.normal,
                 fontSize: 24,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/view/constant/authentication/screen_signin/screen_signin.dart';
-import 'package:gadgetque/view/constant/authentication/widget/app_bar.dart';
-import 'package:gadgetque/view/constant/authentication/widget/background_image.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
-import 'package:gadgetque/view/constant/core/color.dart';
-import 'package:gadgetque/view/constant/core/space.dart';
+import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/screen_signin/screen_signin.dart';
+import 'package:gadgetque/view/screens/authentication/widget/app_bar.dart';
+import 'package:gadgetque/view/screens/authentication/widget/background_image.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,7 +30,7 @@ class ScreenEntry extends StatelessWidget {
               child: Column(
                 children: const [
                   EntryAppbar(iconColor: kGreyColor, textColor: kWhiteColor),
-                  kHeigt300,
+                  SizedBox(width: 300,),
                   Text(
                     'Discover  Your \n  Unique Style',
                     style: TextStyle(
