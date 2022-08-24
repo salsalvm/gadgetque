@@ -4,7 +4,9 @@ import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(const GadgetsQue());
+  runApp(
+    const GadgetsQue(),
+  );
 }
 
 class GadgetsQue extends StatelessWidget {

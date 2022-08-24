@@ -46,7 +46,7 @@ class MostRattedItem extends StatelessWidget {
                               height: size.width * .5,
                               placeholder: 'asset/noimage.jpeg',
                               image:
-                                  'http://10.0.2.2:3000/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
+                                  'http://34.238.154.28/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 10),
                             width: size.width * 0.45,

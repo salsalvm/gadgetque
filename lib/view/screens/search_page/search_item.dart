@@ -107,7 +107,7 @@ class MySearch extends SearchDelegate {
                                 height: size.width * .45,
                                 placeholder: 'asset/noimage.jpeg',
                                 image:
-                                    'http://10.0.2.2:3000/product-image/${searched[index].id}/${searched[index].imageId}_1.jpg'),
+                                    'http://34.238.154.28/product-image/${searched[index].id}/${searched[index].imageId}_1.jpg'),
                             const AddWishlist(radius: 20, iconSize: 34),
                           ],
                         ),
@@ -206,7 +206,7 @@ class MySearch extends SearchDelegate {
                                 height: size.width * .45,
                                 placeholder: 'asset/noimage.jpeg',
                                 image:
-                                    'http://10.0.2.2:3000/product-image/${searched[index].id}/${searched[index].imageId}_1.jpg'),
+                                    'http://34.238.154.28/product-image/${searched[index].id}/${searched[index].imageId}_1.jpg'),
                             const AddWishlist(radius: 20, iconSize: 34),
                           ],
                         ),

@@ -51,15 +51,15 @@ class CartitemsList extends StatelessWidget {
                                     middleText: 'Do you Want to Remove',
                                     onConfirm: () {
                                       controller.removeCartItems(
-                                          controller
-                                              .productElemnt![index].product.id
-                                              .toString(),
+                                          '${controller.productElemnt![index].product.id}',
                                           controller.productElemnt![index].id);
-                                      Get.back();
+                                      controller.update();
+                                      Get.back(closeOverlays: true);
                                     },
                                     title: 'Are You Sure',
                                     onCancel: () {
                                       Get.back();
+                                      controller.update();
                                     },
                                   );
                                 },
@@ -82,7 +82,7 @@ class CartitemsList extends StatelessWidget {
                                 errorWidget: (context, str, error) =>
                                     CachedNetworkImage(
                                   imageUrl:
-                                      'http://10.0.2.2:3000/product-image/${controller.productElemnt![index].product.id}/${controller.productElemnt![index].product.imageId}_1.jpg',
+                                      'http://34.238.154.28/product-image/${controller.productElemnt![index].product.id}/${controller.productElemnt![index].product.imageId}_1.jpg',
                                   width: size.width * .5,
                                   height: size.width * .5,
                                   placeholder: (context, url) => const Center(
@@ -138,9 +138,9 @@ class CartitemsList extends StatelessWidget {
                                                           .toString(),
                                                       controller
                                                           .productElemnt![index]
-                                                          .id);  controller.update();
-                                                  Get.back();
-                                                
+                                                          .id);
+                                                  controller.update();
+                                                  Get.back(closeOverlays: true);
                                                 },
                                                 title: 'Are You Sure',
                                                 onCancel: () {

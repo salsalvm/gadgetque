@@ -16,49 +16,54 @@ class PriceDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CheckoutController>(
-      init: CheckoutController(),
-      builder: (controller) => Container(
-        decoration: BoxDecoration(color: kBoxColor, borderRadius: kRAdius10),
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const CustomText(
-                  name: 'Price Details',
-                  weight: FontWeight.bold,
-                  fontSize: 22,
-                  color: kBlackColor),
-              kHeigt5,
-              const DivLine(),
-              kHeigt5,
-              TextElementsInRow(
-                  firstText: 'Price                           :',
-                  secondText: '${controller.total ?? '0.00'}',
-                  wieght: FontWeight.w500,
-                  fontSize: 18,
-                  fontColor: kBlack54Color),
-              kHeigt5,
-              const TextElementsInRow(
-                  firstText: 'Delivery Charge        :',
-                  secondText: '0.00',
-                  wieght: FontWeight.w500,
-                  fontSize: 18,
-                  fontColor: kBlack54Color),
-              kHeigt5,
-              const DivLine(),
-              kHeigt10,
-              TextElementsInRow(
-                  firstText: 'Amount Payable   :',
-                  //  secondText:'${ (controller.total??'0.00'*int.parse(controller.offer))/100}',
-                  secondText: '${controller.total ?? '0.00'}',
-                  wieght: FontWeight.bold,
-                  fontSize: 22,
-                  fontColor: kBlackColor),
-            ],
-          ),
-        ),
-      ),
-    );
+        init: CheckoutController(),
+        builder: (controller) {
+       double discount=   controller.offer*controller.total/100;
+       String disc=discount.toString();
+       
+          return Container(
+            decoration:
+                BoxDecoration(color: kBoxColor, borderRadius: kRAdius10),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CustomText(
+                      name: 'Price Details',
+                      weight: FontWeight.bold,
+                      fontSize: 22,
+                      color: kBlackColor),
+                  kHeigt5,
+                  const DivLine(),
+                  kHeigt5,
+                  TextElementsInRow(
+                      firstText: 'Price                           :',
+                      secondText: '${controller.total}',
+                      wieght: FontWeight.w500,
+                      fontSize: 20,
+                      fontColor: kBlack54Color),
+                  kHeigt5,
+                   TextElementsInRow(
+                      firstText: 'Coupon Discount      :',
+                      secondText: '- $disc',
+                      wieght: FontWeight.w500,
+                      fontSize: 16,
+                      fontColor: kBlack54Color),
+                  kHeigt5,
+                  const DivLine(),
+                  kHeigt10,
+                  TextElementsInRow(
+                      firstText: 'Amount Payable   :',
+                      
+                      secondText: '${controller.total-discount}',
+                      wieght: FontWeight.bold,
+                      fontSize: 22,
+                      fontColor: kBlackColor),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }

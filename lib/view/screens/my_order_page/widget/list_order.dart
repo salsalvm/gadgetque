@@ -155,7 +155,7 @@ class OrderList extends StatelessWidget {
                             ),
                           );
                         },
-                        itemCount: 10),
+                        itemCount: controller.orderList!.length),
                   );
       },
     );

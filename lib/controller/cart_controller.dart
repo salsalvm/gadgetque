@@ -1,3 +1,5 @@
+
+
 import 'dart:developer';
 
 import 'package:gadgetque/model/cart/add_to_cart.dart';
@@ -7,7 +9,6 @@ import 'package:gadgetque/model/cart/remove_cart.dart';
 import 'package:gadgetque/services/cart_services.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
-import 'package:gadgetque/view/screens/product_view_page/screen_product.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
@@ -35,23 +36,24 @@ class CartController extends GetxController {
       log('get controller>>>>>>>>>>>>>>>>>>.$e<<<<<<<<<<<<<<<<<<');
     }
   }
- //------------------check cart state-------------------//
-  checkCartItem() {
-  
+
+  //------------------check cart state-------------------//
+  checkCartItem(String pId) async {
     if (productElemnt != null) {
       for (int i = 0; i < productElemnt!.length; i++) {
-        if (productElemnt![i].product.id == productId) {
+        if (productElemnt![i].product.id == pId) {
           isAdd = true;
+          update();
+        } else {
+          isAdd = false;
+          Get.to(CartController());
           update();
         }
       }
-    } else {
-      isAdd = false;
-      update();
     }
   }
 
-   //------------------add-------------------//
+  //------------------add-------------------//
   addCartItems(String productId) async {
     try {
       final response = await CartServiceEndPoint().addCartItems(productId);
@@ -93,7 +95,8 @@ class CartController extends GetxController {
       log('remove controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
     }
   }
- //------------------quantity-------------------//
+
+  //------------------quantity-------------------//
   quantityCartItem(String? prodId, String cartId, int count) async {
     final cartDetails = {
       'user': userId,
@@ -117,22 +120,13 @@ class CartController extends GetxController {
     }
   }
 
-  void functionCall() {
-   
-    getCartItems();
-    checkCartItem();
-  }
 
-@override
+
+  @override
   void onInit() {
-   
-    functionCall();
+   getCartItems();
     super.onInit();
   }
-  @override
-  void onReady() {
 
-    functionCall();
-    super.onReady();
-  }
+
 }

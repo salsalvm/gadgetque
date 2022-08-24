@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ import 'package:razorpay_flutter/razorpay_flutter.dart';
 class PaymentController extends GetxController {
   late Razorpay razorpay;
   final controller = Get.put(CheckoutController());
+  final cartController = Get.put(CartController());
   @override
   void onInit() {
     razorpay = Razorpay();
@@ -16,11 +18,13 @@ class PaymentController extends GetxController {
     razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
     super.onInit();
   }
- //------------------razor pay-------------------//
+
+  //------------------razor pay-------------------//
   void razorPay() async {
     var options = {
-      'key': 'rzp_test_fD35e9IGT4idn9',
-      'amount': int.parse(controller.total.toString()) * 100,
+      //'rzp_test_fD35e9IGT4idn9' //
+      'key': 'rzp_test_SaEo53N8HkIN5i',
+      'amount': int.parse(controller.total.toString()),
       'name': 'GadgetsQue.',
       'description': 'Products',
       'timeout': 60,
@@ -31,6 +35,7 @@ class PaymentController extends GetxController {
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
     controller.placeOrder();
+
     showGeneralDialog(
       context: Get.context!,
       barrierLabel: "Barrier",
@@ -41,6 +46,8 @@ class PaymentController extends GetxController {
         return Center(
           child: GestureDetector(
             onTap: () {
+              cartController.getCartItems();
+              update();
               indexChanger.value = 0;
               Get.offAll(BottomNavigator());
             },
@@ -74,13 +81,9 @@ class PaymentController extends GetxController {
     );
   }
 
-  void _handlePaymentError(PaymentFailureResponse response) {
-   
-  }
+  void _handlePaymentError(PaymentFailureResponse response) {}
 
-  void _handleExternalWallet(ExternalWalletResponse response) {
-  
-  }
+  void _handleExternalWallet(ExternalWalletResponse response) {}
 
   @override
   void onClose() {

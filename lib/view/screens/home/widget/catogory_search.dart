@@ -41,7 +41,7 @@ class CatogorySearch extends StatelessWidget {
                           //     height: size.width * .5,
                           //     placeholder: 'asset/noimage.jpeg',
                           //     image:
-                          //         'http://10.0.2.2:3000/category-image/${controller.categories![index].id}.jpg'),
+                          //         'http://34.238.154.28/category-image/${controller.categories![index].id}.jpg'),
                           CachedNetworkImage(
                             imageUrl:
                                 'http://18.144.34.178/category-image/${controller.categories![index].id}.jpg',
@@ -52,7 +52,7 @@ class CatogorySearch extends StatelessWidget {
                             errorWidget: (context, str, error) =>
                                 CachedNetworkImage(
                               imageUrl:
-                                  'http://10.0.2.2:3000/category-image/${controller.categories![index].id}.jpg',
+                                  'http://34.238.154.28/category-image/${controller.categories![index].id}.jpg',
                               width: size.width * .5,
                               height: size.width * .5,
                               placeholder: (context, url) => const Center(

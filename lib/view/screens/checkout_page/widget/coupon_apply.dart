@@ -82,11 +82,13 @@ import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
+String? coupons ;
+
 class CouponApply extends StatelessWidget {
   CouponApply({
     Key? key,
   }) : super(key: key);
-  String? coupon;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -105,36 +107,42 @@ class CouponApply extends StatelessWidget {
             kHeigt5,
             GetBuilder<HomeController>(
               init: HomeController(),
-              builder: (controller) => DropdownButton(
-                itemHeight: 50,
-                isDense: true,
-                iconSize: 30,
-                isExpanded: true,
-                elevation: 0,
-                alignment: Alignment.centerLeft,
-                hint: const Text(
-                  '     select one coupon',
-                  style: TextStyle(color: kBlack54Color),
-                ),
-                value: coupon,
-                items: controller.coupon!.map(
-                  (value) {
-                    return DropdownMenuItem<String>(
-                        value: value.coupon,
-                        child: Text(
-                          '    ${value.coupon}',
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.normal),
-                        ));
-                  },
-                ).toList(),
-                onChanged: (value) async {
-                  coupon = value.toString();
-                  controller.update();
-                },
-              ),
+              builder: (controller) => controller.coupon == null
+                  ? const Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.teal,
+                      ),
+                    )
+                  : DropdownButton(
+                      itemHeight: 50,
+                      isDense: true,
+                      iconSize: 30,
+                      isExpanded: true,
+                      elevation: 0,
+                      alignment: Alignment.centerLeft,
+                      hint: const Text(
+                        '     select one coupon',
+                        style: TextStyle(color: kBlack54Color),
+                      ),
+                      value: coupons,
+                      items: controller.coupon!.map(
+                        (value) {
+                          return DropdownMenuItem<String>(
+                              value: value.coupon,
+                              child: Text(
+                                '    ${value.coupon}',
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.normal),
+                              ));
+                        },
+                      ).toList(),
+                      onChanged: (value) async {
+                        coupons = value.toString();
+                        controller.update();
+                      },
+                    ),
             ),
             kHeigt5,
             Row(
@@ -153,8 +161,8 @@ class CouponApply extends StatelessWidget {
                     text: 'Apply',
                     onTap: () {
                       checkController.appyCoupon(
-                        coupon!.toUpperCase().trim(),
-                      );
+                        coupons!.toUpperCase().trim(),
+                      );checkController.update();
                     })
               ],
             )

@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final applyCouponModel = applyCouponModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 ApplyCouponModel applyCouponModelFromJson(String str) => ApplyCouponModel.fromJson(json.decode(str));
@@ -20,8 +15,8 @@ class ApplyCouponModel {
         required this.users,
     });
 
-    String id;
-    String coupon;
+    String? id;
+    String? coupon;
     dynamic couponCategory;
     int? offer;
     DateTime expiry;

@@ -41,9 +41,9 @@ class ScreenSummary extends StatelessWidget {
                     kHeigt10,
                     DeliveryItem(),
                     kHeigt10,
-                    CouponApply(),
-                    kHeigt10,
+                    
                     const PaymentMethod(),
+                    kHeigt10,CouponApply(),
                     kHeigt10,
                     const PriceDetails(),
                     kHeigt50

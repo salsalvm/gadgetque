@@ -8,20 +8,20 @@ import 'package:gadgetque/model/placeorder/checkout_model.dart';
 import 'package:gadgetque/services/checkout_services.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/screens/checkout_page/widget/coupon_apply.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class CheckoutController extends GetxController {
   List<CheckoutDetailsModelAddress>? address;
   List<ProductElement>? products;
-  Rx<int?>? total;
+  int total = 0;
   int? colorChange;
   String? selectMethod;
   String? addressId;
-  num? offer;
-  
+  int offer = 0;
 
-   //------------------get-------------------//
+  //------------------get-------------------//
   getcheckoutDatas() async {
     try {
       final response = await CheckoutServiceEndPoint().getcheckoutDatas();
@@ -31,7 +31,8 @@ class CheckoutController extends GetxController {
 
         address = datas.addresses.obs;
         products = datas.products.obs;
-        total = datas.total.obs;
+        total = datas.total;
+
         update();
       }
     } catch (e) {
@@ -39,23 +40,24 @@ class CheckoutController extends GetxController {
     }
   }
 
- //------------------select address-------------------//
+  //------------------select address-------------------//
   selectedColorChange(int index, String addressId) {
     colorChange = index;
     this.addressId = addressId;
     update();
   }
 
- //------------------apply coupon-------------------//
+  //------------------apply coupon-------------------//
   appyCoupon(String code) async {
-    
     try {
       final response = await CheckoutServiceEndPoint().applyCoupon(code);
-
+      log(response.toString());
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final datas = applyCouponModelFromJson(response.data);
+
         if (datas.coupon == code) {
-          offer = datas.offer;
+          offer = datas.offer!;
+          update();
           Get.snackbar('succesfully', 'coupon applyed successfully',
               colorText: kGreenColor, snackPosition: SnackPosition.BOTTOM);
         } else {
@@ -65,10 +67,12 @@ class CheckoutController extends GetxController {
         }
       }
     } catch (e) {
+      Get.snackbar('coupon already applyed', 'coupon code is already applayed',
+          colorText: kredColor, snackPosition: SnackPosition.BOTTOM);
       log('apply controller>>>>>>>>$e<<<<<<<<<<');
     }
   }
- //------------------paymnet radio-------------------//
+  //------------------paymnet radio-------------------//
 
   selectRadioButton(String value) {
     selectMethod = value.toString();
@@ -76,14 +80,18 @@ class CheckoutController extends GetxController {
     update();
   }
 
-   //------------------cod-------------------//
+  //------------------cod-------------------//
   placeOrder() async {
+    double discound = offer * total / 100;
+
+    String disc = discound.toString();
     try {
-      final response =
-          await CheckoutServiceEndPoint().placeOrder(selectMethod, addressId);
+      final response = await CheckoutServiceEndPoint()
+          .placeOrder(selectMethod, addressId, disc, coupons);
+
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final datas = codModelFromJson(response.data);
-        if (datas.codSuccess) {
+        if (datas.codSuccess == true) {
           showGeneralDialog(
             context: Get.context!,
             barrierLabel: "Barrier",
@@ -94,7 +102,6 @@ class CheckoutController extends GetxController {
               return Center(
                 child: GestureDetector(
                   onTap: () {
-                    // homeController.homeDatas();
                     cartController.getCartItems();
                     update();
                     indexChanger.value = 0;
@@ -138,7 +145,7 @@ class CheckoutController extends GetxController {
       log('placeOrder controller>>>>>>>>$e<<<<<<<<<<');
     }
   }
-   //------------------razor pay-------------------//
+  //------------------razor pay-------------------//
 
   @override
   void onInit() {

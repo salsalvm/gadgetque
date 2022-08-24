@@ -21,7 +21,7 @@ class ProductImage extends StatelessWidget {
             height: size.width * .89,
             placeholder: 'asset/noimage.jpeg',
             image:
-                'http://10.0.2.2:3000/product-image/${products.id}/${products.imageId}_1.jpg'),
+                'http://34.238.154.28/product-image/${products.id}/${products.imageId}_1.jpg'),
         const Padding(
           padding: EdgeInsets.all(15.0),
           child: AddWishlist(),

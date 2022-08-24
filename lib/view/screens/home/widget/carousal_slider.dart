@@ -20,16 +20,16 @@ class CarasoulSlider extends StatelessWidget {
                 items: [
                   CourasalList(
                       image:
-                          'http://10.0.2.2:3000/product-image/${controller.products![0].id}/${controller.products![0].imageId}_2.jpg'),
+                          'http://34.238.154.28/product-image/${controller.products![0].id}/${controller.products![0].imageId}_2.jpg'),
                   CourasalList(
                       image:
-                          'http://10.0.2.2:3000/product-image/${controller.products![1].id}/${controller.products![1].imageId}_1.jpg'),
+                          'http://34.238.154.28/product-image/${controller.products![1].id}/${controller.products![1].imageId}_1.jpg'),
                   CourasalList(
                       image:
-                          'http://10.0.2.2:3000/product-image/${controller.products![0].id}/${controller.products![0].imageId}_3.jpg'),
+                          'http://34.238.154.28/product-image/${controller.products![0].id}/${controller.products![0].imageId}_3.jpg'),
                   CourasalList(
                       image:
-                          'http://10.0.2.2:3000/product-image/${controller.products![4].id}/${controller.products![4].imageId}_1.jpg')
+                          'http://34.238.154.28/product-image/${controller.products![4].id}/${controller.products![4].imageId}_1.jpg')
                 ],
                 options: CarouselOptions(
                     autoPlay: true,

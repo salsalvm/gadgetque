@@ -5,16 +5,17 @@ import 'package:gadgetque/view/constant/url.dart';
 import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 
 class CheckoutServiceEndPoint {
-  String discount = '0';
-  String coupon = '1';
+  // String discount = '0';
+  // String coupon = '1';
   final dio = Dio(
     BaseOptions(baseUrl: kBaseurl, responseType: ResponseType.plain),
   );
    //------------------get-------------------//
   Future<Response<dynamic>?> getcheckoutDatas() async {
     try {
+   
       final response = await dio.get('checkout/$userId');
-
+// log(response.toString());
       return response;
     } catch (e) {
       log('get category service>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
@@ -28,6 +29,7 @@ class CheckoutServiceEndPoint {
       final response =
           await dio.post('check-coupon/$userId/$code');
 
+
       return response;
     } catch (e) {
       log('get service>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
@@ -36,10 +38,11 @@ class CheckoutServiceEndPoint {
   }
 
  //------------------place order-------------------//
-  Future<Response<dynamic>?> placeOrder(paymentMethod, addId) async {
+  Future<Response<dynamic>?> placeOrder(paymentMethod, addId,disc,code) async {
+    log('$paymentMethod, $disc,$code');
     try {
       final response = await dio.get(
-          'place-order/$userId/?payment=$paymentMethod&addressId=$addId&disc=$discount&code=$coupon');
+          'place-order/$userId/?payment=$paymentMethod&addressId=$addId&disc=$disc&code=$code');
 
       return response;
     } catch (e) {

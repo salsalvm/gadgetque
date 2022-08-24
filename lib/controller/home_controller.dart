@@ -1,7 +1,9 @@
 import 'dart:developer';
+import 'dart:io';
 import 'package:gadgetque/model/category_datas_model.dart';
 import 'package:gadgetque/model/home_datas_model.dart';
 import 'package:gadgetque/services/home_services.dart';
+import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/screens/home/screen_category.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +12,7 @@ class HomeController extends GetxController {
   List<Category>? categories;
   List<Prodatum>? categoryItems;
   List<AllCoupon>? coupon;
-   //------------------get home-------------------//
+  //------------------get home-------------------//
   Future<List<HomeDatasModel>?> homeDatas() async {
     try {
       final response = await HomeServices().getHomeDatas();
@@ -22,12 +24,20 @@ class HomeController extends GetxController {
         coupon = datas.allCoupons.obs;
         update();
       }
+    } on SocketException catch (_) {
+      Get.snackbar(
+        'No Internet',
+        'please connect a valid WIFI',
+        snackPosition: SnackPosition.BOTTOM,
+        colorText: kredColor,
+      );
     } catch (e) {
       log('get home controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
     }
     return [];
   }
- //------------------get category-------------------//
+
+  //------------------get category-------------------//
   getCategoryDatas(String category) async {
     try {
       final response = await HomeServices().getCatogoriesDatas(category);

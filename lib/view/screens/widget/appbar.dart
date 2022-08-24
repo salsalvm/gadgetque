@@ -4,6 +4,7 @@ import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
 import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
 import 'package:gadgetque/view/screens/search_page/search_item.dart';
+import 'package:gadgetque/view/screens/widget/drawer_items.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
@@ -23,15 +24,22 @@ class AppbarMain extends StatelessWidget {
           children: [
             Wrap(
               children: [
-                Container(
-                  margin: const EdgeInsets.only(right: 3),
-                  height: size.width * 0.09,
-                  width: size.width * 0.09,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                        'asset/logo.png',
+                GestureDetector(
+                  onTap: () {
+                    Get.dialog(
+                      const DrawerItems(),
+                    );
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(right: 3),
+                    height: size.width * 0.09,
+                    width: size.width * 0.09,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage(
+                          'asset/logo.png',
+                        ),
                       ),
                     ),
                   ),
@@ -92,5 +100,6 @@ class AppbarMain extends StatelessWidget {
       ),
     );
   }
+
   final cartController = Get.put(CartController());
 }
