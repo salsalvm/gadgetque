@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class CatogorySearch extends StatelessWidget {
-  CatogorySearch({
+ const CatogorySearch({
     Key? key,
   }) : super(key: key);
 

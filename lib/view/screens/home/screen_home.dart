@@ -14,10 +14,9 @@ import 'package:get/get.dart';
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
 class ScreenHome extends StatelessWidget {
-  ScreenHome({Key? key}) : super(key: key);
+  const ScreenHome({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: kFormColor,
       appBar: PreferredSize(
@@ -33,15 +32,19 @@ class ScreenHome extends StatelessWidget {
           const MainHead(headding: 'Most Ratted Items'),
           const MostRattedItem(),
           const MainHead(headding: 'Recomented Items'),
-          controller.products == null
-              ? const Center(child: CircularProgressIndicator())
-              : RecommendedItem(),
+          GetBuilder<HomeController>(
+              init: HomeController(),
+              builder: (controller) => controller.products == null
+                  ? const Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.teal,
+                      ),
+                    )
+                  : RecommendedItem()),
           const MainHead(headding: 'Trending Now'),
           const TrendingItem(),
         ],
       ),
     );
   }
-
-  final controller = Get.put(HomeController());
 }

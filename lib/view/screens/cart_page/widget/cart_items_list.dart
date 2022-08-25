@@ -26,7 +26,7 @@ class CartitemsList extends StatelessWidget {
                   child: CustomText(
                       lines: 3,
                       name:
-                          'no cart items\nplease add product\nand check daily status',
+                          'no cart items please\nadd product and check\ndaily status for your offer',
                       weight: FontWeight.normal,
                       fontSize: 22,
                       color: kGreyColor),

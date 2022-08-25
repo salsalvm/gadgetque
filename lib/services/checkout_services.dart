@@ -39,11 +39,11 @@ class CheckoutServiceEndPoint {
 
  //------------------place order-------------------//
   Future<Response<dynamic>?> placeOrder(paymentMethod, addId,disc,code) async {
-    log('$paymentMethod, $disc,$code');
+
     try {
       final response = await dio.get(
           'place-order/$userId/?payment=$paymentMethod&addressId=$addId&disc=$disc&code=$code');
-
+log(response.toString());
       return response;
     } catch (e) {
       log('placeOrder service>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');

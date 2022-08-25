@@ -17,7 +17,7 @@ class AllCoupons extends StatelessWidget {
     return GetBuilder<HomeController>(
       init: HomeController(),
       builder: (controller) {
-        return controller.coupon!.length == null
+        return controller.coupon == null
             ? const Center(
                 child: CircularProgressIndicator(),
               )
@@ -25,8 +25,8 @@ class AllCoupons extends StatelessWidget {
                 ? const Center(
                     child: CustomText(
                         name:
-                            'no offers\navailable now\nplease waite for your next time',
-                        weight: FontWeight.normal,
+                            'no offers\navailable now\nplease waite for\nyour next time soon.',
+                        weight: FontWeight.normal,lines: 4,
                         fontSize: 16,
                         color: kGreyColor),
                   )
