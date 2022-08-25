@@ -3,8 +3,8 @@ import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/controller/validationController.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
-import 'package:gadgetque/view/screens/authentication/screen_signin/screen_signin.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/screen_signin.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/authentication/widget/action_button.dart';
 import 'package:gadgetque/view/screens/authentication/widget/app_bar.dart';
 import 'package:gadgetque/view/screens/authentication/widget/background_image.dart';
@@ -37,7 +37,7 @@ class ScreenSignup extends StatelessWidget {
                     style: TextStyle(color: kWhiteColor, fontSize: 28),
                   ),
                   kHeigt50,
-                  FormFields(
+                  CustomFormfield(
                       validator: (name) {
                         validController.nameValidation(name);
                       },
@@ -51,7 +51,7 @@ class ScreenSignup extends StatelessWidget {
                         errorText: 'minimum 3 character required',
                         isVisible: validController.names.value),
                   ),
-                  FormFields(
+                  CustomFormfield(
                       validator: (mobile) {
                         validController.mobileValidation(mobile);
                       },
@@ -66,7 +66,7 @@ class ScreenSignup extends StatelessWidget {
                         errorText: 'enter 10 digits',
                         isVisible: validController.phone.value),
                   ),
-                  FormFields(
+                  CustomFormfield(
                       validator: (mail) {
                         validController.mailValidation(mail);
                       },
@@ -80,7 +80,7 @@ class ScreenSignup extends StatelessWidget {
                         errorText: 'enter valid mail',
                         isVisible: validController.email.value),
                   ),
-                  FormFields(
+                  CustomFormfield(
                       validator: (password) {
                         validController.passwordValidation(password);
                       },
@@ -95,7 +95,7 @@ class ScreenSignup extends StatelessWidget {
                         errorText: 'enter minimum 6 digits',
                         isVisible: validController.pass.value),
                   ),
-                  FormFields(
+                  CustomFormfield(
                       validator: (password) {
                         validController.passwordValidation(password);
                       },

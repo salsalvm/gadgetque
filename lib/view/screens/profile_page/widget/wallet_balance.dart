@@ -3,7 +3,7 @@ import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/radius.dart';
 import 'package:gadgetque/view/constant/space.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';

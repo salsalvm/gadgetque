@@ -6,8 +6,8 @@ import 'package:gadgetque/model/authentication/signup_model.dart';
 import 'package:gadgetque/services/auth_services.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/constant/color.dart';
-import 'package:gadgetque/view/screens/authentication/screen_signin/screen_signin.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/screen_signin.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

@@ -5,7 +5,7 @@ import 'package:gadgetque/view/constant/enums/address.dart';
 import 'package:gadgetque/view/constant/radius.dart';
 import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/address_page/widget/add_edit_address.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';

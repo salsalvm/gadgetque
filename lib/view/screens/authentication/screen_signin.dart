@@ -3,8 +3,8 @@ import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/controller/validationController.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
-import 'package:gadgetque/view/screens/authentication/screen_signup/screen_signup.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/screen_signup.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/authentication/widget/action_button.dart';
 import 'package:gadgetque/view/screens/authentication/widget/app_bar.dart';
 import 'package:gadgetque/view/screens/authentication/widget/background_image.dart';
@@ -39,7 +39,7 @@ class ScreenSignin extends StatelessWidget {
                     style: TextStyle(color: kWhiteColor, fontSize: 28),
                   ),
                   kHeigt100,
-                  FormFields(
+                  CustomFormfield(
                     validator: (mail) {
                       validController.mailValidation(mail);
                     },
@@ -55,7 +55,7 @@ class ScreenSignin extends StatelessWidget {
                         errorText: 'enter valid mail',
                         isVisible: validController.email.value),
                   ),
-                  FormFields(
+                  CustomFormfield(
                       validator: (password) {
                         validController.passwordValidation(password);
                       },

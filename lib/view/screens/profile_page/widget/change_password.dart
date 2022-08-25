@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/constant/radius.dart';
 import 'package:gadgetque/view/constant/space.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:get/get.dart';
@@ -29,14 +29,14 @@ class ChangePassword extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 kHeigt5,
-                FormFields(
+                CustomFormfield(
                   validator: (value) {},
                   obscureText: true,
                   icon: Icons.lock,
                   name: 'Current Password',
                   color: Colors.white.withOpacity(0.26),
                 ),
-                FormFields(
+                CustomFormfield(
                   validator: (value) {},
                   obscureText: true,
                   icon: Icons.lock,

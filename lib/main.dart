@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/constant/color.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:get/get.dart';
 
 void main() {

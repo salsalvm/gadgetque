@@ -3,7 +3,8 @@ import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/model/category_datas_model.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
+import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
 import 'package:gadgetque/view/screens/category_view_page/widget/image_details.dart';
 import 'package:gadgetque/view/screens/category_view_page/widget/product_image.dart';
 import 'package:gadgetque/view/screens/product_view_page/widget/similar_item.dart';
@@ -49,7 +50,7 @@ class BuyCategoryProduct extends StatelessWidget {
             GetBuilder<CartController>(
               init: CartController(),
               builder: (controller) {
-                // controller.checkCartItem(products.id);
+                controller.checkCartItem(products.id);
 
                 return controller.isAdd == true
                     ? ActionButton(
@@ -58,13 +59,11 @@ class BuyCategoryProduct extends StatelessWidget {
                         radius: 0,
                         text: 'View Cart',
                         onTap: () {
-                          // Get.to(
-                          //   ScreenCart(),
-                          // );
-                          Get.snackbar(
-                              'Product Alreaady in Cart', 'Please check Cart',
-                              colorText: kredColor,
-                              snackPosition: SnackPosition.TOP);
+                          Get.to(ScreenCart());
+                          // Get.snackbar(
+                          //     'Product Alreaady in Cart', 'Please check Cart',
+                          //     colorText: kredColor,
+                          //     snackPosition: SnackPosition.TOP);
                           controller.update();
                         },
                       )

@@ -6,7 +6,7 @@ import 'package:gadgetque/controller/validationController.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/enums/address.dart';
 import 'package:gadgetque/view/constant/space.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/authentication/widget/error_text.dart';
 import 'package:gadgetque/view/screens/widget/form_field.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
@@ -65,7 +65,7 @@ class _AddEditAddressState extends State<AddEditAddress> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FormFields(
+              CustomFormfield(
                   icon: Icons.person,
                   validator: (name) {
                     validController.nameValidation(name);
@@ -79,7 +79,7 @@ class _AddEditAddressState extends State<AddEditAddress> {
                     errorText: 'minimum 3 character required',
                     isVisible: validController.names.value),
               ),
-              FormFields(
+              CustomFormfield(
                   icon: Icons.home,
                   controller: addressController,
                   validator: (address) {
@@ -93,7 +93,7 @@ class _AddEditAddressState extends State<AddEditAddress> {
                     errorText: 'minimum 3 character required',
                     isVisible: validController.names.value),
               ),
-              FormFields(
+              CustomFormfield(
                   icon: Icons.pin,
                   controller: pinController,
                   validator: (pin) {
@@ -107,7 +107,7 @@ class _AddEditAddressState extends State<AddEditAddress> {
                     errorText: 'enter minimum 6 digits',
                     isVisible: validController.pass.value),
               ),
-              FormFields(
+              CustomFormfield(
                   controller: typeController,
                   icon: Icons.category,
                   validator: (type) {
@@ -121,7 +121,7 @@ class _AddEditAddressState extends State<AddEditAddress> {
                     errorText: 'minimum 3 character required',
                     isVisible: validController.names.value),
               ),
-              FormFields(
+              CustomFormfield(
                   controller: mobileController,
                   icon: Icons.phone,
                   validator: (mobile) {

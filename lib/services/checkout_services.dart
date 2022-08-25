@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:gadgetque/view/constant/url.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 
 class CheckoutServiceEndPoint {
   // String discount = '0';
@@ -23,7 +23,7 @@ class CheckoutServiceEndPoint {
     return null;
   }
  //------------------apply coupon-------------------//
-  Future<Response<dynamic>?> applyCoupon( code) async {
+  Future<Response<dynamic>?> applyCoupon(String code) async {
     
     try {
       final response =

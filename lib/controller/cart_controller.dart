@@ -1,5 +1,3 @@
-
-
 import 'dart:developer';
 
 import 'package:gadgetque/model/cart/add_to_cart.dart';
@@ -8,7 +6,7 @@ import 'package:gadgetque/model/cart/increment_cart_item_model.dart';
 import 'package:gadgetque/model/cart/remove_cart.dart';
 import 'package:gadgetque/services/cart_services.dart';
 import 'package:gadgetque/view/constant/color.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
@@ -43,11 +41,8 @@ class CartController extends GetxController {
       for (int i = 0; i < productElemnt!.length; i++) {
         if (productElemnt![i].product.id == pId) {
           isAdd = true;
-          update();
         } else {
           isAdd = false;
-          Get.to(CartController());
-          update();
         }
       }
     }
@@ -120,13 +115,9 @@ class CartController extends GetxController {
     }
   }
 
-
-
   @override
   void onInit() {
-   getCartItems();
+    getCartItems();
     super.onInit();
   }
-
-
 }

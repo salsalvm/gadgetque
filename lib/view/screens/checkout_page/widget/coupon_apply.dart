@@ -82,7 +82,7 @@ import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
-String? coupons ;
+String? coupons;
 
 class CouponApply extends StatelessWidget {
   CouponApply({
@@ -162,7 +162,8 @@ class CouponApply extends StatelessWidget {
                     onTap: () {
                       checkController.appyCoupon(
                         coupons!.toUpperCase().trim(),
-                      );checkController.update();
+                      );
+                      checkController.update();
                     })
               ],
             )

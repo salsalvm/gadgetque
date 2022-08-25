@@ -5,7 +5,7 @@ import 'package:gadgetque/controller/profile_controller.dart';
 import 'package:gadgetque/controller/validationController.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/authentication/widget/error_text.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/form_field.dart';
@@ -42,7 +42,7 @@ class _EditProfileState extends State<EditProfile> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FormFields(
+              CustomFormfield(
                   validator: (name) {
                     validController.nameValidation(name);
                   },
@@ -57,7 +57,7 @@ class _EditProfileState extends State<EditProfile> {
                     errorText: 'minimum 3 character required',
                     isVisible: validController.names.value),
               ),
-              FormFields(
+              CustomFormfield(
                   controller: mailController,
                   validator: (mail) {
                     validController.mailValidation(mail);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
-import 'package:gadgetque/view/screens/authentication/screen_signin/screen_signin.dart';
+import 'package:gadgetque/view/screens/authentication/screen_signin.dart';
 import 'package:gadgetque/view/screens/authentication/widget/app_bar.dart';
 import 'package:gadgetque/view/screens/authentication/widget/background_image.dart';
 import 'package:get/get.dart';

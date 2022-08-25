@@ -6,7 +6,7 @@ import 'package:gadgetque/model/address/remove_address_model.dart';
 import 'package:gadgetque/model/address/update_address_model.dart';
 import 'package:gadgetque/services/address_services.dart';
 import 'package:gadgetque/view/constant/color.dart';
-import 'package:gadgetque/view/screens/authentication/splash/splash.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:get/get.dart';
 
 class AddressController extends GetxController {
