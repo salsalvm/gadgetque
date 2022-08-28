@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
 
@@ -15,32 +17,36 @@ class NoInternet extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       init: HomeController(),
-      builder: (controller) => Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              refresh();
-              controller.update();
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: kBlackColor,
+      builder: (controller) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+        child: Scaffold(backgroundColor: Colors.transparent,
+          appBar: AppBar(backgroundColor: Colors.transparent,
+            leading: IconButton(
+              onPressed: () {
+                refresh();
+                controller.update();
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: kGreyColor,
+              ),
             ),
           ),
-        ),
-        body: SafeArea(
-          child: SizedBox(
-            height: size.height,
-            width: size.width,
-            child: const Center(
-              child: SizedBox(
-                width: 170,
-                child: CustomText(
-                    lines: 3,
-                    name: 'No Internet please connect a valid wife and explore',
-                    weight: FontWeight.normal,
-                    fontSize: 18,
-                    color: kGreyColor),
+          body: SafeArea(
+            child: SizedBox(
+              height: size.height,
+              width: size.width,
+              child: const Center(
+                child: SizedBox(
+                  width: 170,
+                  child: CustomText(
+                      lines: 3,
+                      name:
+                          'No Internet please connect a valid wife and explore',
+                      weight: FontWeight.normal,
+                      fontSize: 18,
+                      color: kGreyColor),
+                ),
               ),
             ),
           ),
