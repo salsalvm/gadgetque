@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/radius.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/product_view_page/screen_product.dart';
+import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
 class RecommendedItem extends StatelessWidget {
@@ -34,12 +36,33 @@ class RecommendedItem extends StatelessWidget {
                 child: Card(
                   shape: RoundedRectangleBorder(borderRadius: kRAdius10),
                   color: kWhiteColor,
-                  child: FadeInImage.assetNetwork(
-                      width: size.width,
-                      height: size.width * .4,
-                      placeholder: 'asset/noimage.jpeg',
-                      image:
-                          'http://34.238.154.28/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        'http://34.238.154.28/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg',
+                    width: size.width ,
+                    height: size.width * .4,
+                    placeholder: (context, url) => Container(
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('asset/noimage.jpeg'),
+                              fit: BoxFit.cover)),
+                    ),
+                    errorWidget: (context, str, error) => SizedBox(
+                      width: size.width * .2,
+                      child: const CustomText(
+                          lines: 3,
+                          name: 'No Internet please connect a valid wife',
+                          weight: FontWeight.normal,
+                          fontSize: 18,
+                          color: kGreyColor),
+                    ),
+                  ),
+                  //  FadeInImage.assetNetwork(
+                  //     width: size.width,
+                  //     height: size.width * .4,
+                  //     placeholder: 'asset/noimage.jpeg',
+                  //     image:
+                  //         'http://34.238.154.28/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
                 ),
               );
             }),

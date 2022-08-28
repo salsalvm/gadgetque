@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
@@ -89,12 +90,35 @@ class DeliveryItem extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              FadeInImage.assetNetwork(
-                                  width: size.width * .35,
-                                  height: size.width * .36,
-                                  placeholder: 'asset/noimage.jpeg',
-                                  image:
-                                      'http://34.238.154.28/product-image/${controller.products![index].product.id}/${controller.products![index].product.imageId}_1.jpg'),
+                              CachedNetworkImage(
+                            imageUrl:
+    'http://34.238.154.28/product-image/${controller.products![index].product.id}/${controller.products![index].product.imageId}_1.jpg',
+                            width: size.width *.35,
+                            height: size.width * .36,
+                            placeholder: (context, url) => Container(
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage('asset/noimage.jpeg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                            errorWidget: (context, str, error) =>
+                                 SizedBox(
+                              width: size.width * .2,
+                              child:const CustomText(
+                                  lines: 3,
+                                  name:
+                                      'No Internet please connect a valid wife',
+                                  weight: FontWeight.normal,
+                                  fontSize: 18,
+                                  color: kGreyColor),
+                            ),
+                          ),
+                              // FadeInImage.assetNetwork(
+                              //     width: size.width * .35,
+                              //     height: size.width * .36,
+                              //     placeholder: 'asset/noimage.jpeg',
+                              //     image:
+                              //         'http://34.238.154.28/product-image/${controller.products![index].product.id}/${controller.products![index].product.imageId}_1.jpg'),
                             ],
                           ),
                           kHeigt5,

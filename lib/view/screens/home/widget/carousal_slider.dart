@@ -1,7 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
+import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
+import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 
 class CarasoulSlider extends StatelessWidget {
@@ -51,12 +54,32 @@ class CourasalList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: FadeInImage.assetNetwork(
-          fit: BoxFit.fill,
-          width: size.width,
-          height: size.width * 0.6,
-          placeholder: 'asset/noimage.jpeg',
-          image: image),
+      child:
+          // FadeInImage.assetNetwork(
+          //     fit: BoxFit.fill,
+          //     width: size.width,
+          //     height: size.width * 0.6,
+          //     placeholder: 'asset/noimage.jpeg',
+          //     image: image),
+          CachedNetworkImage(
+        imageUrl: image,
+        width: size.width,
+        height: size.width * .06,
+        placeholder: (context, url) => Container(
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('asset/noimage.jpeg'), fit: BoxFit.cover)),
+        ),
+        errorWidget: (context, str, error) => SizedBox(
+          width: size.width * .2,
+          child: const CustomText(
+              lines: 3,
+              name: 'No Internet please connect a valid wife',
+              weight: FontWeight.normal,
+              fontSize: 18,
+              color: kGreyColor),
+        ),
+      ),
     );
   }
 }

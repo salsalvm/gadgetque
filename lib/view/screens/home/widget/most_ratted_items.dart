@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
@@ -40,13 +41,36 @@ class MostRattedItem extends StatelessWidget {
                       color: kWhiteColor,
                       child: Column(
                         children: [
-                          FadeInImage.assetNetwork(
-                              fit: BoxFit.fill,
-                              width: size.width * .5,
-                              height: size.width * .5,
-                              placeholder: 'asset/noimage.jpeg',
-                              image:
-                                  'http://34.238.154.28/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
+                          // FadeInImage.assetNetwork(
+                          //     fit: BoxFit.fill,
+                          //     width: size.width * .5,
+                          //     height: size.width * .5,
+                          //     placeholder: 'asset/noimage.jpeg',
+                          //     image:
+                          //         'http://34.238.154.28/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
+                          CachedNetworkImage(
+                            imageUrl:
+                                'http://34.238.154.28/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg',
+                            width: size.width * .5,
+                            height: size.width * .5,
+                            placeholder: (context, url) => Container(
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage('asset/noimage.jpeg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                            errorWidget: (context, str, error) =>
+                                 SizedBox(
+                              width: size.width * .2,
+                              child:const CustomText(
+                                  lines: 3,
+                                  name:
+                                      'No Internet please connect a valid wife',
+                                  weight: FontWeight.normal,
+                                  fontSize: 18,
+                                  color: kGreyColor),
+                            ),
+                          ),
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 10),
                             width: size.width * 0.45,

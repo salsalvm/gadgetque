@@ -28,7 +28,7 @@ class ScreenHome extends StatelessWidget {
           const MainHead(headding: 'Deals of The Day'),
           const CarasoulSlider(),
           const MainHead(headding: 'Explore Category'),
-          CatogorySearch(),
+          const CatogorySearch(),
           const MainHead(headding: 'Most Ratted Items'),
           const MostRattedItem(),
           const MainHead(headding: 'Recomented Items'),

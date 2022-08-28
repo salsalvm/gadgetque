@@ -6,6 +6,7 @@ import 'package:gadgetque/model/authentication/signup_model.dart';
 import 'package:gadgetque/services/auth_services.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/constant/color.dart';
+import 'package:gadgetque/view/screens/authentication/no_internet.dart';
 import 'package:gadgetque/view/screens/authentication/screen_signin.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthenticationController extends GetxController {
   var isLoading = false.obs;
   int? wallet;
+
   //------------------sign in-------------------//
   signinUser(String mail, String password) async {
     isLoading(true);
@@ -58,13 +60,14 @@ class AuthenticationController extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
         colorText: kredColor,
       );
+      Get.to( NoInternet());
     } catch (e) {
-      Get.snackbar(
-        'Login Error',
-        'entered mail or password is incorrect',
-        snackPosition: SnackPosition.BOTTOM,
-        colorText: kredColor,
-      );
+      // Get.snackbar(
+      //   'Login Error',
+      //   'entered email or password is incorrect',
+      //   snackPosition: SnackPosition.BOTTOM,
+      //   colorText: kredColor,
+      // );Get.to( NoInternet());
     } finally {
       isLoading(false);
     }
@@ -135,4 +138,5 @@ class AuthenticationController extends GetxController {
       rethrow;
     }
   }
+
 }

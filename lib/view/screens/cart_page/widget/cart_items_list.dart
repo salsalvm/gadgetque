@@ -74,27 +74,50 @@ class CartitemsList extends StatelessWidget {
                             child: ListTile(
                               leading: CachedNetworkImage(
                                 imageUrl:
-                                    'http://18.144.34.178/product-image/${controller.productElemnt![index].product.id}/${controller.productElemnt![index].product.imageId}_1.jpg',
+                                    'http://34.238.154.28/product-image/${controller.productElemnt![index].product.id}/${controller.productElemnt![index].product.imageId}_1.jpg',
                                 width: size.width * .18,
                                 height: size.width * .18,
-                                placeholder: (context, url) => const Center(
-                                    child: CircularProgressIndicator()),
-                                errorWidget: (context, str, error) =>
-                                    CachedNetworkImage(
-                                  imageUrl:
-                                      'http://34.238.154.28/product-image/${controller.productElemnt![index].product.id}/${controller.productElemnt![index].product.imageId}_1.jpg',
-                                  width: size.width * .5,
-                                  height: size.width * .5,
-                                  placeholder: (context, url) => const Center(
-                                      child: CircularProgressIndicator()),
-                                  errorWidget: (context, str, error) =>
-                                      const Icon(
-                                    Icons.error,
-                                    color: kGreyColor,
-                                    size: 40,
-                                  ),
+                                placeholder: (context, url) => Container(
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          image:
+                                              AssetImage('asset/noimage.jpeg'),
+                                          fit: BoxFit.cover)),
+                                ),
+                                errorWidget: (context, str, error) => SizedBox(
+                                  width: size.width * .2,
+                                  child: const CustomText(
+                                      lines: 3,
+                                      name:
+                                          'No Internet please connect a valid wife',
+                                      weight: FontWeight.normal,
+                                      fontSize: 18,
+                                      color: kGreyColor),
                                 ),
                               ),
+                              //  CachedNetworkImage(
+                              //   imageUrl:
+                              //       'http://18.144.34.178/product-image/${controller.productElemnt![index].product.id}/${controller.productElemnt![index].product.imageId}_1.jpg',
+                              //   width: size.width * .18,
+                              //   height: size.width * .18,
+                              //   placeholder: (context, url) => const Center(
+                              //       child: CircularProgressIndicator()),
+                              //   errorWidget: (context, str, error) =>
+                              //       CachedNetworkImage(
+                              //     imageUrl:
+                              //         'http://34.238.154.28/product-image/${controller.productElemnt![index].product.id}/${controller.productElemnt![index].product.imageId}_1.jpg',
+                              //     width: size.width * .5,
+                              //     height: size.width * .5,
+                              //     placeholder: (context, url) => const Center(
+                              //         child: CircularProgressIndicator()),
+                              //     errorWidget: (context, str, error) =>
+                              //         const Icon(
+                              //       Icons.error,
+                              //       color: kGreyColor,
+                              //       size: 40,
+                              //     ),
+                              //   ),
+                              // ),
                               title: CustomText(
                                   name: controller
                                       .productElemnt![index].product.name!,

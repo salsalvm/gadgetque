@@ -43,7 +43,7 @@ class ListAddress extends StatelessWidget {
                       List<String> str = controller
                           .addressList![index].address!.address!
                           .split(',');
-                          str=str.reversed.toList();
+                      str = str.reversed.toList();
                       String temp = '';
                       for (var i = 0; i < str.length; i++) {
                         if (i % 2 == 0) {

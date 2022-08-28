@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
@@ -46,13 +47,36 @@ class CategoryGrid extends StatelessWidget {
                           Stack(
                             alignment: AlignmentDirectional.topEnd,
                             children: [
-                              FadeInImage.assetNetwork(
-                                  fit: BoxFit.fill,
-                                  width: size.width * .5,
-                                  height: size.width * .45,
-                                  placeholder: 'asset/noimage.jpeg',
-                                  image:
-                                      'http://34.238.154.28/product-image/${controller.categoryItems![index].id}/${controller.categoryItems![index].imageId}_1.jpg'),
+                              CachedNetworkImage(
+                                imageUrl:
+                                    'http://34.238.154.28/product-image/${controller.categoryItems![index].id}/${controller.categoryItems![index].imageId}_1.jpg',
+                                width: size.width * .5,
+                                height: size.width * .45,
+                                placeholder: (context, url) => Container(
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          image:
+                                              AssetImage('asset/noimage.jpeg'),
+                                          fit: BoxFit.cover)),
+                                ),
+                                errorWidget: (context, str, error) => SizedBox(
+                                  width: size.width * .2,
+                                  child: const CustomText(
+                                      lines: 3,
+                                      name:
+                                          'No Internet please connect a valid wife',
+                                      weight: FontWeight.normal,
+                                      fontSize: 18,
+                                      color: kGreyColor),
+                                ),
+                              ),
+                              // FadeInImage.assetNetwork(
+                              //     fit: BoxFit.fill,
+                              //     width: size.width * .5,
+                              //     height: size.width * .45,
+                              //     placeholder: 'asset/noimage.jpeg',
+                              //     image:
+                              //         'http://34.238.154.28/product-image/${controller.categoryItems![index].id}/${controller.categoryItems![index].imageId}_1.jpg'),
                               const AddWishlist(radius: 20, iconSize: 34),
                             ],
                           ),
@@ -68,7 +92,8 @@ class CategoryGrid extends StatelessWidget {
                                   color: kBlackColor),
                               SizedBox(
                                 child: CustomText(
-                                    lines: 2,spacing: 1.2,
+                                    lines: 2,
+                                    spacing: 1.2,
                                     name: controller
                                         .categoryItems![index].description,
                                     weight: FontWeight.w400,
