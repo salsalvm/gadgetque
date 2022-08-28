@@ -6,7 +6,7 @@
 -keepattributes Annotation
 
 -dontwarn com.razorpay.**
--keep class com.razorpay.* {;}
+-keep class com.razorpay.* {}
 
 -optimizations !method/inlining/*
 

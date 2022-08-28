@@ -2,7 +2,7 @@
     package="com.example.gadgetque">
      <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="gadgetque"
+        android:label="GadgetsQue"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
