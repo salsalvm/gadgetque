@@ -62,12 +62,12 @@ class AuthenticationController extends GetxController {
       );
       Get.to( NoInternet());
     } catch (e) {
-      // Get.snackbar(
-      //   'Login Error',
-      //   'entered email or password is incorrect',
-      //   snackPosition: SnackPosition.BOTTOM,
-      //   colorText: kredColor,
-      // );Get.to( NoInternet());
+      Get.snackbar(
+        'Login Error',
+        'entered email or password is incorrect',
+        snackPosition: SnackPosition.BOTTOM,
+        colorText: kredColor,
+      );Get.to( NoInternet());
     } finally {
       isLoading(false);
     }
