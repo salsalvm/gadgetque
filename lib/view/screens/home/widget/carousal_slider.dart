@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
@@ -18,7 +19,7 @@ class CarasoulSlider extends StatelessWidget {
       child: GetBuilder<HomeController>(
         init: HomeController(),
         builder: (controller) => controller.products == null
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: CupertinoActivityIndicator())
             : CarouselSlider(
                 items: [
                   CourasalList(

@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:gadgetque/controller/category_controller.dart';
 import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/radius.dart';
 import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
-import 'package:gadgetque/view/screens/wishlist_page/widget/add_wishlists.dart';
 import 'package:get/get.dart';
 
 class SimilarItem extends StatelessWidget {
-  const SimilarItem({
+   SimilarItem({
     Key? key,
   }) : super(key: key);
 
@@ -20,8 +20,8 @@ class SimilarItem extends StatelessWidget {
       color: kBoxColor,
       child: GetBuilder<HomeController>(
         init: HomeController(),
-        builder: (controller) => controller.categoryItems == null
-            ? const Center(child: CircularProgressIndicator())
+        builder: (controller) => catController.categoryItems == null
+            ? const Center(child: CupertinoActivityIndicator())
             : ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -30,34 +30,25 @@ class SimilarItem extends StatelessWidget {
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: GestureDetector(
                     onTap: () {
-                      controller.getCategoryDatas(
+                      catController.getCategoryDatas(
                           controller.categories![index].category);
                     },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Stack(
-                          alignment: AlignmentDirectional.topEnd,
-                          children: [
-                            Container(
-                              height: size.width * 0.85,
-                              width: size.width * .89,
-                              decoration: BoxDecoration(
-                                color: kWhiteColor,
-                                borderRadius: kRAdius10,
-                              ),
-                              child: FadeInImage.assetNetwork(
-                                  width: size.width * .85,
-                                  height: size.width * .89,
-                                  placeholder: 'asset/noimage.jpeg',
-                                  image:
-                                      'http://34.238.154.28/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.all(10.0),
-                              child: AddWishlist(),
-                            )
-                          ],
+                        Container(
+                          height: size.width * 0.85,
+                          width: size.width * .89,
+                          decoration: BoxDecoration(
+                            color: kWhiteColor,
+                            borderRadius: kRAdius10,
+                          ),
+                          child: FadeInImage.assetNetwork(
+                              width: size.width * .85,
+                              height: size.width * .89,
+                              placeholder: 'asset/noimage.jpeg',
+                              image:
+                                  'http://34.238.154.28/product-image/${controller.products![index].id}/${controller.products![index].imageId}_1.jpg'),
                         ),
                         kHeigt5,
                         CustomText(
@@ -97,4 +88,6 @@ class SimilarItem extends StatelessWidget {
       ),
     );
   }
+
+  final catController = Get.put(CategoryController());
 }

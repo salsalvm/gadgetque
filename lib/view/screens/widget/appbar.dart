@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
+import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
@@ -58,7 +60,7 @@ class AppbarMain extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () {
-                    showSearch(context: context, delegate: MySearch());
+                    showSearch(context: context, delegate: MySearch(homeController.products!));
                   },
                   icon: const Icon(
                     Icons.search_outlined,
@@ -82,14 +84,20 @@ class AppbarMain extends StatelessWidget {
                       init: CartController(),
                       builder: (controller) => controller.cartCount == null
                           ? const Center(
-                              child: CircularProgressIndicator(
+                              child: CupertinoActivityIndicator(
                               color: Colors.teal,
                             ))
-                          : CustomText(
-                              name: ' ${controller.cartCount}',
-                              weight: FontWeight.bold,
-                              fontSize: 22,
-                              color: kBlueColor),
+                          : controller.cartCount.toString() == '0'
+                              ? const CustomText(
+                                  name: '0',
+                                  weight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: kBlueColor)
+                              : CustomText(
+                                  name: ' ${controller.cartCount}',
+                                  weight: FontWeight.bold,
+                                  fontSize: 22,
+                                  color: kBlueColor),
                     ),
                   ],
                 )
@@ -100,6 +108,6 @@ class AppbarMain extends StatelessWidget {
       ),
     );
   }
-
+final homeController = Get.put(HomeController());
   final cartController = Get.put(CartController());
 }

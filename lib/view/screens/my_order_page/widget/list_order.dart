@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gadgetque/controller/order_controller.dart';
@@ -19,7 +20,7 @@ class OrderList extends StatelessWidget {
       builder: (controller) {
         return controller.orderList == null
             ? const Center(
-                child: CircularProgressIndicator(
+                child: CupertinoActivityIndicator(
                   color: Colors.teal,
                 ),
               )

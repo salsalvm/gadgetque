@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/model/category_datas_model.dart';
-import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
@@ -16,16 +16,16 @@ import 'package:get/get.dart';
 
 class BuyCategoryProduct extends StatelessWidget {
   final Prodatum products;
-  const BuyCategoryProduct({Key? key, required this.products})
-      : super(key: key);
+  BuyCategoryProduct({Key? key, required this.products}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    authController.conectionCheck();
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: SecondAppbar(
-          title: products.category,
+          title: products.category!,
         ),
       ),
       body: SafeArea(
@@ -36,21 +36,21 @@ class BuyCategoryProduct extends StatelessWidget {
               children: [
                 CatProductImage(products: products),
                 // kHeigt30,
-                MainHead(headding: products.name, top: 20),
+                MainHead(headding: products.name!, top: 20),
                 const DivLine(),
                 CatImageDetails(products: products),
                 const MainHead(
                   headding: 'You May Also Like',
                 ),
                 const DivLine(),
-                const SimilarItem(),
+                 SimilarItem(),
                 kHeigt50,
               ],
             ),
             GetBuilder<CartController>(
               init: CartController(),
               builder: (controller) {
-                controller.checkCartItem(products.id);
+                controller.checkCartItem(products.id!);
 
                 return controller.isAdd == true
                     ? ActionButton(
@@ -73,7 +73,7 @@ class BuyCategoryProduct extends StatelessWidget {
                         radius: 0,
                         text: 'Add To Cart',
                         onTap: () {
-                          controller.addCartItems(products.id);
+                          controller.addCartItems(products.id!);
                           controller.update();
                         },
                       );
@@ -84,4 +84,6 @@ class BuyCategoryProduct extends StatelessWidget {
       ),
     );
   }
+
+  final authController = Get.put(AuthenticationController());
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/controller/checkout_controller.dart';
 import 'package:gadgetque/controller/payment_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
@@ -16,12 +17,12 @@ import 'package:get/get.dart';
 class ScreenSummary extends StatelessWidget {
   ScreenSummary({Key? key}) : super(key: key);
 
-  final paymentController = Get.put(PaymentController());
   @override
   Widget build(BuildContext context) {
+    authController.conectionCheck();
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(60),
+      appBar:  PreferredSize(
+        preferredSize:const Size.fromHeight(60),
         child: SecondAppbar(
           title: 'Check Out Summary',
         ),
@@ -41,9 +42,9 @@ class ScreenSummary extends StatelessWidget {
                     kHeigt10,
                     DeliveryItem(),
                     kHeigt10,
-                    
                     const PaymentMethod(),
-                    kHeigt10,CouponApply(),
+                    kHeigt10,
+                    CouponApply(),
                     kHeigt10,
                     const PriceDetails(),
                     kHeigt50
@@ -73,4 +74,7 @@ class ScreenSummary extends StatelessWidget {
       ),
     );
   }
+
+  final authController = Get.put(AuthenticationController());
+  final paymentController = Get.put(PaymentController());
 }

@@ -11,7 +11,7 @@ import 'package:get/route_manager.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class NoInternet extends StatelessWidget {
-  NoInternet({Key? key}) : super(key: key);
+  const NoInternet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,10 @@ class NoInternet extends StatelessWidget {
       init: HomeController(),
       builder: (controller) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
-        child: Scaffold(backgroundColor: Colors.transparent,
-          appBar: AppBar(backgroundColor: Colors.transparent,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
             leading: IconButton(
               onPressed: () {
                 refresh();
@@ -42,10 +44,10 @@ class NoInternet extends StatelessWidget {
                   child: CustomText(
                       lines: 3,
                       name:
-                          'No Internet please connect a valid wife and explore',
+                          'No Internet please connect a valid wifi and explore',
                       weight: FontWeight.normal,
                       fontSize: 18,
-                      color: kGreyColor),
+                      color: kWhiteColor),
                 ),
               ),
             ),
@@ -63,6 +65,13 @@ class NoInternet extends StatelessWidget {
       Get.snackbar(
         ' Internet connected',
         'OK',
+        snackPosition: SnackPosition.BOTTOM,
+        colorText: kGreenColor,
+      );
+    } else {
+      Get.snackbar(
+        'No Internet',
+        'Please Connected Wifi',
         snackPosition: SnackPosition.BOTTOM,
         colorText: kGreenColor,
       );

@@ -10,7 +10,7 @@ import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
-  bool? isAdd;
+  bool isAdd = false;
 
   List<ProductElement>? productElemnt;
   int total = 0;
@@ -23,12 +23,13 @@ class CartController extends GetxController {
 
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final datas = getCartItemsModelFromJson(response.data);
+        if (datas != null) {
+          productElemnt = datas.products!.obs;
 
-        productElemnt = datas.products!.obs;
-
-        total = datas.total!;
-        cartCount = datas.cartCount.obs;
-        update();
+          total = datas.total!;
+          cartCount = datas.cartCount.obs;
+          update();
+        }
       }
     } catch (e) {
       log('get controller>>>>>>>>>>>>>>>>>>.$e<<<<<<<<<<<<<<<<<<');
@@ -117,6 +118,8 @@ class CartController extends GetxController {
 
   @override
   void onInit() {
+    Rx<int?>? cartCount;
+
     getCartItems();
     super.onInit();
   }

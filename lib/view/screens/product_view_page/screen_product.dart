@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/model/home_datas_model.dart';
-import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/cart_page/screen_cart.dart';
@@ -19,6 +19,7 @@ class BuyProduct extends StatelessWidget {
   BuyProduct({Key? key, required this.products}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    authController.conectionCheck();
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
@@ -41,7 +42,7 @@ class BuyProduct extends StatelessWidget {
                   headding: 'You May Also Like',
                 ),
                 const DivLine(),
-                const SimilarItem(),
+                 SimilarItem(),
                 kHeigt50,
               ],
             ),
@@ -58,10 +59,6 @@ class BuyProduct extends StatelessWidget {
                           text: 'View Cart',
                           onTap: () {
                             Get.off(ScreenCart());
-                            // Get.snackbar(
-                            //     'Product Alreaady in Cart', 'Please check Cart',
-                            //     colorText: kredColor,
-                            //     snackPosition: SnackPosition.TOP);
                             controller.update();
                           })
                       : ActionButton(
@@ -79,4 +76,6 @@ class BuyProduct extends StatelessWidget {
       ),
     );
   }
+
+  final authController = Get.put(AuthenticationController());
 }

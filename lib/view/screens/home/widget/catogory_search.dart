@@ -1,13 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/category_controller.dart';
 import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/radius.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
+import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class CatogorySearch extends StatelessWidget {
- const CatogorySearch({
+   CatogorySearch({
     Key? key,
   }) : super(key: key);
 
@@ -19,7 +22,9 @@ class CatogorySearch extends StatelessWidget {
       child: GetBuilder<HomeController>(
         init: HomeController(),
         builder: (controller) => controller.categories == null
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(
+                child: CupertinoActivityIndicator(),
+              )
             : ListView.builder(
                 scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),
@@ -28,7 +33,7 @@ class CatogorySearch extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      controller.getCategoryDatas(
+                      catController.getCategoryDatas(
                           controller.categories![index].category);
                     },
                     child: Card(
@@ -44,23 +49,25 @@ class CatogorySearch extends StatelessWidget {
                           //         'http://34.238.154.28/category-image/${controller.categories![index].id}.jpg'),
                           CachedNetworkImage(
                             imageUrl:
-                                'http://18.144.34.178/category-image/${controller.categories![index].id}.jpg',
+                                'http://34.238.154.28/category-image/${controller.categories![index].id}.jpg',
                             width: size.width * .5,
                             height: size.width * .5,
-                            placeholder: (context, url) => const Center(
-                                child: CircularProgressIndicator()),
-                            errorWidget: (context, str, error) =>
-                                CachedNetworkImage(
-                              imageUrl:
-                                  'http://34.238.154.28/category-image/${controller.categories![index].id}.jpg',
-                              width: size.width * .5,
-                              height: size.width * .5,
-                              placeholder: (context, url) => const Center(
-                                  child: CircularProgressIndicator()),
-                              errorWidget: (context, str, error) => const Icon(
-                                Icons.error,
-                                color: kGreyColor,
-                                size: 40,
+                            placeholder: (context, url) => Container(
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage('asset/noimage.jpeg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                            errorWidget: (context, str, error) => SizedBox(
+                              width: size.width * .2,
+                              child: const Center(
+                                child: CustomText(
+                                    lines: 3,
+                                    name:
+                                        'No Internet please connect a valid wife',
+                                    weight: FontWeight.normal,
+                                    fontSize: 18,
+                                    color: kGreyColor),
                               ),
                             ),
                           ),
@@ -88,5 +95,5 @@ class CatogorySearch extends StatelessWidget {
                 }),
       ),
     );
-  }
+  }final catController=Get.put(CategoryController());
 }

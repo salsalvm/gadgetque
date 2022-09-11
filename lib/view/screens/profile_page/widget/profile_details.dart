@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/profile_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
@@ -19,7 +20,7 @@ class ProfileDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: size.width * 0.688,
+      height: size.height * 0.34,
       width: size.width,
       decoration: BoxDecoration(
         borderRadius: kRAdius10,
@@ -30,7 +31,7 @@ class ProfileDetails extends StatelessWidget {
         child: GetBuilder<ProfileController>(
           init: ProfileController(),
           builder: (controller) => controller.userName == null
-              ? const Center(child: CircularProgressIndicator())
+              ? const Center(child: CupertinoActivityIndicator())
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -51,9 +52,7 @@ class ProfileDetails extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: GestureDetector(
-                        onTap: () {
-                          
-                        },
+                        onTap: () {},
                         child: CircleAvatar(
                           backgroundImage:
                               const AssetImage('asset/noimage.jpeg'),
@@ -69,7 +68,7 @@ class ProfileDetails extends StatelessWidget {
                         wieght: FontWeight.w600,
                         fontSize: 20,
                         fontColor: kBlackColor),
-                    kHeigt10,
+                    kHeigt5,
                     TextElementsInRow(
                         firstText: 'Mail         :',
                         secondText: controller.mail ?? 'mail not available',
@@ -81,7 +80,7 @@ class ProfileDetails extends StatelessWidget {
                         buttonColor: Colors.white.withOpacity(0.1),
                         fontSize: 18,
                         buttonWidth: size.width,
-                        buttonHeight: 38,
+                        buttonHeight: size.height * 0.045,
                         text: 'Change Password',
                         onTap: () {
                           Get.dialog(const ChangePassword());

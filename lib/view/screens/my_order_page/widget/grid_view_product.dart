@@ -40,42 +40,29 @@ class ViewProduct extends StatelessWidget {
                     padding: const EdgeInsets.all(5.0),
                     child: Column(
                       children: [
-                        Stack(
-                          alignment: AlignmentDirectional.topEnd,
-                          children: [
-                              CachedNetworkImage(
+                        CachedNetworkImage(
                             imageUrl:
     'http://34.238.154.28/product-image/${product.product!.id}/${product.product!.imageId}_1.jpg',
                             width: size.width * .5,
                             height: size.width * .44,
                             placeholder: (context, url) => Container(
-                              decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage('asset/noimage.jpeg'),
-                                      fit: BoxFit.cover)),
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('asset/noimage.jpeg'),
+                                fit: BoxFit.cover)),
                             ),
                             errorWidget: (context, str, error) =>
-                                 SizedBox(
-                              width: size.width * .2,
-                              child:const CustomText(
-                                  lines: 3,
-                                  name:
-                                      'No Internet please connect a valid wife',
-                                  weight: FontWeight.normal,
-                                  fontSize: 18,
-                                  color: kGreyColor),
+                           SizedBox(
+                        width: size.width * .2,
+                        child:const CustomText(
+                            lines: 3,
+                            name:
+                                'No Internet please connect a valid wife',
+                            weight: FontWeight.normal,
+                            fontSize: 18,
+                            color: kGreyColor),
                             ),
                           ),
-                            // FadeInImage.assetNetwork(
-                            //     fit: BoxFit.fill,
-                            //     width: size.width * .5,
-                            //     height: size.width * .44,
-                            //     placeholder: 'asset/noimage.jpeg',
-                            //     image:
-                            //         'http://34.238.154.28/product-image/${product.product!.id}/${product.product!.imageId}_1.jpg'),
-                            const AddWishlist(radius: 20, iconSize: 34),
-                          ],
-                        ),
                         kHeigt5,
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

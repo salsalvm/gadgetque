@@ -12,19 +12,19 @@ class ScreenWishlist extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:  PreferredSize(
-        preferredSize: Size.fromHeight(70),
+        preferredSize:const Size.fromHeight(70),
         child: AppbarMain(),
       ),
       body: SafeArea(
         child: ListView(
-          children: const [
-            MainHead(
+          children:  [
+         const   MainHead(
               top: 15,
               headding: 'Wishlist',
             ),
-            DivLine(),
+         const   DivLine(),
             kHeigt5,
-            ListWishlists(),
+         const   ListWishlists(),
           ],
         ),
       ),

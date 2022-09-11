@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/cart_page/widget/cart_container.dart';
 import 'package:gadgetque/view/screens/cart_page/widget/cart_items_list.dart';
-import 'package:gadgetque/view/screens/cart_page/widget/crat_total_amount.dart';
+import 'package:gadgetque/view/screens/cart_page/widget/cart_total_amount.dart';
 import 'package:gadgetque/view/screens/checkout_page/screen_order_summary.dart';
 import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/second_appbar.dart';
@@ -16,10 +17,11 @@ class ScreenCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    authController.conectionCheck();
     return Scaffold(
       backgroundColor: kBoxColor,
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(60),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60),
         child: SecondAppbar(
           title: 'My Cart',
         ),
@@ -29,11 +31,11 @@ class ScreenCart extends StatelessWidget {
           alignment: AlignmentDirectional.bottomCenter,
           children: [
             ListView(
-              children: const [
+              children: [
                 kHeigt10,
-                CartContainer(),
-                CartitemsList(),
-                CartTotalAmount()
+                const CartContainer(),
+                const CartitemsList(),
+                const CartTotalAmount()
               ],
             ),
             cartController.productElemnt!.isEmpty
@@ -62,4 +64,5 @@ class ScreenCart extends StatelessWidget {
   }
 
   final cartController = Get.put(CartController());
+  final authController = Get.put(AuthenticationController());
 }

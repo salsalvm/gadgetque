@@ -25,7 +25,8 @@ class AuthServices {
     try {
       final response = await dio.post('signup', data: jsonEncode(signupData));
       return response;
-    } catch (e) {
+    } 
+    catch (e) {
       log('signup>>>>>>>>>>>$e<<<<<<<<<<<<<');
     }
     return null;

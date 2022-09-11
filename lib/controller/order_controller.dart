@@ -11,7 +11,7 @@ import 'package:get/get.dart';
 class OrderController extends GetxController {
   List<Order>? orderList;
   List<ProductElement>? products;
- //------------------get oDet-------------------//
+  //------------------get oDet-------------------//
   getOrderDetails() async {
     try {
       final response = await OrderServicesEndPoint().getOrderDetails();
@@ -26,7 +26,8 @@ class OrderController extends GetxController {
       log('get controller>>>>>>>>$e<<<<<<<<');
     }
   }
- //------------------get oProd-------------------//
+
+  //------------------get oProd-------------------//
   getOrderProduct(String orderId) async {
     try {
       final response = await OrderServicesEndPoint().getOrderProduct(orderId);
@@ -34,14 +35,15 @@ class OrderController extends GetxController {
         final datas = orderedProductModelFromJson(response.data);
         if (datas.products != null) {
           products = datas.products!.obs;
-          Get.to(const ScreenViewOrder());
+          Get.to(ScreenViewOrder());
         }
       }
     } catch (e) {
       log('get controller>>>>>>>>>>>>$e<<<<<<<<<<');
     }
   }
- //------------------cancel ord-------------------//
+
+  //------------------cancel ord-------------------//
   cancelOrder(String orderId) async {
     try {
       final response = await OrderServicesEndPoint().canceOrder(orderId);

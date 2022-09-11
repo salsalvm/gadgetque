@@ -10,6 +10,8 @@ import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
+import 'package:flutter/cupertino.dart';
+
 
 class DeliveryTo extends StatelessWidget {
   DeliveryTo({
@@ -29,7 +31,7 @@ class DeliveryTo extends StatelessWidget {
             builder: (controller) {
               if (controller.address == null) {
                 return const Center(
-                  child: CircularProgressIndicator(
+                  child: CupertinoActivityIndicator(
                     color: Colors.teal,
                   ),
                 );

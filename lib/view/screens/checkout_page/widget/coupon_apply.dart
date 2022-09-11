@@ -8,6 +8,8 @@ import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get.dart';
+import 'package:flutter/cupertino.dart';
+
 
 String? coupons;
 
@@ -36,7 +38,7 @@ class CouponApply extends StatelessWidget {
               init: HomeController(),
               builder: (controller) => controller.coupon == null
                   ? const Center(
-                      child: CircularProgressIndicator(
+                      child: CupertinoActivityIndicator(
                         color: Colors.teal,
                       ),
                     )

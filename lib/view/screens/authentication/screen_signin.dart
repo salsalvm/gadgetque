@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/controller/validationController.dart';
@@ -18,83 +19,92 @@ class ScreenSignin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    authController.conectionCheck();
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Stack(
           children: [
             BackgroundImage(image: 'asset/admin_background.png'),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const EntryAppbar(
-                    iconColor: kGreyColor,
-                    textColor: kWhiteColor,
-                  ),
-                  kHeigt100,
-                  const Text(
-                    'Hey ,\nLogin Now.',
-                    style: TextStyle(color: kWhiteColor, fontSize: 28),
-                  ),
-                  kHeigt100,
-                  CustomFormfield(
-                    validator: (mail) {
-                      validController.mailValidation(mail);
-                    },
-                    icon: Icons.mail,
-                    controller: _mailController,
-                    fontSize: 20,
-                    name: 'Mail',
-                    color: kFormColor,
-                    inputTextColor: kWhiteColor,
-                  ),
-                  Obx(
-                    () => ErrorText(
-                        errorText: 'enter valid mail',
-                        isVisible: validController.email.value),
-                  ),
-                  CustomFormfield(
-                      validator: (password) {
-                        validController.passwordValidation(password);
-                      },
-                      icon: Icons.lock,
-                      controller: _passwordController,
-                      fontSize: 20,
-                      obscureText: true,
-                      name: 'Password',
-                      color: kFormColor,
-                      inputTextColor: kWhiteColor),
-                  Obx(
-                    () => ErrorText(
-                        errorText: 'please enter 6 digits valid password',
-                        isVisible: validController.pass.value),
-                  ),
-                  kHeigt10,
-                  EntryButton(
-                      color: kFormColor,
-                      height: size.width * 0.12,
-                      onTap: signinButtonPressed,
-                      buttonName: 'Sign in',
-                      width: size.width * 0.823),
-                  kHeigt20,
-                  Obx(
-                    () => Visibility(
-                        visible: authController.isLoading.value,
-                        child: const Center(
-                            child: CircularProgressIndicator(
-                          color: Colors.green,
-                        ))),
-                  ),
-                  const Spacer(),
-                  SwitchBottomTextButton(
-                      onTap: () {
-                        Get.offAll(ScreenSignup());
-                      },
-                      text: 'Register Now'),
-                  kHeigt20
-                ],
+            SingleChildScrollView(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const EntryAppbar(
+                      iconColor: kGreyColor,
+                      textColor: kWhiteColor,
+                    ),
+                    kHeigt100,
+                    const Text(
+                      'Hey ,\nLogin Now.',
+                      style: TextStyle(color: kWhiteColor, fontSize: 28),
+                    ),
+                    kHeigt100,
+                    Column(
+                      children: [
+                        CustomFormfield(
+                          validator: (mail) {
+                            validController.mailValidation(mail);
+                          },
+                          icon: Icons.mail,
+                          controller: _mailController,
+                          fontSize: 20,
+                          name: 'Mail',
+                          color: kFormColor,
+                          inputTextColor: kWhiteColor,
+                        ),
+                        Obx(
+                          () => ErrorText(
+                              errorText: 'enter valid mail',
+                              isVisible: validController.email.value),
+                        ),
+                        CustomFormfield(
+                            validator: (password) {
+                              validController.passwordValidation(password);
+                            },
+                            icon: Icons.lock,
+                            controller: _passwordController,
+                            fontSize: 20,
+                            obscureText: true,
+                            name: 'Password',
+                            color: kFormColor,
+                            inputTextColor: kWhiteColor),
+                        Obx(
+                          () => ErrorText(
+                              errorText: 'please enter 6 digits valid password',
+                              isVisible: validController.pass.value),
+                        ),
+                        kHeigt10,
+                        EntryButton(
+                            color: kFormColor,
+                            height: size.width * 0.12,
+                            onTap: signinButtonPressed,
+                            buttonName: 'Sign in',
+                            width: size.width * 0.823),
+                        kHeigt20,
+                        Obx(
+                          () => Visibility(
+                              visible: authController.isLoading.value,
+                              child: const Center(
+                                  child: CupertinoActivityIndicator(
+                                color: Colors.green,
+                              ))),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: size.height * .2,
+                    ),
+                    SwitchBottomTextButton(
+                        onTap: () {
+                          Get.offAll(ScreenSignup());
+                        },
+                        text: 'Register Now'),
+                    kHeigt20
+                  ],
+                ),
               ),
             ),
           ],

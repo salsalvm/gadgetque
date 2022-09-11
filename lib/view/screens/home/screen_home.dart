@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gadgetque/controller/home_controller.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
+import 'package:gadgetque/services/home_services.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/home/widget/carousal_slider.dart';
@@ -14,9 +15,10 @@ import 'package:get/get.dart';
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
 class ScreenHome extends StatelessWidget {
-  const ScreenHome({Key? key}) : super(key: key);
+  ScreenHome({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // authController.conectionCheck();
     return Scaffold(
       backgroundColor: kFormColor,
       appBar: PreferredSize(
@@ -28,23 +30,17 @@ class ScreenHome extends StatelessWidget {
           const MainHead(headding: 'Deals of The Day'),
           const CarasoulSlider(),
           const MainHead(headding: 'Explore Category'),
-          const CatogorySearch(),
-          const MainHead(headding: 'Most Ratted Items'),
+             CatogorySearch(),
+          const MainHead(headding: 'Most Rated Items'),
           const MostRattedItem(),
           const MainHead(headding: 'Recomented Items'),
-          GetBuilder<HomeController>(
-              init: HomeController(),
-              builder: (controller) => controller.products == null
-                  ? const Center(
-                      child: CircularProgressIndicator(
-                        color: Colors.teal,
-                      ),
-                    )
-                  : RecommendedItem()),
+          const RecomentedItems(),
           const MainHead(headding: 'Trending Now'),
           const TrendingItem(),
         ],
       ),
     );
   }
+
+  final authController = Get.put(AuthenticationController());
 }

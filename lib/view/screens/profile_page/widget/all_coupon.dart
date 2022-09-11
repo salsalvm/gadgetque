@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
@@ -19,7 +20,7 @@ class AllCoupons extends StatelessWidget {
       builder: (controller) {
         return controller.coupon == null
             ? const Center(
-                child: CircularProgressIndicator(),
+                child: CupertinoActivityIndicator(),
               )
             : controller.coupon!.isEmpty
                 ? const Center(

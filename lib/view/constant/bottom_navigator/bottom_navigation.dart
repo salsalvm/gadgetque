@@ -12,8 +12,8 @@ class BottomNavigator extends StatelessWidget {
 
   final _pages = [
     ScreenHome(),
-    const ScreenOrder(),
-    const ScreenAddress(),
+     ScreenOrder(),
+     ScreenAddress(),
     // const ScreenWishlist(),
     ScreenProfile()
   ];

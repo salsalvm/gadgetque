@@ -4,7 +4,6 @@ import 'package:gadgetque/view/constant/radius.dart';
 import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
-import 'package:gadgetque/view/screens/wishlist_page/widget/add_wishlists.dart';
 
 
 class ListWishlists extends StatelessWidget {
@@ -67,24 +66,18 @@ class ListWishlists extends StatelessWidget {
                             color: kGreenColor)
                       ],
                     ),
-                    Stack(
-                      alignment: AlignmentDirectional.topEnd,
-                      children: [
-                        Container(
-                          height: size.width * .4,
-                          width: size.width * .435,
-                          decoration: BoxDecoration(
-                            borderRadius: kRAdius10,
-                            color: kWhiteColor,
-                            image: const DecorationImage(
-                              image: AssetImage(
-                                'asset/mobile.png',
-                              ),
-                            ),
+                    Container(
+                      height: size.width * .4,
+                      width: size.width * .435,
+                      decoration: BoxDecoration(
+                        borderRadius: kRAdius10,
+                        color: kWhiteColor,
+                        image: const DecorationImage(
+                          image: AssetImage(
+                            'asset/mobile.png',
                           ),
                         ),
-                        const AddWishlist()
-                      ],
+                      ),
                     )
                   ],
                 ),

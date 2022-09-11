@@ -13,9 +13,10 @@ import 'package:get/get.dart';
 
 class ScreenProfile extends StatelessWidget {
   ScreenProfile({Key? key}) : super(key: key);
-  final authController = Get.put(AuthenticationController());
+
   @override
   Widget build(BuildContext context) {
+    authController.conectionCheck();
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(70), child: AppbarMain()),
@@ -26,18 +27,18 @@ class ScreenProfile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: SafeArea(
               child: ListView(
-                children: const [
-                  ProfileDetails(),
+                children:  [
+                 const ProfileDetails(),
                   kHeigt10,
-                  WalletBalance(),
+                const  WalletBalance(),
                   kHeigt10,
-                  CustomText(
+                const  CustomText(
                       name: 'Coupon Offers',
                       weight: FontWeight.bold,
                       fontSize: 22,
                       color: kBlackColor),
                   kHeigt5,
-                  AllCoupons(),
+               const   AllCoupons(),
                 ],
               ),
             ),
@@ -45,7 +46,7 @@ class ScreenProfile extends StatelessWidget {
           ActionButton(
             radius: 0,
             buttonWidth: size.width,
-            buttonHeight: 50,
+            buttonHeight: size.width * 0.12,
             text: 'Sign Out',
             onTap: () {
               Get.defaultDialog(
@@ -64,4 +65,6 @@ class ScreenProfile extends StatelessWidget {
       ),
     );
   }
+
+  final authController = Get.put(AuthenticationController());
 }

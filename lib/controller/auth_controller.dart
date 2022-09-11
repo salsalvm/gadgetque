@@ -10,6 +10,7 @@ import 'package:gadgetque/view/screens/authentication/no_internet.dart';
 import 'package:gadgetque/view/screens/authentication/screen_signin.dart';
 import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:get/get.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthenticationController extends GetxController {
@@ -60,14 +61,15 @@ class AuthenticationController extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
         colorText: kredColor,
       );
-      Get.to( NoInternet());
+      Get.to(NoInternet());
     } catch (e) {
       Get.snackbar(
         'Login Error',
         'entered email or password is incorrect',
         snackPosition: SnackPosition.BOTTOM,
         colorText: kredColor,
-      );Get.to( NoInternet());
+      );
+      Get.to(NoInternet());
     } finally {
       isLoading(false);
     }
@@ -139,4 +141,17 @@ class AuthenticationController extends GetxController {
     }
   }
 
+  conectionCheck() async {
+    bool conection = await InternetConnectionChecker().hasConnection;
+
+    if (conection == false) {
+      Get.snackbar(
+        'No Internet',
+        'please connect a valid WIFI',
+        snackPosition: SnackPosition.BOTTOM,
+        colorText: kredColor,
+      );
+      Get.to(const NoInternet());
+    }
+  }
 }

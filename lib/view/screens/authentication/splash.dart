@@ -45,12 +45,12 @@ class _ScreenEntryState extends State<ScreenEntry> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
-                children: const [
-                  EntryAppbar(iconColor: kGreyColor, textColor: kWhiteColor),
-                  SizedBox(
+                children:  [
+                const  EntryAppbar(iconColor: kGreyColor, textColor: kWhiteColor),
+                const  SizedBox(
                     width: 300,
                   ),
-                  Text(
+                const  Text(
                     'Discover  Your \n  Unique Style',
                     style: TextStyle(
                         fontSize: 25,
@@ -58,7 +58,7 @@ class _ScreenEntryState extends State<ScreenEntry> {
                         color: kBlackColor),
                   ),
                   kHeigt100,
-                  Text(
+               const   Text(
                     'Explore all the Exiting stuffs...               \nBased on your style.',
                     style: TextStyle(
                         fontSize: 18,

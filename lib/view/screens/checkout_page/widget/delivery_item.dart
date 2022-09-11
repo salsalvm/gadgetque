@@ -9,6 +9,8 @@ import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/instance_manager.dart';
+import 'package:flutter/cupertino.dart';
+
 
 class DeliveryItem extends StatelessWidget {
   DeliveryItem({
@@ -22,7 +24,7 @@ class DeliveryItem extends StatelessWidget {
       init: CheckoutController(),
       builder: (controller) => controller.products == null
           ? const Center(
-              child: CircularProgressIndicator(
+              child: CupertinoActivityIndicator(
                 color: Colors.teal,
               ),
             )

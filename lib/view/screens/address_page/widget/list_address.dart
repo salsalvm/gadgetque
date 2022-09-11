@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/address_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
@@ -24,7 +25,7 @@ class ListAddress extends StatelessWidget {
         init: AddressController(),
         builder: (controller) => controller.addressList == null
             ? const Center(
-                child: CircularProgressIndicator(
+                child: CupertinoActivityIndicator(
                 color: Colors.teal,
               ))
             : controller.addressList!.isEmpty

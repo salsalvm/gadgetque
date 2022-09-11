@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/view/constant/enums/address.dart';
 import 'package:gadgetque/view/screens/address_page/widget/add_edit_address.dart';
 import 'package:gadgetque/view/screens/address_page/widget/list_address.dart';
@@ -9,13 +10,14 @@ import 'package:gadgetque/view/screens/widget/main_headding.dart';
 import 'package:get/get.dart';
 
 class ScreenAddress extends StatelessWidget {
-  const ScreenAddress({Key? key}) : super(key: key);
+   ScreenAddress({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    authControll.conectionCheck();
     return Scaffold(
-      appBar:  PreferredSize(
-        preferredSize:const Size.fromHeight(70),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
         child: AppbarMain(),
       ),
       body: Stack(
@@ -42,13 +44,14 @@ class ScreenAddress extends StatelessWidget {
             text: 'Add New Address',
             onTap: () {
               Get.dialog(
-               const AddEditAddress(types: Address.isadding),
-             
-              ); 
+                const AddEditAddress(types: Address.isadding),
+              );
             },
           )
         ],
       ),
     );
   }
+
+  final authControll = Get.put(AuthenticationController());
 }

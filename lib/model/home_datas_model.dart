@@ -14,7 +14,7 @@ class HomeDatasModel {
     required this.homePage,
   });
 
-  List<Product> products;
+  List<Product>? products;
   List<Category> category;
   int cartCount;
   List<AllCoupon> allCoupons;
@@ -32,7 +32,7 @@ class HomeDatasModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "products": List<dynamic>.from(products.map((x) => x.toJson())),
+        "products": List<dynamic>.from(products!.map((x) => x.toJson())),
         "category": List<dynamic>.from(category.map((x) => x.toJson())),
         "cartCount": cartCount,
         "allCoupons": List<dynamic>.from(allCoupons.map((x) => x.toJson())),

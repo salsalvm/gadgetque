@@ -8,6 +8,7 @@ import 'package:gadgetque/view/screens/widget/action_button.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/item_text.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:share_plus/share_plus.dart';
 
 class WalletBalance extends StatelessWidget {
   const WalletBalance({
@@ -16,6 +17,7 @@ class WalletBalance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       height: size.width * 0.33,
       width: size.width,
@@ -50,9 +52,9 @@ class WalletBalance extends StatelessWidget {
                 buttonColor: Colors.white.withOpacity(0.1),
                 fontSize: 18,
                 buttonWidth: size.width,
-                buttonHeight: 38,
+                buttonHeight: size.width * 0.095,
                 text: ' 🔁  Invite and Earn',
-                onTap: () {})
+                onTap: () { Share.share('https://play.google.com/store/apps/details?id=in.brototype.gadgetsque');})
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
@@ -33,7 +34,7 @@ class CartitemsList extends StatelessWidget {
                 )
               : controller.productElemnt == null
                   ? const Center(
-                      child: CircularProgressIndicator(),
+                      child: CupertinoActivityIndicator(),
                     )
                   : ListView.builder(
                       shrinkWrap: true,
@@ -53,6 +54,7 @@ class CartitemsList extends StatelessWidget {
                                       controller.removeCartItems(
                                           '${controller.productElemnt![index].product.id}',
                                           controller.productElemnt![index].id);
+                                      controller.isAdd = false;
                                       controller.update();
                                       Get.back(closeOverlays: true);
                                     },
@@ -89,7 +91,7 @@ class CartitemsList extends StatelessWidget {
                                   child: const CustomText(
                                       lines: 3,
                                       name:
-                                          'No Internet please connect a valid wife',
+                                          'No Internet please connect a valid wifi',
                                       weight: FontWeight.normal,
                                       fontSize: 18,
                                       color: kGreyColor),
@@ -101,7 +103,7 @@ class CartitemsList extends StatelessWidget {
                               //   width: size.width * .18,
                               //   height: size.width * .18,
                               //   placeholder: (context, url) => const Center(
-                              //       child: CircularProgressIndicator()),
+                              //       child: CupertinoActivityIndicator()),
                               //   errorWidget: (context, str, error) =>
                               //       CachedNetworkImage(
                               //     imageUrl:
@@ -109,7 +111,7 @@ class CartitemsList extends StatelessWidget {
                               //     width: size.width * .5,
                               //     height: size.width * .5,
                               //     placeholder: (context, url) => const Center(
-                              //         child: CircularProgressIndicator()),
+                              //         child: CupertinoActivityIndicator()),
                               //     errorWidget: (context, str, error) =>
                               //         const Icon(
                               //       Icons.error,
@@ -162,6 +164,7 @@ class CartitemsList extends StatelessWidget {
                                                       controller
                                                           .productElemnt![index]
                                                           .id);
+                                                  controller.isAdd = false;
                                                   controller.update();
                                                   Get.back(closeOverlays: true);
                                                 },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/auth_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
 import 'package:gadgetque/view/screens/my_order_page/widget/list_order.dart';
@@ -7,10 +8,11 @@ import 'package:gadgetque/view/screens/widget/main_headding.dart';
 import 'package:get/get.dart';
 
 class ScreenOrder extends StatelessWidget {
-  const ScreenOrder({Key? key}) : super(key: key);
+  ScreenOrder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    authController.conectionCheck();
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(70),
@@ -48,4 +50,6 @@ class ScreenOrder extends StatelessWidget {
       ),
     );
   }
+
+  final authController = Get.put(AuthenticationController());
 }

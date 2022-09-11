@@ -7,7 +7,7 @@ class HomeServices {
   final dio = Dio(
     BaseOptions(responseType: ResponseType.plain, baseUrl: kBaseurl),
   );
-   //------------------get home-------------------//
+  //------------------get home-------------------//
   Future<Response<dynamic>?> getHomeDatas() async {
     try {
       final response = await dio.get('');
@@ -17,10 +17,12 @@ class HomeServices {
     }
     return null;
   }
- //------------------get categories-------------------//
+
+  //------------------get categories-------------------//
   Future<Response<dynamic>?> getCatogoriesDatas(String category) async {
     try {
       final response = await dio.get('categoryWise/$category');
+      // log(response.toString());
       return response;
     } catch (e) {
       log('get category service>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
