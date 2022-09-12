@@ -75,7 +75,7 @@ class CourasalList extends StatelessWidget {
           width: size.width * .2,
           child: const CustomText(
               lines: 3,
-              name: 'No Internet please connect a valid wife',
+              name: 'No Internet please connect a valid wifi',
               weight: FontWeight.normal,
               fontSize: 18,
               color: kGreyColor),

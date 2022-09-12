@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
@@ -45,12 +44,13 @@ class _ScreenEntryState extends State<ScreenEntry> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
-                children:  [
-                const  EntryAppbar(iconColor: kGreyColor, textColor: kWhiteColor),
-                const  SizedBox(
+                children: [
+                  const EntryAppbar(
+                      iconColor: kGreyColor, textColor: kWhiteColor),
+                  const SizedBox(
                     width: 300,
                   ),
-                const  Text(
+                  const Text(
                     'Discover  Your \n  Unique Style',
                     style: TextStyle(
                         fontSize: 25,
@@ -58,7 +58,7 @@ class _ScreenEntryState extends State<ScreenEntry> {
                         color: kBlackColor),
                   ),
                   kHeigt100,
-               const   Text(
+                  const Text(
                     'Explore all the Exiting stuffs...               \nBased on your style.',
                     style: TextStyle(
                         fontSize: 18,
@@ -98,7 +98,7 @@ class _ScreenEntryState extends State<ScreenEntry> {
         snackPosition: SnackPosition.BOTTOM,
         colorText: kredColor,
       );
-      Get.to(NoInternet());
+      Get.to(const NoInternet());
     }
   }
 }

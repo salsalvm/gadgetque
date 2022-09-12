@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/category_controller.dart';
-import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/radius.dart';
 import 'package:gadgetque/view/constant/space.dart';

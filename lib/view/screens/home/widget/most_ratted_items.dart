@@ -66,7 +66,7 @@ class MostRattedItem extends StatelessWidget {
                               child:const CustomText(
                                   lines: 3,
                                   name:
-                                      'No Internet please connect a valid wife',
+                                      'No Internet please connect a valid wifi',
                                   weight: FontWeight.normal,
                                   fontSize: 18,
                                   color: kGreyColor),

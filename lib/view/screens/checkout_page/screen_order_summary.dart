@@ -21,8 +21,8 @@ class ScreenSummary extends StatelessWidget {
   Widget build(BuildContext context) {
     authController.conectionCheck();
     return Scaffold(
-      appBar:  PreferredSize(
-        preferredSize:const Size.fromHeight(60),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60),
         child: SecondAppbar(
           title: 'Check Out Summary',
         ),

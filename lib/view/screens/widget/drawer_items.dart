@@ -67,7 +67,7 @@ class DrawerItems extends StatelessWidget {
                     context: context,
                     applicationIcon: const Icon(Icons.blur_on_outlined),
                     applicationName: 'GadgetsQue',
-                    applicationVersion: '1.0.1');
+                    applicationVersion: '1.0.2');
               },
             )
           ],

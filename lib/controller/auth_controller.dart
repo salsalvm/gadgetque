@@ -61,7 +61,7 @@ class AuthenticationController extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
         colorText: kredColor,
       );
-      Get.to(NoInternet());
+      Get.to(const NoInternet());
     } catch (e) {
       Get.snackbar(
         'Login Error',
@@ -69,7 +69,6 @@ class AuthenticationController extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
         colorText: kredColor,
       );
-      Get.to(NoInternet());
     } finally {
       isLoading(false);
     }
