@@ -30,7 +30,8 @@ class ScreenSignin extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const EntryAppbar(
                       iconColor: kGreyColor,
@@ -94,9 +95,7 @@ class ScreenSignin extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: size.height * .2,
-                    ),
+                    kHeigt100,
                     SwitchBottomTextButton(
                         onTap: () {
                           Get.offAll(ScreenSignup());

@@ -60,7 +60,7 @@ class AppbarMain extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () {
-                    showSearch(context: context, delegate: MySearch(homeController.products!));
+                    showSearch(context: context, delegate: MySearch(homeController.products!),);
                   },
                   icon: const Icon(
                     Icons.search_outlined,
@@ -87,7 +87,7 @@ class AppbarMain extends StatelessWidget {
                               child: CupertinoActivityIndicator(
                               color: Colors.teal,
                             ))
-                          : controller.cartCount.toString() == '0'
+                          : controller.cartCount == 0
                               ? const CustomText(
                                   name: '0',
                                   weight: FontWeight.bold,

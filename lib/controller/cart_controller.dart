@@ -14,7 +14,7 @@ class CartController extends GetxController {
 
   List<ProductElement>? productElemnt;
   int total = 0;
-  Rx<int?>? cartCount;
+  int? cartCount;
 
   //------------------get-------------------//
   getCartItems() async {
@@ -27,7 +27,7 @@ class CartController extends GetxController {
           productElemnt = datas.products!.obs;
 
           total = datas.total!;
-          cartCount = datas.cartCount.obs;
+          cartCount = datas.cartCount;
           update();
         }
       }
@@ -117,9 +117,14 @@ class CartController extends GetxController {
   }
 
   @override
-  void onInit() {
-    Rx<int?>? cartCount;
+  void onReady() {
+    getCartItems();
 
+    super.onReady();
+  }
+
+  @override
+  void onInit() {
     getCartItems();
     super.onInit();
   }

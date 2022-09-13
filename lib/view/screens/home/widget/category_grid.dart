@@ -31,8 +31,8 @@ class CategoryGrid extends StatelessWidget {
                   fontSize: 16,
                   color: kGreyColor)
               : GridView.builder(
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                  shrinkWrap: true,
                   itemCount: controller.categoryItems!.length,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -63,7 +63,7 @@ class CategoryGrid extends StatelessWidget {
                                     imageUrl:
                                         'http://34.238.154.28/product-image/${controller.categoryItems![index].id}/${controller.categoryItems![index].imageId}_1.jpg',
                                     width: size.width * .5,
-                                    height: size.width * .45,
+                                    height: size.width * .43,
                                     placeholder: (context, url) => Container(
                                       decoration: const BoxDecoration(
                                           image: DecorationImage(
@@ -92,7 +92,6 @@ class CategoryGrid extends StatelessWidget {
                                   //         'http://34.238.154.28/product-image/${controller.categoryItems![index].id}/${controller.categoryItems![index].imageId}_1.jpg'),
                                 ],
                               ),
-                              kHeigt5,
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
