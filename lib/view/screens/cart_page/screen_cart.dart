@@ -31,11 +31,11 @@ class ScreenCart extends StatelessWidget {
           alignment: AlignmentDirectional.bottomCenter,
           children: [
             ListView(
-              children: [
+              children: const [
                 kHeigt10,
-                const CartContainer(),
-                const CartitemsList(),
-                const CartTotalAmount()
+                CartContainer(),
+                CartitemsList(),
+                CartTotalAmount()
               ],
             ),
             cartController.productElemnt!.isEmpty

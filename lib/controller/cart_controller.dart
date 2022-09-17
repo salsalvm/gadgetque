@@ -14,7 +14,7 @@ class CartController extends GetxController {
 
   List<ProductElement>? productElemnt;
   int total = 0;
-  int? cartCount;
+  int cartCount=0;
 
   //------------------get-------------------//
   getCartItems() async {
@@ -27,7 +27,7 @@ class CartController extends GetxController {
           productElemnt = datas.products!.obs;
 
           total = datas.total!;
-          cartCount = datas.cartCount;
+          cartCount = datas.cartCount!;
           update();
         }
       }

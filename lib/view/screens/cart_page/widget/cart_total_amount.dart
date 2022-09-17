@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
+import 'package:gadgetque/view/screens/authentication/splash.dart';
 import 'package:gadgetque/view/screens/widget/divider.dart';
 import 'package:gadgetque/view/screens/widget/two_text_elements_in_row.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -13,8 +14,9 @@ class CartTotalAmount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      // color: kBoxColor,
+    return Container(
+      height: size.width * 0.3,
+      color: kWhiteColor,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
         child: GetBuilder<CartController>(

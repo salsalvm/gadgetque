@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gadgetque/controller/home_controller.dart';
 import 'package:gadgetque/model/home_datas_model.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/radius.dart';
@@ -92,7 +91,7 @@ class MySearch extends SearchDelegate {
               crossAxisCount: 2,
               mainAxisSpacing: 5,
               crossAxisSpacing: 5,
-              childAspectRatio: 1 / 1.75,
+              childAspectRatio: 1 / 1.6,
             ),
             itemBuilder: (context, index) {
               return InkWell(
@@ -131,13 +130,6 @@ class MySearch extends SearchDelegate {
                                     color: kGreyColor),
                               ),
                             ),
-                            // FadeInImage.assetNetwork(
-                            //     fit: BoxFit.fill,
-                            //     width: size.width * .5,
-                            //     height: size.width * .45,
-                            //     placeholder: 'asset/noimage.jpeg',
-                            //     image:
-                            //         'http://34.238.154.28/product-image/${searched[index].id}/${searched[index].imageId}_1.jpg'),
                           ],
                         ),
                         kHeigt5,
@@ -146,7 +138,7 @@ class MySearch extends SearchDelegate {
                           children: [
                             SizedBox(
                               child: CustomText(
-                                  lines: 2,
+                                  lines: 1,
                                   name: searched[index].name,
                                   weight: FontWeight.w500,
                                   fontSize: 18,
@@ -173,11 +165,6 @@ class MySearch extends SearchDelegate {
                                     color: kBlack54Color),
                               ],
                             ),
-                            const CustomText(
-                                name: 'free delivery',
-                                weight: FontWeight.w500,
-                                fontSize: 18,
-                                color: kBlack54Color)
                           ],
                         ),
                       ],
@@ -217,7 +204,7 @@ class MySearch extends SearchDelegate {
                   crossAxisCount: 2,
                   mainAxisSpacing: 5,
                   crossAxisSpacing: 5,
-                  childAspectRatio: 1 / 1.75,
+                  childAspectRatio: 1 / 1.6,
                 ),
                 itemBuilder: (context, index) {
                   return InkWell(
@@ -258,13 +245,6 @@ class MySearch extends SearchDelegate {
                                         color: kGreyColor),
                                   ),
                                 ),
-                                // FadeInImage.assetNetwork(
-                                //     fit: BoxFit.fill,
-                                //     width: size.width * .5,
-                                //     height: size.width * .45,
-                                //     placeholder: 'asset/noimage.jpeg',
-                                //     image:
-                                //         'http://34.238.154.28/product-image/${searched[index].id}/${searched[index].imageId}_1.jpg'),
                               ],
                             ),
                             kHeigt5,
@@ -273,7 +253,7 @@ class MySearch extends SearchDelegate {
                               children: [
                                 SizedBox(
                                   child: CustomText(
-                                      lines: 2,
+                                      lines: 1,
                                       name: searched[index].name,
                                       weight: FontWeight.w500,
                                       fontSize: 18,
@@ -300,11 +280,6 @@ class MySearch extends SearchDelegate {
                                         color: kBlack54Color),
                                   ],
                                 ),
-                                const CustomText(
-                                    name: 'free delivery',
-                                    weight: FontWeight.w500,
-                                    fontSize: 18,
-                                    color: kBlack54Color)
                               ],
                             ),
                           ],

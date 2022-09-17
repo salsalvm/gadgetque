@@ -59,7 +59,7 @@ class BuyCategoryProduct extends StatelessWidget {
                         radius: 0,
                         text: 'View Cart',
                         onTap: () {
-                          Get.to(ScreenCart());
+                          Get.off(ScreenCart());
                           // Get.snackbar(
                           //     'Product Alreaady in Cart', 'Please check Cart',
                           //     colorText: kredColor,

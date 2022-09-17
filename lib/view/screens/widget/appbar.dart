@@ -60,7 +60,10 @@ class AppbarMain extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () {
-                    showSearch(context: context, delegate: MySearch(homeController.products!),);
+                    showSearch(
+                      context: context,
+                      delegate: MySearch(homeController.products!),
+                    );
                   },
                   icon: const Icon(
                     Icons.search_outlined,
@@ -108,6 +111,7 @@ class AppbarMain extends StatelessWidget {
       ),
     );
   }
-final homeController = Get.put(HomeController());
+
+  final homeController = Get.put(HomeController());
   final cartController = Get.put(CartController());
 }

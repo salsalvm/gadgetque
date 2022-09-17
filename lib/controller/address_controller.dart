@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 class AddressController extends GetxController {
   List<AddressElement>? addressList;
 
- //------------------get-------------------//
+  //------------------get-------------------//
   getAddress() async {
     try {
       final response =
@@ -30,7 +30,7 @@ class AddressController extends GetxController {
     }
   }
 
- //------------------add-------------------//
+  //------------------add-------------------//
   addAddress(String name, String address, String pin, String mobile,
       String type) async {
     Map<String, dynamic> addressDetails = {
@@ -58,7 +58,7 @@ class AddressController extends GetxController {
     }
   }
 
-   //------------------remove-------------------//
+  //------------------remove-------------------//
   removeAddress(String addId) async {
     final response =
         await AddressServiceEndPoint().removeAddress(userId.toString(), addId);
@@ -79,7 +79,7 @@ class AddressController extends GetxController {
     }
   }
 
- //------------------update-------------------//
+  //------------------update-------------------//
   updateAddress(String name, String address, String pin, String mobile,
       String type, String addId) async {
     Map<String, dynamic> updattedDetails = {

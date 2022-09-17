@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';
@@ -27,7 +28,6 @@ class _ScreenEntryState extends State<ScreenEntry> {
   @override
   void initState() {
     checkUserLogin();
-
     super.initState();
   }
 
@@ -35,6 +35,7 @@ class _ScreenEntryState extends State<ScreenEntry> {
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     checkUserLogin();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -44,13 +45,12 @@ class _ScreenEntryState extends State<ScreenEntry> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
-                children: [
-                  const EntryAppbar(
-                      iconColor: kGreyColor, textColor: kWhiteColor),
-                  const SizedBox(
+                children: const [
+                  EntryAppbar(iconColor: kGreyColor, textColor: kWhiteColor),
+                  SizedBox(
                     width: 300,
                   ),
-                  const Text(
+                  Text(
                     'Discover  Your \n  Unique Style',
                     style: TextStyle(
                         fontSize: 25,
@@ -58,7 +58,7 @@ class _ScreenEntryState extends State<ScreenEntry> {
                         color: kBlackColor),
                   ),
                   kHeigt100,
-                  const Text(
+                  Text(
                     'Explore all the Exiting stuffs...               \nBased on your style.',
                     style: TextStyle(
                         fontSize: 18,
