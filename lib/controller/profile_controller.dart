@@ -9,22 +9,22 @@ import 'package:get/get.dart';
 class ProfileController extends GetxController {
   String? userName;
   String? mail;
-   //------------------get-------------------//
+  //------------------get-------------------//
   getProfile() async {
     try {
       final response = await ProfileServicesEndPoint().getProfile();
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final datas = getProfileModelFromJson(response.data);
-
         userName = datas.user.name;
         mail = datas.user.emailaddress;
         update();
       }
     } catch (e) {
-      log('get controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<');
+      log('get controller>>>>>>>>>>>>>>>>>>$e<<<<<<<<<<<<<<<<<<this');
     }
   }
- //------------------update-------------------//
+
+  //------------------update-------------------//
   updateProfile(String name, String mail) async {
     Map<String, dynamic> updatedDetails = {
       "Name": name,

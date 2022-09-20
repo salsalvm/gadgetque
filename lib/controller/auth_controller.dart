@@ -133,6 +133,7 @@ class AuthenticationController extends GetxController {
         );
         final sharedPref = await SharedPreferences.getInstance();
         sharedPref.clear();
+        indexChanger.value = 0;
         Get.offAll(ScreenSignin());
       }
     } catch (e) {

@@ -24,13 +24,16 @@ class CartitemsList extends StatelessWidget {
           init: CartController(),
           builder: (controller) => controller.cartCount == 0
               ? const Center(
-                  child: CustomText(
-                      lines: 3,
-                      name:
-                          'no cart items please\nadd product and check\ndaily status for your offer',
-                      weight: FontWeight.normal,
-                      fontSize: 22,
-                      color: kGreyColor),
+                  child: SizedBox(
+                    width: 250,
+                    child: CustomText(
+                        lines: 3,
+                        name:
+                            'no cart items please add product and check daily status for your offer...',
+                        weight: FontWeight.normal,
+                        fontSize: 22,
+                        color: kGreyColor),
+                  ),
                 )
               : controller.productElemnt == null
                   ? const Center(
@@ -97,29 +100,7 @@ class CartitemsList extends StatelessWidget {
                                       color: kGreyColor),
                                 ),
                               ),
-                              //  CachedNetworkImage(
-                              //   imageUrl:
-                              //       'http://18.144.34.178/product-image/${controller.productElemnt![index].product.id}/${controller.productElemnt![index].product.imageId}_1.jpg',
-                              //   width: size.width * .18,
-                              //   height: size.width * .18,
-                              //   placeholder: (context, url) => const Center(
-                              //       child: CupertinoActivityIndicator()),
-                              //   errorWidget: (context, str, error) =>
-                              //       CachedNetworkImage(
-                              //     imageUrl:
-                              //         'http://34.238.154.28/product-image/${controller.productElemnt![index].product.id}/${controller.productElemnt![index].product.imageId}_1.jpg',
-                              //     width: size.width * .5,
-                              //     height: size.width * .5,
-                              //     placeholder: (context, url) => const Center(
-                              //         child: CupertinoActivityIndicator()),
-                              //     errorWidget: (context, str, error) =>
-                              //         const Icon(
-                              //       Icons.error,
-                              //       color: kGreyColor,
-                              //       size: 40,
-                              //     ),
-                              //   ),
-                              // ),
+
                               title: CustomText(
                                   name: controller
                                       .productElemnt![index].product.name!,

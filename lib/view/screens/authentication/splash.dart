@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:gadgetque/controller/cart_controller.dart';
 import 'package:gadgetque/view/constant/bottom_navigator/bottom_navigation.dart';
 import 'package:gadgetque/view/constant/color.dart';
 import 'package:gadgetque/view/constant/space.dart';

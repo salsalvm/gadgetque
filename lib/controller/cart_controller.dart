@@ -129,3 +129,4 @@ class CartController extends GetxController {
     super.onInit();
   }
 }
+

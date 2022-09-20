@@ -18,6 +18,7 @@ class GadgetsQue extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const ScreenEntry(),
       theme: ThemeData(
+        // fontFamily: GoogleFonts.montserrat().fontFamily,
         appBarTheme: const AppBarTheme(
           color: kWhiteColor,
         ),

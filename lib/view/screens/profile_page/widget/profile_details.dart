@@ -64,7 +64,8 @@ class ProfileDetails extends StatelessWidget {
                     kHeigt5,
                     TextElementsInRow(
                         firstText: 'NAME    :',
-                        secondText: controller.userName!.toUpperCase(),
+                        secondText:
+                            controller.userName ?? 'No Name'.toUpperCase(),
                         wieght: FontWeight.w600,
                         fontSize: 20,
                         fontColor: kBlackColor),

@@ -30,13 +30,16 @@ class ListAddress extends StatelessWidget {
               ))
             : controller.addressList!.isEmpty
                 ? const Center(
-                    child: CustomText(
-                        name:
-                            'Address is\nnot available now\nplease add a new address',
-                        weight: FontWeight.normal,
-                        fontSize: 18,
-                        lines: 3,
-                        color: kGreyColor),
+                    child: SizedBox(
+                      width: 190,
+                      child: CustomText(
+                          name:
+                              'Address is not available now please add a new address',
+                          weight: FontWeight.normal,
+                          fontSize: 18,
+                          lines: 3,
+                          color: kGreyColor),
+                    ),
                   )
                 : ListView.builder(
                     shrinkWrap: true,

@@ -25,13 +25,15 @@ class OrderList extends StatelessWidget {
                 ),
               )
             : controller.orderList!.isEmpty
-                ? const Center(
-                    child: CustomText(
-                        name:
-                            'No order\nYet find your\nstyle and shop something...',
-                        weight: FontWeight.normal,
-                        fontSize: 18,
-                        color: kGreyColor),
+                ? const Center(heightFactor: 8,
+                    child: SizedBox(width: 120,
+                      child: CustomText(
+                          name:
+                              'No order Yet find your style and shop something...',
+                          weight: FontWeight.normal,
+                          fontSize: 18,lines: 3,
+                          color: kGreyColor),
+                    ),
                   )
                 : SizedBox(
                     height: size.height * .73,

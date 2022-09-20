@@ -15,6 +15,7 @@ class HomeController extends GetxController {
   Future<List<HomeDatasModel>?> homeDatas() async {
     try {
       final response = await HomeServices().getHomeDatas();
+      
       if (response!.statusCode == 200 || response.statusCode == 201) {
         final datas = homeDatasModelFromJson(response.data);
 

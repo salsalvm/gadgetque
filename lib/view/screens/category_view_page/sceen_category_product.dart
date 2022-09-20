@@ -43,7 +43,7 @@ class BuyCategoryProduct extends StatelessWidget {
                   headding: 'You May Also Like',
                 ),
                 const DivLine(),
-                 SimilarItem(),
+                SimilarItem(),
                 kHeigt50,
               ],
             ),

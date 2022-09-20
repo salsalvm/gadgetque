@@ -52,4 +52,5 @@ class ScreenOrder extends StatelessWidget {
   }
 
   final authController = Get.put(AuthenticationController());
+
 }

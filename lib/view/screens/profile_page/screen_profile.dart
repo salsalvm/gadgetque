@@ -27,18 +27,18 @@ class ScreenProfile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: SafeArea(
               child: ListView(
-                children:  [
-                 const ProfileDetails(),
+                children: const [
+                  ProfileDetails(),
                   kHeigt10,
-                const  WalletBalance(),
+                  WalletBalance(),
                   kHeigt10,
-                const  CustomText(
+                  CustomText(
                       name: 'Coupon Offers',
                       weight: FontWeight.bold,
                       fontSize: 22,
                       color: kBlackColor),
                   kHeigt5,
-               const   AllCoupons(),
+                  AllCoupons(),
                 ],
               ),
             ),
