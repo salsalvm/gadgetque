@@ -100,8 +100,8 @@ class AddressController extends GetxController {
           getAddress();
           update();
           Get.snackbar(
-              'removed succesfully', 'address has been removed to list',
-              colorText: kredColor, snackPosition: SnackPosition.BOTTOM);
+              'updatted succesfully', 'address has been updatted success fully',
+              colorText: kGreenColor, snackPosition: SnackPosition.BOTTOM);
         }
       }
     } catch (e) {
