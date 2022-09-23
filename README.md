@@ -1,16 +1,17 @@
 # gadgetque
 
-A new Flutter project.
+Hi connections💛...
 
-## Getting Started
+I completed another project in Flutter. It’s an E-commerce Mobile application “ GadgetsQue ” you can purchase gadgets in my application. Datas are coming from backend node.Js. datas are stored in Mongo db database (no sql). Datas are Integrated with Rest Api’s using dio package. I have used two method for payment gateway. first one is COD and next one is Razor-pay, both payment methods is available with 100% security. State are managed with Get package inside Gets state management. So it’s very easy to manage any state and we can implement very easily.I have followed Agile model with Scrum methodology. I have followed with MVC folder architecture so any third person can easily understand our source code. A bottom navigation bar with 4 page is also available ( home , order , address, profile ).
 
-This project is a starting point for a Flutter application.
+applink:https://play.google.com/store/apps/details?id=in.brototype.gadgetsque
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Features :-
+ * Apply Offers in our product
+ * Search Product using Search Delegate Class
+ * Payment using Razor-pay and COD
+ * Add and remove product to Cart
+ * You can add quantity in our product to cart 
+ * Every CRUD operation in Address Page
+ * View all order and cancel order in order page
+ * Update name and email in profile page.
