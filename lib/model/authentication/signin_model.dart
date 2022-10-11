@@ -3,6 +3,7 @@
 //     final signinModel = signinModelFromJson(jsonString);
 
 import 'package:meta/meta.dart';
+
 import 'dart:convert';
 
 SigninModel signinModelFromJson(String str) =>
