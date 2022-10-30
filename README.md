@@ -1,4 +1,4 @@
-# gadgetque
+# gadgetsque
 
 Hi connections💛...
 
